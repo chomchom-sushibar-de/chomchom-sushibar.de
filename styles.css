@@ -11,6 +11,7 @@
   --accent-strong: #7c5a1f;
   --accent-fg: #fffaf1;
   --gold: #9c7228;
+  --accent-alt: #5c7d28;
   --shadow: 0 8px 30px -12px rgba(43, 45, 46, 0.25);
 
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Noto Serif", serif;
@@ -31,6 +32,7 @@
     --accent-strong: #dcb164;
     --accent-fg: #1a1512;
     --gold: #c99a4a;
+    --accent-alt: #a3c95a;
     --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -47,6 +49,7 @@
   --accent-strong: #dcb164;
   --accent-fg: #1a1512;
   --gold: #c99a4a;
+  --accent-alt: #a3c95a;
   --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -151,8 +154,8 @@ a {
 
 .main-nav a:hover,
 .main-nav a[aria-current="page"] {
-  color: var(--fg);
-  border-bottom-color: var(--accent);
+  color: var(--accent-alt);
+  border-bottom-color: var(--accent-alt);
 }
 
 .header-actions {
@@ -696,6 +699,13 @@ section + section {
   font-family: var(--serif);
   margin: 0 0 0.8rem;
   font-size: 1rem;
+}
+
+.footer-logo {
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
 }
 
 .footer-grid p,
