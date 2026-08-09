@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seite nicht gefunden – Chôm Chôm Sushibar</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18.5" stroke="var(--accent)" stroke-width="1.6"/>
+        <path d="M13 27 L27 13" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M15 13 L29 27" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="20.5" cy="19.5" r="2.3" fill="var(--accent)"/>
+      </svg>
+      <span class="brand-text">Chôm Chôm<small>Sushibar Sauerlach</small></span>
+    </a>
+    <div></div>
+  </div>
+</header>
+
+<main>
+  <div class="error-page container">
+    <div>
+      <span class="eyebrow">404</span>
+      <h1>Diese Seite gibt es nicht.</h1>
+      <p style="color:var(--fg-muted);margin-bottom:2rem;">Vielleicht suchst du die Speisekarte oder unsere Kontaktdaten.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="index.html">Zur Startseite</a>
+        <a class="btn btn-ghost" href="speisekarte.html">Zur Speisekarte</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Chôm Chôm Sushibar</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
+</body>
+</html>
