@@ -1,17 +1,17 @@
 /* Chôm Chôm Sushibar – Design-Tokens & Basisstile */
 
 :root {
-  --bg: #faf6f0;
+  --bg: #f6f4f1;
   --bg-elevated: #ffffff;
-  --bg-sunk: #f1e9de;
-  --fg: #241a13;
-  --fg-muted: #6b5d4f;
-  --border: #e4d8c8;
-  --accent: #b8382a;
-  --accent-strong: #94261b;
-  --accent-fg: #fff8f3;
-  --gold: #b3852c;
-  --shadow: 0 8px 30px -12px rgba(36, 26, 19, 0.25);
+  --bg-sunk: #ece6da;
+  --fg: #2b2d2e;
+  --fg-muted: #675f52;
+  --border: #ddd3c1;
+  --accent: #9c7228;
+  --accent-strong: #7c5a1f;
+  --accent-fg: #fffaf1;
+  --gold: #9c7228;
+  --shadow: 0 8px 30px -12px rgba(43, 45, 46, 0.25);
 
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Noto Serif", serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -21,32 +21,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #18120d;
-    --bg-elevated: #241a13;
-    --bg-sunk: #120d09;
-    --fg: #f3ebe1;
-    --fg-muted: #b7a692;
-    --border: #3a2c20;
-    --accent: #e2624a;
-    --accent-strong: #f07a5f;
-    --accent-fg: #1a0f0a;
-    --gold: #d9ab55;
+    --bg: #201d1a;
+    --bg-elevated: #2b2d2e;
+    --bg-sunk: #171513;
+    --fg: #f6f4f1;
+    --fg-muted: #b5aa99;
+    --border: #877f73;
+    --accent: #c99a4a;
+    --accent-strong: #dcb164;
+    --accent-fg: #1a1512;
+    --gold: #c99a4a;
     --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #18120d;
-  --bg-elevated: #241a13;
-  --bg-sunk: #120d09;
-  --fg: #f3ebe1;
-  --fg-muted: #b7a692;
-  --border: #3a2c20;
-  --accent: #e2624a;
-  --accent-strong: #f07a5f;
-  --accent-fg: #1a0f0a;
-  --gold: #d9ab55;
+  --bg: #201d1a;
+  --bg-elevated: #2b2d2e;
+  --bg-sunk: #171513;
+  --fg: #f6f4f1;
+  --fg-muted: #b5aa99;
+  --border: #877f73;
+  --accent: #c99a4a;
+  --accent-strong: #dcb164;
+  --accent-fg: #1a1512;
+  --gold: #c99a4a;
   --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -325,19 +325,34 @@ a {
   font-size: 0.82rem;
 }
 
-.hero-emblem {
+.hero-photo {
   aspect-ratio: 1;
   border-radius: 32px;
-  background: linear-gradient(155deg, color-mix(in srgb, var(--accent) 92%, black), var(--accent-strong));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
 
-.hero-emblem svg {
-  width: 62%;
-  height: 62%;
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ambiente-Galerie */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
 }
 
 /* Sections */
@@ -768,8 +783,8 @@ section + section {
     grid-template-columns: 1fr;
   }
 
-  .hero-emblem {
-    max-width: 220px;
+  .hero-photo {
+    max-width: 320px;
     margin: 0 auto;
   }
 
@@ -777,6 +792,10 @@ section + section {
   .grid-2,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .nav-toggle {
