@@ -12,6 +12,7 @@
   --accent-fg: #fffaf1;
   --gold: #9c7228;
   --accent-alt: #5c7d28;
+  --accent-alt-fg: #fffaf1;
   --shadow: 0 8px 30px -12px rgba(43, 45, 46, 0.25);
 
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Noto Serif", serif;
@@ -33,6 +34,7 @@
     --accent-fg: #1a1512;
     --gold: #c99a4a;
     --accent-alt: #a3c95a;
+    --accent-alt-fg: #1a1512;
     --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -50,6 +52,7 @@
   --accent-fg: #1a1512;
   --gold: #c99a4a;
   --accent-alt: #a3c95a;
+  --accent-alt-fg: #1a1512;
   --shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -356,6 +359,27 @@ a {
   object-fit: cover;
   border-radius: 14px;
   border: 1px solid var(--border);
+}
+
+/* Seiten-Banner (Impressum, Datenschutz, Außenbereich) */
+
+.page-band {
+  background: var(--accent-alt);
+  color: var(--accent-alt-fg);
+  padding: 3.2rem 0;
+  text-align: center;
+}
+
+.page-band h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin: 0;
+  color: var(--accent-alt-fg);
+}
+
+.page-band p {
+  margin: 0.6rem 0 0;
+  opacity: 0.85;
 }
 
 /* Sections */
