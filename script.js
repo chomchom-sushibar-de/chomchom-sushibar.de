@@ -45,4 +45,21 @@
       });
     });
   }
+
+  fetch("data/site.json")
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.announcement) {
+        var bar = document.getElementById("site-announcement");
+        if (bar) {
+          bar.textContent = data.announcement;
+          bar.hidden = false;
+        }
+      }
+      document.querySelectorAll("[data-hours]").forEach(function (el) {
+        var val = data.hours && data.hours[el.getAttribute("data-hours")];
+        if (val) el.textContent = val;
+      });
+    })
+    .catch(function () {});
 })();

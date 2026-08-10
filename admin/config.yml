@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: chomchom-sushibar-de/chomchom-sushibar.de
+  branch: main
+  base_url: https://chomchom-cms-auth.chomchom-cms-auth.workers.dev
+  auth_endpoint: auth
+
+media_folder: "img"
+public_folder: "img"
+
+collections:
+  - name: "site"
+    label: "Website-Einstellungen"
+    files:
+      - name: "settings"
+        label: "Hinweisbanner & Öffnungszeiten"
+        file: "data/site.json"
+        fields:
+          - label: "Hinweisbanner"
+            name: "announcement"
+            widget: "string"
+            required: false
+            hint: "Wird oben auf jeder Seite angezeigt (z. B. Feiertags-Hinweis). Leer lassen zum Ausblenden."
+          - label: "Öffnungszeiten (Fußzeile)"
+            name: "hours"
+            widget: "object"
+            fields:
+              - { label: "Zeile 1", name: "footer_line1", widget: "string" }
+              - { label: "Zeile 2", name: "footer_line2", widget: "string" }
+              - { label: "Zeile 3", name: "footer_line3", widget: "string" }
+              - { label: "Zeile 4", name: "footer_line4", widget: "string" }
