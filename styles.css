@@ -135,26 +135,31 @@ a {
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  height: 44px;
+  width: auto;
   object-fit: contain;
   flex: none;
 }
 
-.brand-text {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  line-height: 1.1;
+.brand-mark-dark {
+  display: none;
 }
 
-.brand-text small {
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand-mark-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .brand-mark-dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .brand-mark-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark-dark {
   display: block;
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-top: 0.15rem;
 }
 
 .main-nav {
