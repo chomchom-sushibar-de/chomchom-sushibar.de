@@ -137,6 +137,7 @@ a {
 .brand-mark {
   width: 34px;
   height: 34px;
+  object-fit: contain;
   flex: none;
 }
 
@@ -406,6 +407,42 @@ a {
   object-fit: cover;
   border-radius: 14px;
   border: 1px solid var(--border);
+}
+
+/* Speisekarte: dekorative Aquarell-Grafiken aus der Original-Karte */
+
+.menu-intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-intro .container {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-art {
+  position: absolute;
+  top: -1rem;
+  width: 150px;
+  height: auto;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu-art-left {
+  left: -3rem;
+}
+
+.menu-art-right {
+  right: -3rem;
+}
+
+@media (max-width: 1400px) {
+  .menu-art {
+    display: none;
+  }
 }
 
 /* Seiten-Banner (Impressum, Datenschutz, Außenbereich) */
@@ -1184,3 +1221,14 @@ body.modal-open {
     text-align: center;
   }
 }
+
+/* TEMPORÄR: PIN-Sperre, siehe gate.js zum Entfernen */
+
+html[data-locked] body > *:not(.pin-gate) { display: none; }
+.pin-gate { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: var(--bg); padding: 24px; }
+.pin-gate-card { display: flex; flex-direction: column; gap: 14px; max-width: 340px; width: 100%; padding: 32px; border: 1px solid var(--border); border-radius: 22px; background: var(--bg-elevated); box-shadow: var(--shadow); text-align: center; }
+.pin-gate-card h1 { font-family: var(--serif); font-size: 1.4rem; margin: 0; }
+.pin-gate-card p { margin: 0; color: var(--fg-muted); font-size: 0.9rem; }
+.pin-gate-input { padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); font-size: 1.2rem; text-align: center; letter-spacing: 0.3em; font: inherit; }
+.pin-gate-error { color: #c0392b; font-size: 0.82rem; }
+.pin-gate .btn { width: 100%; justify-content: center; }
