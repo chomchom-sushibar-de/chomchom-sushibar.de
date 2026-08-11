@@ -19,4 +19,4 @@ Farbpalette (Anthrazit `#2b2d2e`, warmes Off-White `#f6f4f1`, Holz-Gold-Akzent) 
 - [ ] Aktuelle Preise/Gerichte gegen die im Lokal ausliegende Karte gegenchecken, falls sich seit November 2025 etwas geändert hat.
 - [ ] Bei Bedarf eigene, aktuellere Fotos vom Lokal/Gerichten ergänzen.
 - [ ] DNS für `chomchom-sushibar.de` auf GitHub Pages zeigen lassen (Custom-Domain-Einstellung in den Repo-Settings) und CNAME-Datei anlegen, sobald der Betreiber zustimmt.
-- [ ] Temporäre PIN-Sperre (`gate.js`, PIN `8104`) entfernen, sobald die Seite öffentlich gehen darf: `gate.js` löschen, die `<script src="gate.js">`-Zeile aus allen HTML-Dateien und den PIN-Sperre-CSS-Block aus `styles.css` entfernen.
+- [ ] Temporäre PIN-Sperre (`gate.js`, PIN `82054`) entfernen, sobald die Seite öffentlich gehen darf: `gate.js` löschen, die `<script src="gate.js">`-Zeile aus allen HTML-Dateien und den PIN-Sperre-CSS-Block aus `styles.css` entfernen.

@@ -2,7 +2,7 @@
    Entfernen: <script src="gate.js"> aus allen HTML-Dateien löschen,
    den .pin-gate*-CSS-Block aus styles.css löschen, diese Datei löschen. */
 (function () {
-  var PIN = '8104';
+  var PIN = '82054';
   var KEY = 'site-unlocked';
 
   function isUnlocked() {
