@@ -274,7 +274,7 @@
         '<p class="order-thanks">Cảm ơn! Danke! <span aria-hidden="true">😊</span></p>' +
         '<div class="order-modal-actions">' +
         '<button type="button" class="btn btn-ghost" data-close>' + s.back + "</button>" +
-        '<a class="btn btn-primary" href="tel:' + PHONE + '">' + s.callNow + PHONE_DISPLAY + "</a>" +
+        '<a class="btn btn-primary" href="tel:' + PHONE + '">' + s.callNow + '<span style="white-space:nowrap">' + PHONE_DISPLAY + "</span></a>" +
         "</div>";
     }
   }
