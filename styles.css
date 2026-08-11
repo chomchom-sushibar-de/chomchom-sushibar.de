@@ -817,6 +817,14 @@ body.has-order-bar {
   margin-top: 0.2rem;
 }
 
+.order-thanks {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--fg);
+  margin: 0 0 1.2rem;
+}
+
 .order-modal-actions {
   display: flex;
   gap: 0.8rem;

@@ -259,6 +259,7 @@
         '<ul class="order-summary-list">' + rows + "</ul>" +
         '<p class="order-total">' + s.total + formatPrice(tot.total) +
         "<br><small>" + s.disclaimer + "</small></p>" +
+        '<p class="order-thanks">Cảm ơn! Danke! <span aria-hidden="true">😊</span></p>' +
         '<div class="order-modal-actions">' +
         '<button type="button" class="btn btn-ghost" data-close>' + s.back + "</button>" +
         '<a class="btn btn-primary" href="tel:' + PHONE + '">' + s.callNow + PHONE_DISPLAY + "</a>" +
