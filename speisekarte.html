@@ -57,6 +57,7 @@
         <span class="eyebrow">Speisekarte</span>
         <h2>Sushi &amp; vietnamesische Küche</h2>
         <p>Mittags und abends gelten unterschiedliche Preise (jeweils zweite Spalte = Abendpreis). Nur Barzahlung möglich, alle Gerichte auch zum Mitnehmen – Nr. 17 und 18 (Pho) ausgenommen.</p>
+        <p>Mit <strong>+</strong> und <strong>−</strong> Gerichte auswählen und am Ende telefonisch bestellen – die zu nennenden Nummern werden Ihnen angezeigt.</p>
       </div>
       <nav class="menu-toc" aria-label="Kategorien">
         <a href="#sushi-menues">Sushi-Menüs</a>
@@ -395,7 +396,23 @@
   </div>
 </footer>
 
+<div id="order-bar" class="order-bar" hidden>
+  <div class="container order-bar-inner">
+    <span id="order-bar-summary"></span>
+    <button type="button" id="order-bar-btn" class="btn btn-primary">Bestellen</button>
+  </div>
+</div>
+
+<div id="order-modal" class="order-modal" hidden>
+  <div class="order-modal-backdrop" data-close></div>
+  <div class="order-modal-panel" role="dialog" aria-modal="true" aria-label="Bestellung">
+    <button type="button" class="order-modal-close" data-close aria-label="Schließen">×</button>
+    <div id="order-modal-body"></div>
+  </div>
+</div>
+
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="script.js"></script>
+<script src="order.js"></script>
 </body>
 </html>
