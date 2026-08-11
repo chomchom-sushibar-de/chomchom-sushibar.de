@@ -468,6 +468,23 @@ section + section {
   font-size: 0.94rem;
 }
 
+.highlight-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.highlight-card .card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.highlight-card .card-body {
+  padding: 1.4rem 1.6rem 1.6rem;
+}
+
 /* Speisekarte */
 
 .menu-toc {
