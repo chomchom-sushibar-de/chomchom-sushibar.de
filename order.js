@@ -9,6 +9,10 @@
   var PHONE_DISPLAY = "08104 888 476";
   var STARTER_CATEGORIES = ["suppen", "vorspeisen", "salate"];
   var DESSERT_CATEGORIES = ["desserts"];
+  var SUGGESTIONS = {
+    starter: ["11", "2"],
+    dessert: ["80"]
+  };
 
   var STRINGS = {
     de: {
@@ -18,10 +22,7 @@
       dishes: "Gerichte",
       approx: "ca.",
       nudgeTitle: "Noch etwas dazu?",
-      nudgeQuestion: "Wie wäre es noch mit ",
-      starterLink: "Vorspeisen &amp; Suppen",
-      dessertLink: "Desserts &amp; Tee",
-      or: " oder ",
+      nudgeQuestion: "Wie wäre es noch mit einer Kleinigkeit dazu?",
       continueSelecting: "Weiter auswählen",
       noThanksContinue: "Nein danke, weiter",
       summaryTitle: "Diese Nummern durchgeben",
@@ -39,10 +40,7 @@
       dishes: "dishes",
       approx: "approx.",
       nudgeTitle: "Anything else?",
-      nudgeQuestion: "How about some ",
-      starterLink: "Starters &amp; Soups",
-      dessertLink: "Desserts &amp; Tea",
-      or: " or ",
+      nudgeQuestion: "How about adding a little something?",
       continueSelecting: "Keep browsing",
       noThanksContinue: "No thanks, continue",
       summaryTitle: "Read out these numbers",
@@ -99,7 +97,7 @@
 
   var renderers = [];
   var ariaRenderers = [];
-  var nameElByNum = {};
+  var itemsByNum = {};
 
   Array.prototype.forEach.call(document.querySelectorAll(".menu-item"), function (el) {
     var numEl = el.querySelector(".num");
@@ -111,7 +109,6 @@
     var price = parsePrice(priceEl);
     var categoryEl = el.closest(".menu-category");
     var categoryId = categoryEl ? categoryEl.id : "";
-    nameElByNum[num] = nameEl;
 
     var stepper = document.createElement("div");
     stepper.className = "qty-stepper";
@@ -150,17 +147,24 @@
     });
 
     plusBtn.addEventListener("click", function () {
-      if (!cart[num]) {
-        cart[num] = { num: num, name: parseName(nameEl), price: price, category: categoryId, qty: 0 };
-      }
-      cart[num].qty += 1;
-      saveCart();
-      render();
-      updateBar();
+      addToCart(num);
     });
 
+    itemsByNum[num] = { nameEl: nameEl, price: price, category: categoryId, render: render };
     renderers.push(render);
   });
+
+  function addToCart(num) {
+    var item = itemsByNum[num];
+    if (!item) return;
+    if (!cart[num]) {
+      cart[num] = { num: num, name: parseName(item.nameEl), price: item.price, category: item.category, qty: 0 };
+    }
+    cart[num].qty += 1;
+    saveCart();
+    item.render();
+    updateBar();
+  }
 
   loadCart();
   renderers.forEach(function (render) { render(); });
@@ -229,12 +233,20 @@
     currentStep = step;
 
     if (step === "nudge") {
-      var missing = [];
-      if (needsStarter) missing.push('<a href="#vorspeisen" data-close>' + s.starterLink + "</a>");
-      if (needsDessert) missing.push('<a href="#desserts" data-close>' + s.dessertLink + "</a>");
+      var suggestNums = [];
+      if (needsStarter) suggestNums = suggestNums.concat(SUGGESTIONS.starter);
+      if (needsDessert) suggestNums = suggestNums.concat(SUGGESTIONS.dessert);
+      var chips = suggestNums
+        .filter(function (num) { return itemsByNum[num]; })
+        .map(function (num) {
+          var name = parseName(itemsByNum[num].nameEl);
+          return '<button type="button" class="suggestion-chip" data-suggest-num="' + num + '">+ ' + name + "</button>";
+        })
+        .join("");
       modalBody.innerHTML =
         "<h3>" + s.nudgeTitle + "</h3>" +
-        "<p>" + s.nudgeQuestion + missing.join(s.or) + "?</p>" +
+        "<p>" + s.nudgeQuestion + "</p>" +
+        '<div class="suggestion-chips">' + chips + "</div>" +
         '<div class="order-modal-actions">' +
         '<button type="button" class="btn btn-ghost" data-close>' + s.continueSelecting + "</button>" +
         '<button type="button" class="btn btn-primary" id="order-modal-continue">' + s.noThanksContinue + "</button>" +
@@ -245,7 +257,7 @@
     } else {
       var rows = tot.entries
         .map(function (e) {
-          var liveName = nameElByNum[e.num] ? parseName(nameElByNum[e.num]) : e.name;
+          var liveName = itemsByNum[e.num] ? parseName(itemsByNum[e.num].nameEl) : e.name;
           return (
             '<li><span class="order-row-num">' + s.numLabel + " " + e.num + "</span>" +
             '<span class="order-row-name">' + liveName + "</span>" +
@@ -270,6 +282,12 @@
   barBtn.addEventListener("click", openModal);
 
   modal.addEventListener("click", function (e) {
+    var suggestBtn = e.target.closest("[data-suggest-num]");
+    if (suggestBtn) {
+      addToCart(suggestBtn.dataset.suggestNum);
+      renderModal();
+      return;
+    }
     if (e.target.closest("[data-close]")) closeModal();
   });
 
