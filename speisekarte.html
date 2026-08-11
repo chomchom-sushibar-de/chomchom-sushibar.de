@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Speisekarte – Chôm Chôm Sushibar Sauerlach</title>
-<meta name="description" content="Die vollständige Speisekarte der Chôm Chôm Sushibar Sauerlach: Sushi, Maki, Sashimi, Pho, Currys und Spezialitäten des Hauses, mit Mittags- und Abendpreisen.">
+<title data-en="Menu – Chôm Chôm Sushibar Sauerlach">Speisekarte – Chôm Chôm Sushibar Sauerlach</title>
+<meta name="description" content="Die vollständige Speisekarte der Chôm Chôm Sushibar Sauerlach: Sushi, Maki, Sashimi, Pho, Currys und Spezialitäten des Hauses, mit Mittags- und Abendpreisen." data-en-content="The full menu of Chôm Chôm Sushibar Sauerlach: sushi, maki, sashimi, pho, curries, and house specialties, with lunch and dinner prices.">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,25 +24,29 @@
       </svg>
       <span class="brand-text">Chôm Chôm<small>Sushibar Sauerlach</small></span>
     </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="speisekarte.html" aria-current="page">Speisekarte</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="aussenbereich.html">Außenbereich</a>
-      <a href="impressum.html">Impressum</a>
+      <a href="index.html" data-en="Home">Home</a>
+      <a href="speisekarte.html" aria-current="page" data-en="Menu">Speisekarte</a>
+      <a href="kontakt.html" data-en="Contact">Kontakt</a>
+      <a href="aussenbereich.html" data-en="Outdoor Area">Außenbereich</a>
+      <a href="impressum.html" data-en="Legal Notice">Impressum</a>
     </nav>
     <div class="header-actions">
-      <div class="theme-toggle" role="group" aria-label="Farbschema">
-        <button type="button" data-theme="light" aria-pressed="false" title="Hell">
+      <div class="lang-toggle" role="group" aria-label="Sprache" data-en-aria-label="Language">
+        <button type="button" data-lang="de" aria-pressed="false" title="Deutsch" data-en-title="German">DE</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="Englisch" data-en-title="English">EN</button>
+      </div>
+      <div class="theme-toggle" role="group" aria-label="Farbschema" data-en-aria-label="Color scheme">
+        <button type="button" data-theme="light" aria-pressed="false" title="Hell" data-en-title="Light">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-        <button type="button" data-theme="system" aria-pressed="true" title="System">
+        <button type="button" data-theme="system" aria-pressed="true" title="System" data-en-title="System">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </button>
-        <button type="button" data-theme="dark" aria-pressed="false" title="Dunkel">
+        <button type="button" data-theme="dark" aria-pressed="false" title="Dunkel" data-en-title="Dark">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
         </button>
       </div>
@@ -54,32 +58,32 @@
   <section style="padding-bottom:0">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Speisekarte</span>
-        <h2>Sushi &amp; vietnamesische Küche</h2>
-        <p>Mittags und abends gelten unterschiedliche Preise (jeweils zweite Spalte = Abendpreis). Nur Barzahlung möglich, alle Gerichte auch zum Mitnehmen – Nr. 17 und 18 (Pho) ausgenommen.</p>
-        <p>Mit <strong>+</strong> und <strong>−</strong> Gerichte auswählen und am Ende telefonisch bestellen – die zu nennenden Nummern werden Ihnen angezeigt.</p>
+        <span class="eyebrow" data-en="Menu">Speisekarte</span>
+        <h2 data-en-html="Sushi &amp; Vietnamese Cuisine">Sushi &amp; vietnamesische Küche</h2>
+        <p data-en="Lunch and dinner prices differ (the second column is always the evening price). Cash only, all dishes available to take away – except No. 17 and 18 (Pho).">Mittags und abends gelten unterschiedliche Preise (jeweils zweite Spalte = Abendpreis). Nur Barzahlung möglich, alle Gerichte auch zum Mitnehmen – Nr. 17 und 18 (Pho) ausgenommen.</p>
+        <p data-en-html="Use <strong>+</strong> and <strong>−</strong> to select dishes, then order by phone at the end – we&#39;ll show you the numbers to read out.">Mit <strong>+</strong> und <strong>−</strong> Gerichte auswählen und am Ende telefonisch bestellen – die zu nennenden Nummern werden Ihnen angezeigt.</p>
       </div>
       <nav class="menu-toc" aria-label="Kategorien">
-        <a href="#sushi-menues">Sushi-Menüs</a>
-        <a href="#nigiri">Nigiri</a>
-        <a href="#nori-maki">Nori Maki</a>
-        <a href="#inside-out">Inside-Out Maki</a>
-        <a href="#big-maki">Big Maki</a>
-        <a href="#temaki">Temaki</a>
-        <a href="#sashimi">Sashimi</a>
-        <a href="#poke">Poké Bowls</a>
-        <a href="#suppen">Suppen</a>
-        <a href="#vorspeisen">Vorspeisen</a>
-        <a href="#salate">Salate</a>
-        <a href="#pho">Pho</a>
-        <a href="#huhn">Hühnerfleisch</a>
-        <a href="#rind">Rindfleisch</a>
-        <a href="#ente">Knusprige Ente</a>
-        <a href="#haehnchen">Knuspriges Hähnchen</a>
-        <a href="#vegetarisch">Vegetarisch</a>
-        <a href="#nudeln-reis">Nudeln &amp; Reis</a>
-        <a href="#spezialitaeten">Spezialitäten des Hauses</a>
-        <a href="#desserts">Desserts &amp; Tee</a>
+        <a href="#sushi-menues" data-en-html="Sushi Sets">Sushi-Menüs</a>
+        <a href="#nigiri" data-en-html="Nigiri">Nigiri</a>
+        <a href="#nori-maki" data-en-html="Nori Maki">Nori Maki</a>
+        <a href="#inside-out" data-en-html="Inside-Out Maki">Inside-Out Maki</a>
+        <a href="#big-maki" data-en-html="Big Maki">Big Maki</a>
+        <a href="#temaki" data-en-html="Temaki">Temaki</a>
+        <a href="#sashimi" data-en-html="Sashimi">Sashimi</a>
+        <a href="#poke" data-en-html="Poké Bowls">Poké Bowls</a>
+        <a href="#suppen" data-en-html="Soups">Suppen</a>
+        <a href="#vorspeisen" data-en-html="Starters">Vorspeisen</a>
+        <a href="#salate" data-en-html="Salads">Salate</a>
+        <a href="#pho" data-en-html="Pho">Pho</a>
+        <a href="#huhn" data-en-html="Chicken">Hühnerfleisch</a>
+        <a href="#rind" data-en-html="Beef">Rindfleisch</a>
+        <a href="#ente" data-en-html="Crispy Duck">Knusprige Ente</a>
+        <a href="#haehnchen" data-en-html="Crispy Chicken">Knuspriges Hähnchen</a>
+        <a href="#vegetarisch" data-en-html="Vegetarian">Vegetarisch</a>
+        <a href="#nudeln-reis" data-en-html="Noodles &amp; Rice">Nudeln &amp; Reis</a>
+        <a href="#spezialitaeten" data-en-html="House Specialties">Spezialitäten des Hauses</a>
+        <a href="#desserts" data-en-html="Desserts &amp; Tea">Desserts &amp; Tee</a>
       </nav>
     </div>
   </section>
@@ -88,215 +92,215 @@
     <div class="container">
 
       <div class="menu-category" id="sushi-menues">
-        <h2>Sushi-Menüs</h2>
-        <p class="category-note">Zusammengestellte Menüs für 1–3 Personen.</p>
+        <h2 data-en="Sushi Sets">Sushi-Menüs</h2>
+        <p class="category-note" data-en="Set menus for 1–3 people.">Zusammengestellte Menüs für 1–3 Personen.</p>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">200</span><div class="info"><span class="name">Sapporo (nur Lachs)</span><div class="desc">3 Lachs Nigiri, 3 Lachs Maki</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">202</span><div class="info"><span class="name">Nara</span><div class="desc">5 Nigiri: 2 Lachs, 2 Thunfisch, Ebi · 3 Lachs Maki, 3 Thunfisch Maki</div></div><span class="price">13,00 €<span class="abend">14,00 €</span></span></div>
-          <div class="menu-item"><span class="num">203</span><div class="info"><span class="name">Kyoto</span><div class="desc">6 Nigiri: 3 Lachs, Thunfisch, Ebi, Oktopus · 3 Lachs Maki, 3 Thunfisch Maki · 3 California Maki, 3 Alaska Maki</div></div><span class="price">16,00 €<span class="abend">17,00 €</span></span></div>
-          <div class="menu-item"><span class="num">204</span><div class="info"><span class="name">Tokyo</span><div class="desc">6 Nigiri: 2 Lachs, Thunfisch, Ebi, Tobiko, Tintenfisch · 6 Lachs Maki, 6 Boston Maki</div></div><span class="price">18,50 €<span class="abend">19,50 €</span></span></div>
-          <div class="menu-item"><span class="num">205</span><div class="info"><span class="name">Kyoto (Menü 2)</span><div class="desc">4 Nigiri: 2 Lachs, 2 Thunfisch · 6 Sake-Philadelphia Maki · 4 Futo Maki</div></div><span class="price">18,50 €<span class="abend">19,50 €</span></span></div>
-          <div class="menu-item"><span class="num">206</span><div class="info"><span class="name">Nagano</span><div class="desc">3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 3 Avocado Maki · 3 California Maki, 3 Alaska Maki</div></div><span class="price">12,00 €<span class="abend">13,00 €</span></span></div>
-          <div class="menu-item"><span class="num">207</span><div class="info"><span class="name">Mashiko</span><div class="desc">3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 6 Avocado Maki · 3 Rettich Maki, 3 Kürbis Maki, 3 Surimi Maki</div></div><span class="price">12,00 €<span class="abend">13,00 €</span></span></div>
-          <div class="menu-item"><span class="num">208</span><div class="info"><span class="name">Nagasaki</span><div class="desc">6 Sake-Philadelphia Maki · 6 Boston Maki · 6 California Maki</div></div><span class="price">15,00 €<span class="abend">16,00 €</span></span></div>
-          <div class="menu-item"><span class="num">209</span><div class="info"><span class="name">Sake Set</span><div class="desc">2 Lachs Nigiri, 1 Alaska Temaki · 6 Lachs Maki · 6 Alaska Maki</div></div><span class="price">15,00 €<span class="abend">16,00 €</span></span></div>
-          <div class="menu-item"><span class="num">211</span><div class="info"><span class="name">Mix Maki Set <em>(für 2 Personen)</em></span><div class="desc">6 Lachs Maki, 6 Thunfisch Maki · 6 Avocado Maki, 6 Boston Maki · 6 Ocean Maki, 6 Regenbogen Maki · 1 kleine Sashimi Moriawase</div></div><span class="price">45,00 €<span class="abend">46,00 €</span></span></div>
-          <div class="menu-item"><span class="num">212</span><div class="info"><span class="name">Mito <em>(für 2 Personen)</em></span><div class="desc">16 Nigiri: 4 Lachs, 2 Thunfisch, 2 Ebi, 2 Oktopus, 2 Tintenfisch, 2 Tobiko, 2 Hornmuscheln · 4 Futo Maki · 6 Sakekawa Maki, 6 Avocado Maki</div></div><span class="price">50,00 €<span class="abend">51,00 €</span></span></div>
-          <div class="menu-item"><span class="num">214</span><div class="info"><span class="name">Sumo <em>(für 3 Personen)</em></span><div class="desc">21 Nigiri: 6 Lachs, 3 Thunfisch, 3 Ebi, 3 Aal, 3 Tobiko, 3 Hornmuscheln · 6 Boston Maki, 6 Alaska Maki · 6 Ebi-Tempura Maki</div></div><span class="price">63,00 €<span class="abend">64,00 €</span></span></div>
+          <div class="menu-item"><span class="num">200</span><div class="info"><span class="name" data-en="Sapporo (salmon only)">Sapporo (nur Lachs)</span><div class="desc" data-en="3 salmon nigiri, 3 salmon maki">3 Lachs Nigiri, 3 Lachs Maki</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">202</span><div class="info"><span class="name">Nara</span><div class="desc" data-en="5 nigiri: 2 salmon, 2 tuna, shrimp · 3 salmon maki, 3 tuna maki">5 Nigiri: 2 Lachs, 2 Thunfisch, Ebi · 3 Lachs Maki, 3 Thunfisch Maki</div></div><span class="price">13,00 €<span class="abend">14,00 €</span></span></div>
+          <div class="menu-item"><span class="num">203</span><div class="info"><span class="name">Kyoto</span><div class="desc" data-en="6 nigiri: 3 salmon, tuna, shrimp, octopus · 3 salmon maki, 3 tuna maki · 3 California maki, 3 Alaska maki">6 Nigiri: 3 Lachs, Thunfisch, Ebi, Oktopus · 3 Lachs Maki, 3 Thunfisch Maki · 3 California Maki, 3 Alaska Maki</div></div><span class="price">16,00 €<span class="abend">17,00 €</span></span></div>
+          <div class="menu-item"><span class="num">204</span><div class="info"><span class="name">Tokyo</span><div class="desc" data-en="6 nigiri: 2 salmon, tuna, shrimp, tobiko, squid · 6 salmon maki, 6 Boston maki">6 Nigiri: 2 Lachs, Thunfisch, Ebi, Tobiko, Tintenfisch · 6 Lachs Maki, 6 Boston Maki</div></div><span class="price">18,50 €<span class="abend">19,50 €</span></span></div>
+          <div class="menu-item"><span class="num">205</span><div class="info"><span class="name" data-en="Kyoto (Menu 2)">Kyoto (Menü 2)</span><div class="desc" data-en="4 nigiri: 2 salmon, 2 tuna · 6 salmon-Philadelphia maki · 4 futo maki">4 Nigiri: 2 Lachs, 2 Thunfisch · 6 Sake-Philadelphia Maki · 4 Futo Maki</div></div><span class="price">18,50 €<span class="abend">19,50 €</span></span></div>
+          <div class="menu-item"><span class="num">206</span><div class="info"><span class="name">Nagano</span><div class="desc" data-en="3 salmon maki, 3 tuna maki · 3 cucumber maki, 3 avocado maki · 3 California maki, 3 Alaska maki">3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 3 Avocado Maki · 3 California Maki, 3 Alaska Maki</div></div><span class="price">12,00 €<span class="abend">13,00 €</span></span></div>
+          <div class="menu-item"><span class="num">207</span><div class="info"><span class="name">Mashiko</span><div class="desc" data-en="3 salmon maki, 3 tuna maki · 3 cucumber maki, 6 avocado maki · 3 radish maki, 3 pumpkin maki, 3 surimi maki">3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 6 Avocado Maki · 3 Rettich Maki, 3 Kürbis Maki, 3 Surimi Maki</div></div><span class="price">12,00 €<span class="abend">13,00 €</span></span></div>
+          <div class="menu-item"><span class="num">208</span><div class="info"><span class="name">Nagasaki</span><div class="desc" data-en="6 salmon-Philadelphia maki · 6 Boston maki · 6 California maki">6 Sake-Philadelphia Maki · 6 Boston Maki · 6 California Maki</div></div><span class="price">15,00 €<span class="abend">16,00 €</span></span></div>
+          <div class="menu-item"><span class="num">209</span><div class="info"><span class="name">Sake Set</span><div class="desc" data-en="2 salmon nigiri, 1 Alaska temaki · 6 salmon maki · 6 Alaska maki">2 Lachs Nigiri, 1 Alaska Temaki · 6 Lachs Maki · 6 Alaska Maki</div></div><span class="price">15,00 €<span class="abend">16,00 €</span></span></div>
+          <div class="menu-item"><span class="num">211</span><div class="info"><span class="name" data-en-html="Mix Maki Set <em>(for 2 people)</em>">Mix Maki Set <em>(für 2 Personen)</em></span><div class="desc" data-en="6 salmon maki, 6 tuna maki · 6 avocado maki, 6 Boston maki · 6 ocean maki, 6 rainbow maki · 1 small sashimi moriawase">6 Lachs Maki, 6 Thunfisch Maki · 6 Avocado Maki, 6 Boston Maki · 6 Ocean Maki, 6 Regenbogen Maki · 1 kleine Sashimi Moriawase</div></div><span class="price">45,00 €<span class="abend">46,00 €</span></span></div>
+          <div class="menu-item"><span class="num">212</span><div class="info"><span class="name" data-en-html="Mito <em>(for 2 people)</em>">Mito <em>(für 2 Personen)</em></span><div class="desc" data-en="16 nigiri: 4 salmon, 2 tuna, 2 shrimp, 2 octopus, 2 squid, 2 tobiko, 2 surf clam · 4 futo maki · 6 sakekawa maki, 6 avocado maki">16 Nigiri: 4 Lachs, 2 Thunfisch, 2 Ebi, 2 Oktopus, 2 Tintenfisch, 2 Tobiko, 2 Hornmuscheln · 4 Futo Maki · 6 Sakekawa Maki, 6 Avocado Maki</div></div><span class="price">50,00 €<span class="abend">51,00 €</span></span></div>
+          <div class="menu-item"><span class="num">214</span><div class="info"><span class="name" data-en-html="Sumo <em>(for 3 people)</em>">Sumo <em>(für 3 Personen)</em></span><div class="desc" data-en="21 nigiri: 6 salmon, 3 tuna, 3 shrimp, 3 eel, 3 tobiko, 3 surf clam · 6 Boston maki, 6 Alaska maki · 6 shrimp tempura maki">21 Nigiri: 6 Lachs, 3 Thunfisch, 3 Ebi, 3 Aal, 3 Tobiko, 3 Hornmuscheln · 6 Boston Maki, 6 Alaska Maki · 6 Ebi-Tempura Maki</div></div><span class="price">63,00 €<span class="abend">64,00 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="nigiri">
-        <h2>Nigiri Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 Stück)</small></h2>
+        <h2 data-en-html='Nigiri Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 piece)</small>'>Nigiri Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">101</span><div class="info"><span class="name">Inari</span><div class="desc">Tofutasche</div></div><span class="price">2,50 €</span></div>
-          <div class="menu-item"><span class="num">102</span><div class="info"><span class="name">Tamago</span><div class="desc">Eierstich</div></div><span class="price">2,50 €</span></div>
-          <div class="menu-item"><span class="num">103</span><div class="info"><span class="name">Tako</span><div class="desc">Oktopus</div></div><span class="price">3,00 €</span></div>
-          <div class="menu-item"><span class="num">104</span><div class="info"><span class="name">Sake</span><div class="desc">Lachs</div></div><span class="price">3,00 €</span></div>
-          <div class="menu-item"><span class="num">105</span><div class="info"><span class="name">Maguro</span><div class="desc">Thunfisch</div></div><span class="price">3,50 €</span></div>
-          <div class="menu-item"><span class="num">106</span><div class="info"><span class="name">Ebi</span><div class="desc">Garnele</div></div><span class="price">3,00 €</span></div>
-          <div class="menu-item"><span class="num">107</span><div class="info"><span class="name">Unagi</span><div class="desc">Aal</div></div><span class="price">3,50 €</span></div>
+          <div class="menu-item"><span class="num">101</span><div class="info"><span class="name">Inari</span><div class="desc" data-en="Tofu pouch">Tofutasche</div></div><span class="price">2,50 €</span></div>
+          <div class="menu-item"><span class="num">102</span><div class="info"><span class="name">Tamago</span><div class="desc" data-en="Omelette">Eierstich</div></div><span class="price">2,50 €</span></div>
+          <div class="menu-item"><span class="num">103</span><div class="info"><span class="name">Tako</span><div class="desc" data-en="Octopus">Oktopus</div></div><span class="price">3,00 €</span></div>
+          <div class="menu-item"><span class="num">104</span><div class="info"><span class="name">Sake</span><div class="desc" data-en="Salmon">Lachs</div></div><span class="price">3,00 €</span></div>
+          <div class="menu-item"><span class="num">105</span><div class="info"><span class="name">Maguro</span><div class="desc" data-en="Tuna">Thunfisch</div></div><span class="price">3,50 €</span></div>
+          <div class="menu-item"><span class="num">106</span><div class="info"><span class="name">Ebi</span><div class="desc" data-en="Shrimp">Garnele</div></div><span class="price">3,00 €</span></div>
+          <div class="menu-item"><span class="num">107</span><div class="info"><span class="name">Unagi</span><div class="desc" data-en="Eel">Aal</div></div><span class="price">3,50 €</span></div>
           <div class="menu-item"><span class="num">108</span><div class="info"><span class="name">Avocado <span class="tag">veg</span></span></div><span class="price">2,50 €</span></div>
         </div>
       </div>
 
       <div class="menu-category" id="nori-maki">
-        <h2>Nori Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 Stück)</small></h2>
+        <h2 data-en-html='Nori Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 pieces)</small>'>Nori Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">111</span><div class="info"><span class="name">Tamago Maki</span><div class="desc">Eierstich</div></div><span class="price">3,50 €</span></div>
-          <div class="menu-item"><span class="num">112</span><div class="info"><span class="name">Unagi Maki</span><div class="desc">Aal</div></div><span class="price">4,50 €<span class="abend">Abend 4,90 €</span></span></div>
-          <div class="menu-item"><span class="num">113</span><div class="info"><span class="name">Kappa Maki <span class="tag">veg</span></span><div class="desc">Gurken</div></div><span class="price">3,50 €</span></div>
+          <div class="menu-item"><span class="num">111</span><div class="info"><span class="name">Tamago Maki</span><div class="desc" data-en="Omelette">Eierstich</div></div><span class="price">3,50 €</span></div>
+          <div class="menu-item"><span class="num">112</span><div class="info"><span class="name">Unagi Maki</span><div class="desc" data-en="Eel">Aal</div></div><span class="price">4,50 €<span class="abend" data-en="Evening 4.90 €">Abend 4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">113</span><div class="info"><span class="name">Kappa Maki <span class="tag">veg</span></span><div class="desc" data-en="Cucumber">Gurken</div></div><span class="price">3,50 €</span></div>
           <div class="menu-item"><span class="num">114</span><div class="info"><span class="name">Avocado Maki <span class="tag">veg</span></span></div><span class="price">3,90 €</span></div>
-          <div class="menu-item"><span class="num">115</span><div class="info"><span class="name">Shinko Maki <span class="tag">veg</span></span><div class="desc">Rettich</div></div><span class="price">3,90 €</span></div>
+          <div class="menu-item"><span class="num">115</span><div class="info"><span class="name">Shinko Maki <span class="tag">veg</span></span><div class="desc" data-en="Radish">Rettich</div></div><span class="price">3,90 €</span></div>
           <div class="menu-item"><span class="num">116</span><div class="info"><span class="name">Surimi Maki</span></div><span class="price">3,90 €</span></div>
-          <div class="menu-item"><span class="num">117</span><div class="info"><span class="name">Kampyo Maki <span class="tag">veg</span></span><div class="desc">Kürbis</div></div><span class="price">3,90 €</span></div>
-          <div class="menu-item"><span class="num">118</span><div class="info"><span class="name">Tuna Chili Maki <span class="tag scharf">scharf</span></span><div class="desc">Thunfisch und Chili</div></div><span class="price">4,90 €</span></div>
-          <div class="menu-item"><span class="num">119</span><div class="info"><span class="name">Sake Maki</span><div class="desc">Lachs</div></div><span class="price">4,50 €</span></div>
-          <div class="menu-item"><span class="num">120</span><div class="info"><span class="name">Tekka Maki</span><div class="desc">Thunfisch</div></div><span class="price">4,90 €</span></div>
-          <div class="menu-item"><span class="num">121</span><div class="info"><span class="name">Ebi Maki</span><div class="desc">Garnele</div></div><span class="price">4,50 €<span class="abend">Abend 4,90 €</span></span></div>
-          <div class="menu-item"><span class="num">122</span><div class="info"><span class="name">Inari Maki <span class="tag">veg</span></span><div class="desc">Tofu</div></div><span class="price">3,90 €</span></div>
+          <div class="menu-item"><span class="num">117</span><div class="info"><span class="name">Kampyo Maki <span class="tag">veg</span></span><div class="desc" data-en="Pumpkin">Kürbis</div></div><span class="price">3,90 €</span></div>
+          <div class="menu-item"><span class="num">118</span><div class="info"><span class="name">Tuna Chili Maki <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Tuna and chili">Thunfisch und Chili</div></div><span class="price">4,90 €</span></div>
+          <div class="menu-item"><span class="num">119</span><div class="info"><span class="name">Sake Maki</span><div class="desc" data-en="Salmon">Lachs</div></div><span class="price">4,50 €</span></div>
+          <div class="menu-item"><span class="num">120</span><div class="info"><span class="name">Tekka Maki</span><div class="desc" data-en="Tuna">Thunfisch</div></div><span class="price">4,90 €</span></div>
+          <div class="menu-item"><span class="num">121</span><div class="info"><span class="name">Ebi Maki</span><div class="desc" data-en="Shrimp">Garnele</div></div><span class="price">4,50 €<span class="abend" data-en="Evening 4.90 €">Abend 4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">122</span><div class="info"><span class="name">Inari Maki <span class="tag">veg</span></span><div class="desc" data-en="Tofu">Tofu</div></div><span class="price">3,90 €</span></div>
           <div class="menu-item"><span class="num">123</span><div class="info"><span class="name">Paprika Maki <span class="tag">veg</span></span></div><span class="price">3,90 €</span></div>
         </div>
       </div>
 
       <div class="menu-category" id="inside-out">
-        <h2>Inside Out Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 Stück)</small></h2>
+        <h2 data-en-html='Inside Out Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 pieces)</small>'>Inside Out Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(6 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">130</span><div class="info"><span class="name">California Maki</span><div class="desc">Surimi, Avocado, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">131</span><div class="info"><span class="name">Alaska Maki</span><div class="desc">Lachs, Avocado, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">132</span><div class="info"><span class="name">Boston Maki</span><div class="desc">Thunfisch, Tobiko, Avocado, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">133</span><div class="info"><span class="name">Kappa-Phila Maki <span class="tag">veg</span></span><div class="desc">Gurken, Frischkäse, Sesam</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
-          <div class="menu-item"><span class="num">134</span><div class="info"><span class="name">Ocean Maki</span><div class="desc">Garnelen, Avocado, Mayo, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">135</span><div class="info"><span class="name">Salmon-Kappa Maki</span><div class="desc">Lachs, Gurken, Frischkäse, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">136</span><div class="info"><span class="name">Tori-Karaage Maki</span><div class="desc">Hähnchen, Gurken, Mayo, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">137</span><div class="info"><span class="name">Duck Maki</span><div class="desc">Ente, Gurken, Teriyaki-Sauce, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">138</span><div class="info"><span class="name">Regenbogen Maki</span><div class="desc">Avocado, Gurken, ummantelt mit Lachs-Thunfisch</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">139</span><div class="info"><span class="name">Avocado-Phila Maki <span class="tag">veg</span></span><div class="desc">Avocado, Frischkäse, Sesam</div></div><span class="price">5,90 €<span class="abend">6,90 €</span></span></div>
-          <div class="menu-item"><span class="num">140</span><div class="info"><span class="name">Salmon-Phila Maki</span><div class="desc">Lachs, Avocado, Frischkäse, Sesam</div></div><span class="price">6,90 €<span class="abend">7,90 €</span></span></div>
-          <div class="menu-item"><span class="num">141</span><div class="info"><span class="name">Tekka-Phila Maki</span><div class="desc">Thunfisch, Avocado, Frischkäse, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">142</span><div class="info"><span class="name">Spicy-California Maki <span class="tag scharf">scharf</span></span><div class="desc">Surimi, Avocado, Mayo, Chilisauce, Tobiko</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">143</span><div class="info"><span class="name">Sakesawa Maki <span class="tag scharf">scharf</span></span><div class="desc">Grilllachs, Gurken, Mayo, Chilisauce, Sesam</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">145</span><div class="info"><span class="name">Beef Maki</span><div class="desc">Rindfleisch, Avocado, Frühlingszwiebeln, Teriyaki-Sauce, Sesam</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">146</span><div class="info"><span class="name">Ebi-Tempura Maki</span><div class="desc">Garnelen-Tempura, Avocado, Mayo, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">147</span><div class="info"><span class="name">Unagi Maki</span><div class="desc">Gegrillter Aal, Gurken, Frühlingszwiebeln, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">148</span><div class="info"><span class="name">Ente Maki</span><div class="desc">Ente, Paprika, Frischkäse, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">149</span><div class="info"><span class="name">Hähnchen Maki</span><div class="desc">Hähnchen, Paprika, Frischkäse, Mayo, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">150</span><div class="info"><span class="name">Paprika-Phila Maki <span class="tag">veg</span></span><div class="desc">Paprika, Frischkäse, Sesam</div></div><span class="price">5,90 €<span class="abend">6,90 €</span></span></div>
+          <div class="menu-item"><span class="num">130</span><div class="info"><span class="name">California Maki</span><div class="desc" data-en="Surimi, avocado, sesame">Surimi, Avocado, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">131</span><div class="info"><span class="name">Alaska Maki</span><div class="desc" data-en="Salmon, avocado, sesame">Lachs, Avocado, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">132</span><div class="info"><span class="name">Boston Maki</span><div class="desc" data-en="Tuna, tobiko, avocado, sesame">Thunfisch, Tobiko, Avocado, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">133</span><div class="info"><span class="name">Kappa-Phila Maki <span class="tag">veg</span></span><div class="desc" data-en="Cucumber, cream cheese, sesame">Gurken, Frischkäse, Sesam</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
+          <div class="menu-item"><span class="num">134</span><div class="info"><span class="name">Ocean Maki</span><div class="desc" data-en="Shrimp, avocado, mayo, sesame">Garnelen, Avocado, Mayo, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">135</span><div class="info"><span class="name">Salmon-Kappa Maki</span><div class="desc" data-en="Salmon, cucumber, cream cheese, sesame">Lachs, Gurken, Frischkäse, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">136</span><div class="info"><span class="name">Tori-Karaage Maki</span><div class="desc" data-en="Chicken, cucumber, mayo, sesame">Hähnchen, Gurken, Mayo, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">137</span><div class="info"><span class="name">Duck Maki</span><div class="desc" data-en="Duck, cucumber, teriyaki sauce, sesame">Ente, Gurken, Teriyaki-Sauce, Sesam</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">138</span><div class="info"><span class="name">Regenbogen Maki</span><div class="desc" data-en="Avocado, cucumber, wrapped in salmon and tuna">Avocado, Gurken, ummantelt mit Lachs-Thunfisch</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">139</span><div class="info"><span class="name">Avocado-Phila Maki <span class="tag">veg</span></span><div class="desc" data-en="Avocado, cream cheese, sesame">Avocado, Frischkäse, Sesam</div></div><span class="price">5,90 €<span class="abend">6,90 €</span></span></div>
+          <div class="menu-item"><span class="num">140</span><div class="info"><span class="name">Salmon-Phila Maki</span><div class="desc" data-en="Salmon, avocado, cream cheese, sesame">Lachs, Avocado, Frischkäse, Sesam</div></div><span class="price">6,90 €<span class="abend">7,90 €</span></span></div>
+          <div class="menu-item"><span class="num">141</span><div class="info"><span class="name">Tekka-Phila Maki</span><div class="desc" data-en="Tuna, avocado, cream cheese, sesame">Thunfisch, Avocado, Frischkäse, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">142</span><div class="info"><span class="name">Spicy-California Maki <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Surimi, avocado, mayo, chili sauce, tobiko">Surimi, Avocado, Mayo, Chilisauce, Tobiko</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">143</span><div class="info"><span class="name">Sakesawa Maki <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Grilled salmon, cucumber, mayo, chili sauce, sesame">Grilllachs, Gurken, Mayo, Chilisauce, Sesam</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">145</span><div class="info"><span class="name">Beef Maki</span><div class="desc" data-en="Beef, avocado, spring onion, teriyaki sauce, sesame">Rindfleisch, Avocado, Frühlingszwiebeln, Teriyaki-Sauce, Sesam</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">146</span><div class="info"><span class="name">Ebi-Tempura Maki</span><div class="desc" data-en="Shrimp tempura, avocado, mayo, teriyaki sauce, sesame">Garnelen-Tempura, Avocado, Mayo, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">147</span><div class="info"><span class="name">Unagi Maki</span><div class="desc" data-en="Grilled eel, cucumber, spring onion, teriyaki sauce, sesame">Gegrillter Aal, Gurken, Frühlingszwiebeln, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">148</span><div class="info"><span class="name">Ente Maki</span><div class="desc" data-en="Duck, bell pepper, cream cheese, teriyaki sauce, sesame">Ente, Paprika, Frischkäse, Teriyaki-Sauce, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">149</span><div class="info"><span class="name">Hähnchen Maki</span><div class="desc" data-en="Chicken, bell pepper, cream cheese, mayo, sesame">Hähnchen, Paprika, Frischkäse, Mayo, Sesam</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">150</span><div class="info"><span class="name">Paprika-Phila Maki <span class="tag">veg</span></span><div class="desc" data-en="Bell pepper, cream cheese, sesame">Paprika, Frischkäse, Sesam</div></div><span class="price">5,90 €<span class="abend">6,90 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="big-maki">
-        <h2>Big Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(4 Stück)</small></h2>
+        <h2 data-en-html='Big Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(4 pieces)</small>'>Big Maki <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(4 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">124</span><div class="info"><span class="name">Futo Maki</span><div class="desc">Garnelen, Surimi, Avocado, Gurken, Rettich, Tobiko</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">170</span><div class="info"><span class="name">Veggie Maki <span class="tag">veg</span></span><div class="desc">Eierstich, Avocado, Gurken, Rettich</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">171</span><div class="info"><span class="name">Ebi-Tempura Maki</span><div class="desc">Frittierte Garnelen, Avocado, Gurken, Rettich, Teriyaki-Sauce, Mayo, Sesam-Mantel</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
-          <div class="menu-item"><span class="num">172</span><div class="info"><span class="name">Sakestar Maki</span><div class="desc">Thunfisch, Lachs, Surimi, Avocado, Mayo, Sesam-Mantel</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">124</span><div class="info"><span class="name">Futo Maki</span><div class="desc" data-en="Shrimp, surimi, avocado, cucumber, radish, tobiko">Garnelen, Surimi, Avocado, Gurken, Rettich, Tobiko</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">170</span><div class="info"><span class="name">Veggie Maki <span class="tag">veg</span></span><div class="desc" data-en="Omelette, avocado, cucumber, radish">Eierstich, Avocado, Gurken, Rettich</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">171</span><div class="info"><span class="name">Ebi-Tempura Maki</span><div class="desc" data-en="Fried shrimp, avocado, cucumber, radish, teriyaki sauce, mayo, sesame coating">Frittierte Garnelen, Avocado, Gurken, Rettich, Teriyaki-Sauce, Mayo, Sesam-Mantel</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
+          <div class="menu-item"><span class="num">172</span><div class="info"><span class="name">Sakestar Maki</span><div class="desc" data-en="Tuna, salmon, surimi, avocado, mayo, sesame coating">Thunfisch, Lachs, Surimi, Avocado, Mayo, Sesam-Mantel</div></div><span class="price">7,90 €<span class="abend">8,90 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="temaki">
-        <h2>Temaki Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 Stück)</small></h2>
+        <h2 data-en-html='Temaki Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 piece)</small>'>Temaki Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(1 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">126</span><div class="info"><span class="name">California Temaki</span><div class="desc">Garnelen, Surimi, Avocado, Tobiko</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
-          <div class="menu-item"><span class="num">127</span><div class="info"><span class="name">Alaska Temaki</span><div class="desc">Lachs, Avocado, Sesam</div></div><span class="price">5,00 €<span class="abend">6,00 €</span></span></div>
-          <div class="menu-item"><span class="num">128</span><div class="info"><span class="name">Negitoro Temaki</span><div class="desc">Gehackter Thunfisch, Sesamöl, Frühlingszwiebeln</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
-          <div class="menu-item"><span class="num">129</span><div class="info"><span class="name">Tekka Temaki</span><div class="desc">Thunfisch, Avocado, Tobiko, Sesam</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
-          <div class="menu-item"><span class="num">181</span><div class="info"><span class="name">Salmon Temaki</span><div class="desc">Grilllachs, Gurken, Mayo, Chilisauce</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
+          <div class="menu-item"><span class="num">126</span><div class="info"><span class="name">California Temaki</span><div class="desc" data-en="Shrimp, surimi, avocado, tobiko">Garnelen, Surimi, Avocado, Tobiko</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
+          <div class="menu-item"><span class="num">127</span><div class="info"><span class="name">Alaska Temaki</span><div class="desc" data-en="Salmon, avocado, sesame">Lachs, Avocado, Sesam</div></div><span class="price">5,00 €<span class="abend">6,00 €</span></span></div>
+          <div class="menu-item"><span class="num">128</span><div class="info"><span class="name">Negitoro Temaki</span><div class="desc" data-en="Chopped tuna, sesame oil, spring onion">Gehackter Thunfisch, Sesamöl, Frühlingszwiebeln</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
+          <div class="menu-item"><span class="num">129</span><div class="info"><span class="name">Tekka Temaki</span><div class="desc" data-en="Tuna, avocado, tobiko, sesame">Thunfisch, Avocado, Tobiko, Sesam</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
+          <div class="menu-item"><span class="num">181</span><div class="info"><span class="name">Salmon Temaki</span><div class="desc" data-en="Grilled salmon, cucumber, mayo, chili sauce">Grilllachs, Gurken, Mayo, Chilisauce</div></div><span class="price">6,00 €<span class="abend">7,00 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="sashimi">
-        <h2>Sashimi Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(15 Stück)</small></h2>
+        <h2 data-en-html='Sashimi Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(15 pieces)</small>'>Sashimi Sushi <small style="color:var(--fg-muted);font-family:var(--sans);font-size:0.9rem;">(15 Stück)</small></h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">151</span><div class="info"><span class="name">Sake Sashimi</span><div class="desc">Lachs</div></div><span class="price">22,00 €<span class="abend">25,00 €</span></span></div>
+          <div class="menu-item"><span class="num">151</span><div class="info"><span class="name">Sake Sashimi</span><div class="desc" data-en="Salmon">Lachs</div></div><span class="price">22,00 €<span class="abend">25,00 €</span></span></div>
         </div>
-        <p class="category-note">Zu jedem Sushigericht servieren wir eingelegten Ingwer, Wasabi und Sojasauce.</p>
+        <p class="category-note" data-en="Every sushi dish is served with pickled ginger, wasabi, and soy sauce.">Zu jedem Sushigericht servieren wir eingelegten Ingwer, Wasabi und Sojasauce.</p>
       </div>
 
       <div class="menu-category" id="poke">
         <h2>Poké Bowls</h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">175</span><div class="info"><span class="name">Sake Bowl</span><div class="desc">Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis</div></div><span class="price">13,50 €<span class="abend">15,50 €</span></span></div>
-          <div class="menu-item"><span class="num">176</span><div class="info"><span class="name">Tuna Bowl</span><div class="desc">Thunfisch, Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis</div></div><span class="price">15,50 €<span class="abend">17,50 €</span></span></div>
+          <div class="menu-item"><span class="num">175</span><div class="info"><span class="name">Sake Bowl</span><div class="desc" data-en="Salmon, avocado, cucumber, radish, sesame oil, spring onion, soy sauce, mayonnaise, rice">Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis</div></div><span class="price">13,50 €<span class="abend">15,50 €</span></span></div>
+          <div class="menu-item"><span class="num">176</span><div class="info"><span class="name">Tuna Bowl</span><div class="desc" data-en="Tuna, salmon, avocado, cucumber, radish, sesame oil, spring onion, soy sauce, mayonnaise, rice">Thunfisch, Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis</div></div><span class="price">15,50 €<span class="abend">17,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="suppen">
-        <h2>Suppen</h2>
+        <h2 data-en="Soups">Suppen</h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">2</span><div class="info"><span class="name">Wan-Tan Suppe</span><div class="desc">Teigtaschen mit Hühnerfleisch- und Garnelenfüllung</div></div><span class="price">3,20 €<span class="abend">4,50 €</span></span></div>
-          <div class="menu-item"><span class="num">4</span><div class="info"><span class="name">Hühnersuppe</span><div class="desc">mit Glasnudeln</div></div><span class="price">3,20 €<span class="abend">4,50 €</span></span></div>
-          <div class="menu-item"><span class="num">7</span><div class="info"><span class="name">Súp gà nuoc dua <span class="tag scharf">sauer-scharf</span></span><div class="desc">Hühnerfleisch, Champignons, Kokosmilch</div></div><span class="price">3,50 €<span class="abend">4,90 €</span></span></div>
-          <div class="menu-item"><span class="num">8</span><div class="info"><span class="name">Súp tôm nuoc dua <span class="tag scharf">sauer-scharf</span></span><div class="desc">Garnelen, Champignons, Kokosmilch</div></div><span class="price">3,90 €<span class="abend">5,50 €</span></span></div>
-          <div class="menu-item"><span class="num">9</span><div class="info"><span class="name">Miso-Suppe <span class="tag">veg</span></span><div class="desc">Tofu, Meeresalgen</div></div><span class="price">3,50 €<span class="abend">4,50 €</span></span></div>
+          <div class="menu-item"><span class="num">2</span><div class="info"><span class="name">Wan-Tan Suppe</span><div class="desc" data-en="Dumplings filled with chicken and shrimp">Teigtaschen mit Hühnerfleisch- und Garnelenfüllung</div></div><span class="price">3,20 €<span class="abend">4,50 €</span></span></div>
+          <div class="menu-item"><span class="num">4</span><div class="info"><span class="name">Hühnersuppe</span><div class="desc" data-en="with glass noodles">mit Glasnudeln</div></div><span class="price">3,20 €<span class="abend">4,50 €</span></span></div>
+          <div class="menu-item"><span class="num">7</span><div class="info"><span class="name">Súp gà nuoc dua <span class="tag scharf" data-en="hot &amp; sour">sauer-scharf</span></span><div class="desc" data-en="Chicken, mushrooms, coconut milk">Hühnerfleisch, Champignons, Kokosmilch</div></div><span class="price">3,50 €<span class="abend">4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">8</span><div class="info"><span class="name">Súp tôm nuoc dua <span class="tag scharf" data-en="hot &amp; sour">sauer-scharf</span></span><div class="desc" data-en="Shrimp, mushrooms, coconut milk">Garnelen, Champignons, Kokosmilch</div></div><span class="price">3,90 €<span class="abend">5,50 €</span></span></div>
+          <div class="menu-item"><span class="num">9</span><div class="info"><span class="name">Miso-Suppe <span class="tag">veg</span></span><div class="desc" data-en="Tofu, seaweed">Tofu, Meeresalgen</div></div><span class="price">3,50 €<span class="abend">4,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="vorspeisen">
-        <h2>Vorspeisen</h2>
+        <h2 data-en="Starters">Vorspeisen</h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">10</span><div class="info"><span class="name">Edamame <span class="tag">veg</span></span><div class="desc">Japanische Bohnen</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
-          <div class="menu-item"><span class="num">11</span><div class="info"><span class="name">Mini-Frühlingsrollen <span class="tag">veg</span></span><div class="desc">6 Stück, Gemüsefüllung</div></div><span class="price">3,50 €<span class="abend">4,50 €</span></span></div>
-          <div class="menu-item"><span class="num">12</span><div class="info"><span class="name">Wan-Tan gebacken</span><div class="desc">5 Stück, Hühnerfleisch- und Garnelenfüllung</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
-          <div class="menu-item"><span class="num">13</span><div class="info"><span class="name">Krupuk</span><div class="desc">Krabbenchips</div></div><span class="price">2,90 €<span class="abend">3,90 €</span></span></div>
-          <div class="menu-item"><span class="num">14</span><div class="info"><span class="name">Gemischte Vorspeisenplatte</span><div class="desc">3 Mini-Frühlingsrollen, 2 Wan-Tan, 2 Ebi-Tempura, 3 Krupuk</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
-          <div class="menu-item"><span class="num">16</span><div class="info"><span class="name">Vietnamesische Frühlingsrollen</span><div class="desc">3 Stück, Hühnerfleisch- und Gemüsefüllung</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
-          <div class="menu-item"><span class="num">16a</span><div class="info"><span class="name">Yakitori Spieße</span><div class="desc">3 Hähnchenspieße</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
-          <div class="menu-item"><span class="num">16b</span><div class="info"><span class="name">Gyoza</span><div class="desc">4 Stück, gebratene Teigtaschen, Hähnchenfüllung</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
-          <div class="menu-item"><span class="num">16c</span><div class="info"><span class="name">Ebi-Tempura</span><div class="desc">3 Stück, gebacken</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
+          <div class="menu-item"><span class="num">10</span><div class="info"><span class="name">Edamame <span class="tag">veg</span></span><div class="desc" data-en="Japanese soybeans">Japanische Bohnen</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">11</span><div class="info"><span class="name">Mini-Frühlingsrollen <span class="tag">veg</span></span><div class="desc" data-en="6 pieces, vegetable filling">6 Stück, Gemüsefüllung</div></div><span class="price">3,50 €<span class="abend">4,50 €</span></span></div>
+          <div class="menu-item"><span class="num">12</span><div class="info"><span class="name">Wan-Tan gebacken</span><div class="desc" data-en="5 pieces, chicken and shrimp filling">5 Stück, Hühnerfleisch- und Garnelenfüllung</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">13</span><div class="info"><span class="name">Krupuk</span><div class="desc" data-en="Prawn crackers">Krabbenchips</div></div><span class="price">2,90 €<span class="abend">3,90 €</span></span></div>
+          <div class="menu-item"><span class="num">14</span><div class="info"><span class="name">Gemischte Vorspeisenplatte</span><div class="desc" data-en="3 mini spring rolls, 2 wontons, 2 shrimp tempura, 3 prawn crackers">3 Mini-Frühlingsrollen, 2 Wan-Tan, 2 Ebi-Tempura, 3 Krupuk</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
+          <div class="menu-item"><span class="num">16</span><div class="info"><span class="name">Vietnamesische Frühlingsrollen</span><div class="desc" data-en="3 pieces, chicken and vegetable filling">3 Stück, Hühnerfleisch- und Gemüsefüllung</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
+          <div class="menu-item"><span class="num">16a</span><div class="info"><span class="name">Yakitori Spieße</span><div class="desc" data-en="3 chicken skewers">3 Hähnchenspieße</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
+          <div class="menu-item"><span class="num">16b</span><div class="info"><span class="name">Gyoza</span><div class="desc" data-en="4 pieces, fried dumplings, chicken filling">4 Stück, gebratene Teigtaschen, Hähnchenfüllung</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
+          <div class="menu-item"><span class="num">16c</span><div class="info"><span class="name">Ebi-Tempura</span><div class="desc" data-en="3 pieces, fried">3 Stück, gebacken</div></div><span class="price">4,90 €<span class="abend">5,90 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="salate">
-        <h2>Salate</h2>
+        <h2 data-en="Salads">Salate</h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">15</span><div class="info"><span class="name">Seetang Salat <span class="tag">veg</span></span><div class="desc">Meeresalgen, Sesam</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
-          <div class="menu-item"><span class="num">86</span><div class="info"><span class="name">Goi vit</span><div class="desc">Mangostreifen-Salat mit knuspriger Ente und Kräutern</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
-          <div class="menu-item"><span class="num">87</span><div class="info"><span class="name">Goi tôm</span><div class="desc">Grüner Papayasalat mit Garnelen und Kräutern</div></div><span class="price">6,90 €<span class="abend">7,90 €</span></span></div>
+          <div class="menu-item"><span class="num">15</span><div class="info"><span class="name">Seetang Salat <span class="tag">veg</span></span><div class="desc" data-en="Seaweed, sesame">Meeresalgen, Sesam</div></div><span class="price">5,50 €<span class="abend">6,50 €</span></span></div>
+          <div class="menu-item"><span class="num">86</span><div class="info"><span class="name">Goi vit</span><div class="desc" data-en="Shredded mango salad with crispy duck and herbs">Mangostreifen-Salat mit knuspriger Ente und Kräutern</div></div><span class="price">6,50 €<span class="abend">7,50 €</span></span></div>
+          <div class="menu-item"><span class="num">87</span><div class="info"><span class="name">Goi tôm</span><div class="desc" data-en="Green papaya salad with shrimp and herbs">Grüner Papayasalat mit Garnelen und Kräutern</div></div><span class="price">6,90 €<span class="abend">7,90 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="pho">
-        <h2>Reisbandnudelsuppen (Pho)</h2>
-        <p class="category-note">Nr. 17 und 18 sind nicht zum Mitnehmen geeignet.</p>
+        <h2 data-en="Rice Noodle Soups (Pho)">Reisbandnudelsuppen (Pho)</h2>
+        <p class="category-note" data-en="No. 17 and 18 are not suitable for takeaway.">Nr. 17 und 18 sind nicht zum Mitnehmen geeignet.</p>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">17</span><div class="info"><span class="name">Pho gà</span><div class="desc">Vietnamesische Reisbandnudelsuppe mit Hühnerfleisch und frischen Kräutern</div></div><span class="price">10,90 €<span class="abend">11,90 €</span></span></div>
-          <div class="menu-item"><span class="num">18</span><div class="info"><span class="name">Pho bò</span><div class="desc">Vietnamesische Reisbandnudelsuppe mit Rindfleisch und frischen Kräutern</div></div><span class="price">12,90 €<span class="abend">13,90 €</span></span></div>
+          <div class="menu-item"><span class="num">17</span><div class="info"><span class="name">Pho gà</span><div class="desc" data-en="Vietnamese rice noodle soup with chicken and fresh herbs">Vietnamesische Reisbandnudelsuppe mit Hühnerfleisch und frischen Kräutern</div></div><span class="price">10,90 €<span class="abend">11,90 €</span></span></div>
+          <div class="menu-item"><span class="num">18</span><div class="info"><span class="name">Pho bò</span><div class="desc" data-en="Vietnamese rice noodle soup with beef and fresh herbs">Vietnamesische Reisbandnudelsuppe mit Rindfleisch und frischen Kräutern</div></div><span class="price">12,90 €<span class="abend">13,90 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="huhn">
-        <h2>Hühnerfleisch</h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage.</p>
+        <h2 data-en="Chicken">Hühnerfleisch</h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice.">Mit frischem Gemüse und Reis als Beilage.</p>
         <div class="menu-list">
           <div class="menu-item"><span class="num">21</span><div class="info"><span class="name">Gelb-Curry</span></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">25</span><div class="info"><span class="name">Erdnuss</span><div class="desc">Kokosmilch, Erdnusssauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">30</span><div class="info"><span class="name">Gong-Po</span><div class="desc">Hoi-Sin-Sauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">31</span><div class="info"><span class="name">Chop-Suey</span><div class="desc">Austernsauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">32</span><div class="info"><span class="name">Gà xa ot <span class="tag scharf">scharf</span></span><div class="desc">Frisches Gemüse, Zitronengras</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">34</span><div class="info"><span class="name">Peperoni <span class="tag scharf">scharf</span></span></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">35</span><div class="info"><span class="name">Thai-Rot-Curry</span><div class="desc">Kokosmilch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">38</span><div class="info"><span class="name">Süß-Sauer Hühnerfleisch</span><div class="desc">In Teig gebacken</div></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
+          <div class="menu-item"><span class="num">25</span><div class="info"><span class="name">Erdnuss</span><div class="desc" data-en="Coconut milk, peanut sauce">Kokosmilch, Erdnusssauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">30</span><div class="info"><span class="name">Gong-Po</span><div class="desc" data-en="Hoisin sauce">Hoi-Sin-Sauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">31</span><div class="info"><span class="name">Chop-Suey</span><div class="desc" data-en="Oyster sauce">Austernsauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">32</span><div class="info"><span class="name">Gà xa ot <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Fresh vegetables, lemongrass">Frisches Gemüse, Zitronengras</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">34</span><div class="info"><span class="name">Peperoni <span class="tag scharf" data-en="spicy">scharf</span></span></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">35</span><div class="info"><span class="name">Thai-Rot-Curry</span><div class="desc" data-en="Coconut milk">Kokosmilch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">38</span><div class="info"><span class="name">Süß-Sauer Hühnerfleisch</span><div class="desc" data-en="Deep-fried in batter">In Teig gebacken</div></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="rind">
-        <h2>Rindfleisch</h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage.</p>
+        <h2 data-en="Beef">Rindfleisch</h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice.">Mit frischem Gemüse und Reis als Beilage.</p>
         <div class="menu-list">
           <div class="menu-item"><span class="num">22</span><div class="info"><span class="name">Gelb-Curry</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">26</span><div class="info"><span class="name">Erdnuss</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">40</span><div class="info"><span class="name">Gong-Po</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">41</span><div class="info"><span class="name">Chop-Suey</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
-          <div class="menu-item"><span class="num">42</span><div class="info"><span class="name">Bò xa ot <span class="tag scharf">scharf</span></span><div class="desc">Zitronengras</div></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
-          <div class="menu-item"><span class="num">44</span><div class="info"><span class="name">Peperoni <span class="tag scharf">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
+          <div class="menu-item"><span class="num">42</span><div class="info"><span class="name">Bò xa ot <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Lemongrass">Zitronengras</div></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
+          <div class="menu-item"><span class="num">44</span><div class="info"><span class="name">Peperoni <span class="tag scharf" data-en="spicy">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">45</span><div class="info"><span class="name">Thai-Rot-Curry</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="ente">
-        <h2>Knusprige Ente</h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage.</p>
+        <h2 data-en="Crispy Duck">Knusprige Ente</h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice.">Mit frischem Gemüse und Reis als Beilage.</p>
         <div class="menu-list">
           <div class="menu-item"><span class="num">23</span><div class="info"><span class="name">Gelb-Curry</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
           <div class="menu-item"><span class="num">27</span><div class="info"><span class="name">Erdnuss</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
           <div class="menu-item"><span class="num">50</span><div class="info"><span class="name">Gong-Po</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
           <div class="menu-item"><span class="num">51</span><div class="info"><span class="name">Chop-Suey</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
           <div class="menu-item"><span class="num">52</span><div class="info"><span class="name">Thai-Rot-Curry</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
-          <div class="menu-item"><span class="num">53</span><div class="info"><span class="name">Canton <span class="tag scharf">scharf</span></span><div class="desc">Pikante Sauce</div></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
+          <div class="menu-item"><span class="num">53</span><div class="info"><span class="name">Canton <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Spicy sauce">Pikante Sauce</div></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
           <div class="menu-item"><span class="num">54</span><div class="info"><span class="name">Süß-Sauer</span></div><span class="price">11,00 €<span class="abend">12,00 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="haehnchen">
-        <h2>Knuspriges Hähnchen</h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage.</p>
+        <h2 data-en="Crispy Chicken">Knuspriges Hähnchen</h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice.">Mit frischem Gemüse und Reis als Beilage.</p>
         <div class="menu-list">
           <div class="menu-item"><span class="num">Sp 30</span><div class="info"><span class="name">Gong-Po</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">Sp 31</span><div class="info"><span class="name">Chop-Suey</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 32</span><div class="info"><span class="name">Zitronengras <span class="tag scharf">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 34</span><div class="info"><span class="name">Peperoni <span class="tag scharf">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 32</span><div class="info"><span class="name">Zitronengras <span class="tag scharf" data-en="spicy">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 34</span><div class="info"><span class="name">Peperoni <span class="tag scharf" data-en="spicy">scharf</span></span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">Sp 35</span><div class="info"><span class="name">Thai-Rot-Curry</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">Sp 37</span><div class="info"><span class="name">Gelb-Curry</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
           <div class="menu-item"><span class="num">Sp 38</span><div class="info"><span class="name">Süß-Sauer</span></div><span class="price">9,50 €<span class="abend">10,50 €</span></span></div>
@@ -305,62 +309,62 @@
       </div>
 
       <div class="menu-category" id="vegetarisch">
-        <h2>Vegetarisch <span class="tag">veg</span></h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage.</p>
+        <h2 data-en-html='Vegetarian <span class="tag">veg</span>'>Vegetarisch <span class="tag">veg</span></h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice.">Mit frischem Gemüse und Reis als Beilage.</p>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">60</span><div class="info"><span class="name">Tofu Chop-Suey</span><div class="desc">Austernsauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">61</span><div class="info"><span class="name">Tofu xa ot <span class="tag scharf">scharf</span></span><div class="desc">Zitronengras</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">63</span><div class="info"><span class="name">Tofu Thai-Rot-Curry</span><div class="desc">Kokosmilch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">65</span><div class="info"><span class="name">Frisches Gemüse Chop-Suey</span><div class="desc">Austernsauce</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">68</span><div class="info"><span class="name">Frisches Gemüse Thai-Rot-Curry</span><div class="desc">Kokosmilch</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">20</span><div class="info"><span class="name">Gelb-Curry</span><div class="desc">Frisches Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">24</span><div class="info"><span class="name">Erdnuss</span><div class="desc">Frisches Gemüse, Kokosmilch</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">60</span><div class="info"><span class="name">Tofu Chop-Suey</span><div class="desc" data-en="Oyster sauce">Austernsauce</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">61</span><div class="info"><span class="name">Tofu xa ot <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Lemongrass">Zitronengras</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">63</span><div class="info"><span class="name">Tofu Thai-Rot-Curry</span><div class="desc" data-en="Coconut milk">Kokosmilch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">65</span><div class="info"><span class="name">Frisches Gemüse Chop-Suey</span><div class="desc" data-en="Oyster sauce">Austernsauce</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">68</span><div class="info"><span class="name">Frisches Gemüse Thai-Rot-Curry</span><div class="desc" data-en="Coconut milk">Kokosmilch</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">20</span><div class="info"><span class="name">Gelb-Curry</span><div class="desc" data-en="Fresh vegetables">Frisches Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">24</span><div class="info"><span class="name">Erdnuss</span><div class="desc" data-en="Fresh vegetables, coconut milk">Frisches Gemüse, Kokosmilch</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="nudeln-reis">
-        <h2>Gebratene Nudeln und Reis</h2>
-        <p class="category-note">Mit frischem Gemüse.</p>
+        <h2 data-en="Fried Noodles and Rice">Gebratene Nudeln und Reis</h2>
+        <p class="category-note" data-en="With fresh vegetables.">Mit frischem Gemüse.</p>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">66</span><div class="info"><span class="name">Com rang rau <span class="tag">veg</span></span><div class="desc">Gebratener Reis mit frischem Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">67</span><div class="info"><span class="name">Mì xào rau <span class="tag">veg</span></span><div class="desc">Gebratene Nudeln mit frischem Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
-          <div class="menu-item"><span class="num">70</span><div class="info"><span class="name">Com rang gà</span><div class="desc">Gebratener Reis mit Hühnerfleisch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
-          <div class="menu-item"><span class="num">73</span><div class="info"><span class="name">Mì xào gà</span><div class="desc">Gebratene Nudeln mit Hühnerfleisch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">66</span><div class="info"><span class="name">Com rang rau <span class="tag">veg</span></span><div class="desc" data-en="Fried rice with fresh vegetables">Gebratener Reis mit frischem Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">67</span><div class="info"><span class="name">Mì xào rau <span class="tag">veg</span></span><div class="desc" data-en="Fried noodles with fresh vegetables">Gebratene Nudeln mit frischem Gemüse</div></div><span class="price">7,50 €<span class="abend">8,50 €</span></span></div>
+          <div class="menu-item"><span class="num">70</span><div class="info"><span class="name">Com rang gà</span><div class="desc" data-en="Fried rice with chicken">Gebratener Reis mit Hühnerfleisch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
+          <div class="menu-item"><span class="num">73</span><div class="info"><span class="name">Mì xào gà</span><div class="desc" data-en="Fried noodles with chicken">Gebratene Nudeln mit Hühnerfleisch</div></div><span class="price">9,00 €<span class="abend">10,00 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="spezialitaeten">
-        <h2>Spezialitäten des Hauses</h2>
-        <p class="category-note">Mit frischem Gemüse und Reis als Beilage (außer Reis- und Nudelgerichte).</p>
+        <h2 data-en="House Specialties">Spezialitäten des Hauses</h2>
+        <p class="category-note" data-en="Served with fresh vegetables and rice as a side (except rice and noodle dishes).">Mit frischem Gemüse und Reis als Beilage (außer Reis- und Nudelgerichte).</p>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">Sp 1</span><div class="info"><span class="name">Tôm xào gung</span><div class="desc">Garnelen mit Ingwer und Austernsauce</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 2</span><div class="info"><span class="name">Tôm Curry</span><div class="desc">Garnelen, Kokosmilch, Thai-Rot-Currysauce</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 3</span><div class="info"><span class="name">Mì xào vit</span><div class="desc">Gebratene Nudeln mit knuspriger Ente</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 4</span><div class="info"><span class="name">Com rang vit</span><div class="desc">Gebratener Reis mit knuspriger Ente</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 7</span><div class="info"><span class="name">Chôm Chôm Garnelen</span><div class="desc">Mit Hühnerfleisch und Rindfleisch</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 8</span><div class="info"><span class="name">Tôm xa ot <span class="tag scharf">scharf</span></span><div class="desc">Garnelen mit Zitronengras</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 10</span><div class="info"><span class="name">Com rang tôm</span><div class="desc">Gebratener Reis mit Garnelen</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 11</span><div class="info"><span class="name">Mì xào tôm</span><div class="desc">Gebratene Nudeln mit Garnelen</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 70</span><div class="info"><span class="name">Com rang gà dòn</span><div class="desc">Gebratener Reis mit knusprigem Hähnchen</div></div><span class="price">10,00 €<span class="abend">11,00 €</span></span></div>
-          <div class="menu-item"><span class="num">Sp 73</span><div class="info"><span class="name">Mì xào gà dòn</span><div class="desc">Gebratene Nudeln mit knusprigem Hähnchen</div></div><span class="price">10,00 €<span class="abend">11,00 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 1</span><div class="info"><span class="name">Tôm xào gung</span><div class="desc" data-en="Shrimp with ginger and oyster sauce">Garnelen mit Ingwer und Austernsauce</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 2</span><div class="info"><span class="name">Tôm Curry</span><div class="desc" data-en="Shrimp, coconut milk, Thai red curry sauce">Garnelen, Kokosmilch, Thai-Rot-Currysauce</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 3</span><div class="info"><span class="name">Mì xào vit</span><div class="desc" data-en="Fried noodles with crispy duck">Gebratene Nudeln mit knuspriger Ente</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 4</span><div class="info"><span class="name">Com rang vit</span><div class="desc" data-en="Fried rice with crispy duck">Gebratener Reis mit knuspriger Ente</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 7</span><div class="info"><span class="name">Chôm Chôm Garnelen</span><div class="desc" data-en="With chicken and beef">Mit Hühnerfleisch und Rindfleisch</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 8</span><div class="info"><span class="name">Tôm xa ot <span class="tag scharf" data-en="spicy">scharf</span></span><div class="desc" data-en="Shrimp with lemongrass">Garnelen mit Zitronengras</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 10</span><div class="info"><span class="name">Com rang tôm</span><div class="desc" data-en="Fried rice with shrimp">Gebratener Reis mit Garnelen</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 11</span><div class="info"><span class="name">Mì xào tôm</span><div class="desc" data-en="Fried noodles with shrimp">Gebratene Nudeln mit Garnelen</div></div><span class="price">11,50 €<span class="abend">12,50 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 70</span><div class="info"><span class="name">Com rang gà dòn</span><div class="desc" data-en="Fried rice with crispy chicken">Gebratener Reis mit knusprigem Hähnchen</div></div><span class="price">10,00 €<span class="abend">11,00 €</span></span></div>
+          <div class="menu-item"><span class="num">Sp 73</span><div class="info"><span class="name">Mì xào gà dòn</span><div class="desc" data-en="Fried noodles with crispy chicken">Gebratene Nudeln mit knusprigem Hähnchen</div></div><span class="price">10,00 €<span class="abend">11,00 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-category" id="desserts">
-        <h2>Desserts &amp; Tee</h2>
+        <h2 data-en-html="Desserts &amp; Tea">Desserts &amp; Tee</h2>
         <div class="menu-list">
-          <div class="menu-item"><span class="num">80</span><div class="info"><span class="name">Chuôi chiên <span class="tag">veg</span></span><div class="desc">Gebackene Banane mit Honig und Kokosraspeln</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
+          <div class="menu-item"><span class="num">80</span><div class="info"><span class="name">Chuôi chiên <span class="tag">veg</span></span><div class="desc" data-en="Fried banana with honey and shredded coconut">Gebackene Banane mit Honig und Kokosraspeln</div></div><span class="price">3,90 €<span class="abend">4,90 €</span></span></div>
           <div class="menu-item"><span class="num">95</span><div class="info"><span class="name">Vietnamesischer Tee <span class="tag">veg</span></span></div><span class="price">3,00 €<span class="abend">3,50 €</span></span></div>
           <div class="menu-item"><span class="num">96</span><div class="info"><span class="name">Ingwertee mit Honig <span class="tag">veg</span></span></div><span class="price">3,00 €<span class="abend">3,50 €</span></span></div>
         </div>
       </div>
 
       <div class="menu-pdf-links">
-        <a class="btn btn-ghost" href="menu/speisekarte.pdf" target="_blank" rel="noopener">Vietnamesische Karte als PDF</a>
-        <a class="btn btn-ghost" href="menu/sushi-karte.pdf" target="_blank" rel="noopener">Sushi-Karte als PDF</a>
+        <a class="btn btn-ghost" href="menu/speisekarte.pdf" target="_blank" rel="noopener" data-en="Vietnamese Menu as PDF">Vietnamesische Karte als PDF</a>
+        <a class="btn btn-ghost" href="menu/sushi-karte.pdf" target="_blank" rel="noopener" data-en="Sushi Menu as PDF">Sushi-Karte als PDF</a>
       </div>
 
-      <p class="menu-legal-note">Alle Preise inkl. der gesetzlichen MwSt., Stand November 2025, gültig bis zum Erscheinen einer neuen Preisliste. Irrtümer und Druckfehler vorbehalten, Angaben ohne Gewähr. Vollständige Allergen- und Zusatzstoffkennzeichnung sowie Schärfegrad je Gericht: siehe PDF-Karten oben oder Aushang im Lokal. Bei Fragen zu Zutaten und Allergenen bitte vor der Bestellung telefonisch nachfragen: <a href="tel:+498104888476">08104 888 476</a>.</p>
+      <p class="menu-legal-note" data-en-html='All prices include statutory VAT, as of November 2025, valid until a new price list is published. Errors and misprints excepted, no guarantee for accuracy. Full allergen and additive labeling as well as spice level per dish: see the PDF menus above or the notice board at the restaurant. For questions about ingredients and allergens, please call ahead before ordering: <a href="tel:+498104888476">08104 888 476</a>.'>Alle Preise inkl. der gesetzlichen MwSt., Stand November 2025, gültig bis zum Erscheinen einer neuen Preisliste. Irrtümer und Druckfehler vorbehalten, Angaben ohne Gewähr. Vollständige Allergen- und Zusatzstoffkennzeichnung sowie Schärfegrad je Gericht: siehe PDF-Karten oben oder Aushang im Lokal. Bei Fragen zu Zutaten und Allergenen bitte vor der Bestellung telefonisch nachfragen: <a href="tel:+498104888476">08104 888 476</a>.</p>
     </div>
   </section>
 </main>
@@ -372,26 +376,26 @@
         <img class="footer-logo" src="img/logo.jpg" alt="Chôm Chôm Sushibar Logo" width="150" height="93" loading="lazy">
         <h4>Chôm Chôm Sushibar</h4>
         <p>Bahnhofplatz 9<br>82054 Sauerlach</p>
-        <p>Inh. Hoang Bao Du Pham</p>
+        <p data-en="Owner: Hoang Bao Du Pham">Inh. Hoang Bao Du Pham</p>
       </div>
       <div>
-        <h4>Öffnungszeiten</h4>
-        <p data-hours="footer_line1">Mo–Fr 11:30–14:30 Uhr</p>
-        <p data-hours="footer_line2">Mo–Fr 17:30–21:00 Uhr</p>
-        <p data-hours="footer_line3">So &amp; Feiertag 17:00–21:00 Uhr</p>
-        <p data-hours="footer_line4">Samstag Ruhetag</p>
+        <h4 data-en="Opening Hours">Öffnungszeiten</h4>
+        <p data-hours="footer_line1" data-en="Mon–Fri 11:30–14:30">Mo–Fr 11:30–14:30 Uhr</p>
+        <p data-hours="footer_line2" data-en="Mon–Fri 17:30–21:00">Mo–Fr 17:30–21:00 Uhr</p>
+        <p data-hours="footer_line3" data-en="Sun &amp; public holidays 17:00–21:00">So &amp; Feiertag 17:00–21:00 Uhr</p>
+        <p data-hours="footer_line4" data-en="Saturday closed">Samstag Ruhetag</p>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h4 data-en="Contact">Kontakt</h4>
         <a href="tel:+498104888476">08104 888 476</a>
-        <a href="speisekarte.html">Speisekarte</a>
-        <a href="kontakt.html">Anfahrt &amp; Kontakt</a>
-        <a href="aussenbereich.html">Außenbereich</a>
+        <a href="speisekarte.html" data-en="Menu">Speisekarte</a>
+        <a href="kontakt.html" data-en="Directions &amp; Contact">Anfahrt &amp; Kontakt</a>
+        <a href="aussenbereich.html" data-en="Outdoor Area">Außenbereich</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Chôm Chôm Sushibar</span>
-      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+      <span><a href="impressum.html" data-en="Legal Notice">Impressum</a> · <a href="datenschutz.html" data-en="Privacy Policy">Datenschutz</a></span>
     </div>
   </div>
 </footer>
@@ -399,19 +403,20 @@
 <div id="order-bar" class="order-bar" hidden>
   <div class="container order-bar-inner">
     <span id="order-bar-summary"></span>
-    <button type="button" id="order-bar-btn" class="btn btn-primary">Bestellen</button>
+    <button type="button" id="order-bar-btn" class="btn btn-primary" data-en="Order">Bestellen</button>
   </div>
 </div>
 
 <div id="order-modal" class="order-modal" hidden>
   <div class="order-modal-backdrop" data-close></div>
-  <div class="order-modal-panel" role="dialog" aria-modal="true" aria-label="Bestellung">
-    <button type="button" class="order-modal-close" data-close aria-label="Schließen">×</button>
+  <div class="order-modal-panel" role="dialog" aria-modal="true" aria-label="Bestellung" data-en-aria-label="Order">
+    <button type="button" class="order-modal-close" data-close aria-label="Schließen" data-en-aria-label="Close">×</button>
     <div id="order-modal-body"></div>
   </div>
 </div>
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 <script src="order.js"></script>
 </body>

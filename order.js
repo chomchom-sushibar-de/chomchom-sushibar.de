@@ -10,6 +10,59 @@
   var STARTER_CATEGORIES = ["suppen", "vorspeisen", "salate"];
   var DESSERT_CATEGORIES = ["desserts"];
 
+  var STRINGS = {
+    de: {
+      less: "Weniger",
+      more: "Mehr",
+      dish: "Gericht",
+      dishes: "Gerichte",
+      approx: "ca.",
+      nudgeTitle: "Noch etwas dazu?",
+      nudgeQuestion: "Wie wäre es noch mit ",
+      starterLink: "Vorspeisen &amp; Suppen",
+      dessertLink: "Desserts &amp; Tee",
+      or: " oder ",
+      continueSelecting: "Weiter auswählen",
+      noThanksContinue: "Nein danke, weiter",
+      summaryTitle: "Diese Nummern durchgeben",
+      summaryIntro: "Rufen Sie uns an und nennen Sie einfach diese Nummern mit Menge:",
+      numLabel: "Nr.",
+      total: "Ca. Gesamtsumme: ",
+      disclaimer: "Abendpreise können abweichen · nur Barzahlung vor Ort.",
+      back: "Zurück zur Karte",
+      callNow: "Jetzt anrufen · "
+    },
+    en: {
+      less: "Less",
+      more: "More",
+      dish: "dish",
+      dishes: "dishes",
+      approx: "approx.",
+      nudgeTitle: "Anything else?",
+      nudgeQuestion: "How about some ",
+      starterLink: "Starters &amp; Soups",
+      dessertLink: "Desserts &amp; Tea",
+      or: " or ",
+      continueSelecting: "Keep browsing",
+      noThanksContinue: "No thanks, continue",
+      summaryTitle: "Read out these numbers",
+      summaryIntro: "Call us and simply read out these numbers with quantities:",
+      numLabel: "No.",
+      total: "Approx. total: ",
+      disclaimer: "Evening prices may differ · cash only on site.",
+      back: "Back to menu",
+      callNow: "Call now · "
+    }
+  };
+
+  function lang() {
+    return (window.chomchomLang && window.chomchomLang.get()) || "de";
+  }
+
+  function t() {
+    return STRINGS[lang()] || STRINGS.de;
+  }
+
   var cart = {};
 
   function loadCart() {
@@ -45,6 +98,8 @@
   }
 
   var renderers = [];
+  var ariaRenderers = [];
+  var nameElByNum = {};
 
   Array.prototype.forEach.call(document.querySelectorAll(".menu-item"), function (el) {
     var numEl = el.querySelector(".num");
@@ -53,22 +108,30 @@
     if (!numEl || !nameEl || !priceEl) return;
 
     var num = numEl.textContent.trim();
-    var name = parseName(nameEl);
     var price = parsePrice(priceEl);
     var categoryEl = el.closest(".menu-category");
     var categoryId = categoryEl ? categoryEl.id : "";
+    nameElByNum[num] = nameEl;
 
     var stepper = document.createElement("div");
     stepper.className = "qty-stepper";
     stepper.innerHTML =
-      '<button type="button" class="qty-btn qty-minus" aria-label="Weniger ' + name + '">−</button>' +
+      '<button type="button" class="qty-btn qty-minus">−</button>' +
       '<span class="qty-value">0</span>' +
-      '<button type="button" class="qty-btn qty-plus" aria-label="Mehr ' + name + '">+</button>';
+      '<button type="button" class="qty-btn qty-plus">+</button>';
     el.appendChild(stepper);
 
     var valueEl = stepper.querySelector(".qty-value");
     var minusBtn = stepper.querySelector(".qty-minus");
     var plusBtn = stepper.querySelector(".qty-plus");
+
+    function updateAria() {
+      var currentName = parseName(nameEl);
+      minusBtn.setAttribute("aria-label", t().less + " " + currentName);
+      plusBtn.setAttribute("aria-label", t().more + " " + currentName);
+    }
+    updateAria();
+    ariaRenderers.push(updateAria);
 
     function render() {
       var qty = (cart[num] && cart[num].qty) || 0;
@@ -88,7 +151,7 @@
 
     plusBtn.addEventListener("click", function () {
       if (!cart[num]) {
-        cart[num] = { num: num, name: name, price: price, category: categoryId, qty: 0 };
+        cart[num] = { num: num, name: parseName(nameEl), price: price, category: categoryId, qty: 0 };
       }
       cart[num].qty += 1;
       saveCart();
@@ -107,6 +170,7 @@
   var barBtn = document.getElementById("order-bar-btn");
   var modal = document.getElementById("order-modal");
   var modalBody = document.getElementById("order-modal-body");
+  var currentStep = null;
 
   function cartEntries() {
     return Object.keys(cart)
@@ -126,15 +190,16 @@
   }
 
   function updateBar() {
-    var t = cartTotals();
-    if (t.count === 0) {
+    var s = t();
+    var tot = cartTotals();
+    if (tot.count === 0) {
       bar.hidden = true;
       document.body.classList.remove("has-order-bar");
       return;
     }
     bar.hidden = false;
     document.body.classList.add("has-order-bar");
-    barSummary.textContent = t.count + (t.count === 1 ? " Gericht" : " Gerichte") + " · ca. " + formatPrice(t.total);
+    barSummary.textContent = tot.count + " " + (tot.count === 1 ? s.dish : s.dishes) + " · " + s.approx + " " + formatPrice(tot.total);
   }
 
   function closeModal() {
@@ -145,54 +210,58 @@
   function openModal() {
     modal.hidden = false;
     document.body.classList.add("modal-open");
+    currentStep = null;
     renderModal();
   }
 
   function renderModal(step) {
-    var t = cartTotals();
-    if (t.count === 0) {
+    var s = t();
+    var tot = cartTotals();
+    if (tot.count === 0) {
       closeModal();
       return;
     }
 
-    var needsStarter = !hasCategory(t.entries, STARTER_CATEGORIES);
-    var needsDessert = !hasCategory(t.entries, DESSERT_CATEGORIES);
+    var needsStarter = !hasCategory(tot.entries, STARTER_CATEGORIES);
+    var needsDessert = !hasCategory(tot.entries, DESSERT_CATEGORIES);
 
     if (!step) step = needsStarter || needsDessert ? "nudge" : "summary";
+    currentStep = step;
 
     if (step === "nudge") {
       var missing = [];
-      if (needsStarter) missing.push('<a href="#vorspeisen" data-close>Vorspeisen &amp; Suppen</a>');
-      if (needsDessert) missing.push('<a href="#desserts" data-close>Desserts &amp; Tee</a>');
+      if (needsStarter) missing.push('<a href="#vorspeisen" data-close>' + s.starterLink + "</a>");
+      if (needsDessert) missing.push('<a href="#desserts" data-close>' + s.dessertLink + "</a>");
       modalBody.innerHTML =
-        "<h3>Noch etwas dazu?</h3>" +
-        "<p>Wie wäre es noch mit " + missing.join(" oder ") + "?</p>" +
+        "<h3>" + s.nudgeTitle + "</h3>" +
+        "<p>" + s.nudgeQuestion + missing.join(s.or) + "?</p>" +
         '<div class="order-modal-actions">' +
-        '<button type="button" class="btn btn-ghost" data-close>Weiter auswählen</button>' +
-        '<button type="button" class="btn btn-primary" id="order-modal-continue">Nein danke, weiter</button>' +
+        '<button type="button" class="btn btn-ghost" data-close>' + s.continueSelecting + "</button>" +
+        '<button type="button" class="btn btn-primary" id="order-modal-continue">' + s.noThanksContinue + "</button>" +
         "</div>";
       document.getElementById("order-modal-continue").addEventListener("click", function () {
         renderModal("summary");
       });
     } else {
-      var rows = t.entries
+      var rows = tot.entries
         .map(function (e) {
+          var liveName = nameElByNum[e.num] ? parseName(nameElByNum[e.num]) : e.name;
           return (
-            '<li><span class="order-row-num">Nr. ' + e.num + "</span>" +
-            '<span class="order-row-name">' + e.name + "</span>" +
+            '<li><span class="order-row-num">' + s.numLabel + " " + e.num + "</span>" +
+            '<span class="order-row-name">' + liveName + "</span>" +
             '<span class="order-row-qty">×' + e.qty + "</span></li>"
           );
         })
         .join("");
       modalBody.innerHTML =
-        "<h3>Diese Nummern durchgeben</h3>" +
-        "<p>Rufen Sie uns an und nennen Sie einfach diese Nummern mit Menge:</p>" +
+        "<h3>" + s.summaryTitle + "</h3>" +
+        "<p>" + s.summaryIntro + "</p>" +
         '<ul class="order-summary-list">' + rows + "</ul>" +
-        '<p class="order-total">Ca. Gesamtsumme: ' + formatPrice(t.total) +
-        "<br><small>Abendpreise können abweichen · nur Barzahlung vor Ort.</small></p>" +
+        '<p class="order-total">' + s.total + formatPrice(tot.total) +
+        "<br><small>" + s.disclaimer + "</small></p>" +
         '<div class="order-modal-actions">' +
-        '<button type="button" class="btn btn-ghost" data-close>Zurück zur Karte</button>' +
-        '<a class="btn btn-primary" href="tel:' + PHONE + '">Jetzt anrufen · ' + PHONE_DISPLAY + "</a>" +
+        '<button type="button" class="btn btn-ghost" data-close>' + s.back + "</button>" +
+        '<a class="btn btn-primary" href="tel:' + PHONE + '">' + s.callNow + PHONE_DISPLAY + "</a>" +
         "</div>";
     }
   }
@@ -205,6 +274,12 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !modal.hidden) closeModal();
+  });
+
+  document.addEventListener("chomchom:langchange", function () {
+    ariaRenderers.forEach(function (fn) { fn(); });
+    updateBar();
+    if (!modal.hidden) renderModal(currentStep);
   });
 
   updateBar();

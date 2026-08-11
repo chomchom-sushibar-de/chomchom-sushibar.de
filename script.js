@@ -58,8 +58,12 @@
       }
       document.querySelectorAll("[data-hours]").forEach(function (el) {
         var val = data.hours && data.hours[el.getAttribute("data-hours")];
-        if (val) el.textContent = val;
+        if (val) {
+          el.dataset.deText = val;
+          if (!el.dataset.en) el.textContent = val;
+        }
       });
+      if (window.chomchomLang) window.chomchomLang.reapply();
     })
     .catch(function () {});
 })();

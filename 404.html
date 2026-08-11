@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seite nicht gefunden – Chôm Chôm Sushibar</title>
+<title data-en="Page Not Found – Chôm Chôm Sushibar">Seite nicht gefunden – Chôm Chôm Sushibar</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
@@ -24,7 +24,12 @@
       </svg>
       <span class="brand-text">Chôm Chôm<small>Sushibar Sauerlach</small></span>
     </a>
-    <div></div>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Sprache" data-en-aria-label="Language">
+        <button type="button" data-lang="de" aria-pressed="false" title="Deutsch" data-en-title="German">DE</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="Englisch" data-en-title="English">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -32,11 +37,11 @@
   <div class="error-page container">
     <div>
       <span class="eyebrow">404</span>
-      <h1>Diese Seite gibt es nicht.</h1>
-      <p style="color:var(--fg-muted);margin-bottom:2rem;">Vielleicht suchst du die Speisekarte oder unsere Kontaktdaten.</p>
+      <h1 data-en="This page doesn't exist.">Diese Seite gibt es nicht.</h1>
+      <p style="color:var(--fg-muted);margin-bottom:2rem;" data-en="Maybe you're looking for the menu or our contact details.">Vielleicht suchst du die Speisekarte oder unsere Kontaktdaten.</p>
       <div class="hero-actions" style="justify-content:center;">
-        <a class="btn btn-primary" href="index.html">Zur Startseite</a>
-        <a class="btn btn-ghost" href="speisekarte.html">Zur Speisekarte</a>
+        <a class="btn btn-primary" href="index.html" data-en="Go to Homepage">Zur Startseite</a>
+        <a class="btn btn-ghost" href="speisekarte.html" data-en="View Menu">Zur Speisekarte</a>
       </div>
     </div>
   </div>
@@ -52,6 +57,7 @@
 </footer>
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

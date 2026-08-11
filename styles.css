@@ -230,6 +230,38 @@ a {
   color: var(--accent-fg);
 }
 
+/* Sprach-Umschalter */
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: var(--bg-sunk);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-toggle button {
+  border: none;
+  background: none;
+  color: var(--fg-muted);
+  min-width: 30px;
+  height: 30px;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.lang-toggle button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
 /* Buttons */
 
 .btn {
