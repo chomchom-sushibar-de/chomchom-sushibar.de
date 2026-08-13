@@ -1,10 +1,18 @@
 import { expect, test } from "@playwright/test";
 import { unlockPreview } from "./helpers.mjs";
 
+const deterministicFontStyles = `
+  :root {
+    --serif: "Liberation Serif", serif;
+    --sans: "Liberation Sans", sans-serif;
+  }
+`;
+
 async function gotoVisuallySettled(page, path) {
   const siteData = page.waitForResponse((response) => response.url().endsWith("/data/site.json") && response.ok());
   await page.goto(path);
   await siteData;
+  await page.addStyleTag({ content: deterministicFontStyles });
   await page.evaluate(async () => {
     const viewportImages = Array.from(document.images).filter((image) => {
       const bounds = image.getBoundingClientRect();
