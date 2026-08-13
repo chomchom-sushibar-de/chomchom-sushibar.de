@@ -10,6 +10,8 @@ preparation helper.
 
 - Workstream branch: `agent/chomchom-quality-and-menu-model`; base commit:
   `fec93d7`.
+- Draft pull request: `#1`,
+  `https://github.com/chomchom-sushibar-de/chomchom-sushibar.de/pull/1`.
 - The homepage is food-first again: an existing dish photo is the hero, all three
   existing food-photo cards immediately follow, and Google reviews are a compact
   secondary section below the restaurant ambience.
@@ -33,9 +35,9 @@ preparation helper.
 - Static/schema/generator suite: 12/12 passing.
 - Playwright: 70/70 passing in DE/EN at 320x568, 390x844, 412x915, 768x1024 and
   1440x900, including axe and visual baselines.
-- Lighthouse: home performance 1.00, accessibility 0.98, best practices 1.00,
-  LCP 1.50 s, CLS 0; menu performance 0.96, accessibility 0.98, best practices
-  1.00, LCP 2.33 s, CLS 0.
+- Lighthouse three-run median: home performance 1.00, accessibility 0.98, best
+  practices 1.00, LCP 1.50 s, CLS 0; menu performance 0.94, accessibility 0.98,
+  best practices 1.00, LCP 2.78 s, worst-case CLS 0.053.
 - Dependency audit: zero reported vulnerabilities at `high` threshold.
 
 ## Known external blockers
@@ -65,6 +67,6 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-13: completed the canonical data, CI/test and readiness workstream; restored
-food as the homepage focus without changing the established visual theme or adding
-new external imagery.
+2026-08-13: completed and published the canonical data, CI/test and readiness
+workstream as Draft PR #1; restored food as the homepage focus without changing
+the established visual theme or adding new external imagery.

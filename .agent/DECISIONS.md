@@ -26,8 +26,10 @@ editorial pull request and regenerate the static artifact.
 ## 2026-08-13 - Generated Pages artifact and explicit readiness split
 
 **Decision:** Pages publishes only `dist/` after tests, browser checks and
-Lighthouse budgets. Automated readiness records technical results separately from
-external approvals.
+Lighthouse budgets use three samples per page so the performance and LCP gates use
+the median instead of a noisy single CI measurement; accessibility, best practices,
+CLS and transfer size retain conservative worst-case gates. Automated readiness
+records technical results separately from external approvals.
 
 **Reason:** A technically valid preview must not imply operator approval, domain
 readiness or production CMS verification.

@@ -30,6 +30,24 @@ function auditValue(result, audit) {
   return result.lhr.audits[audit]?.numericValue;
 }
 
+function median(values) {
+  const sorted = [...values].sort((left, right) => left - right);
+  return sorted[Math.floor(sorted.length / 2)];
+}
+
+function summarize(samples) {
+  return {
+    performance: median(samples.map((sample) => sample.performance)),
+    accessibility: Math.min(...samples.map((sample) => sample.accessibility)),
+    bestPractices: Math.min(...samples.map((sample) => sample.bestPractices)),
+    seo: Math.min(...samples.map((sample) => sample.seo)),
+    largestContentfulPaintMs: median(samples.map((sample) => sample.largestContentfulPaintMs)),
+    cumulativeLayoutShift: Math.max(...samples.map((sample) => sample.cumulativeLayoutShift)),
+    totalByteWeight: Math.max(...samples.map((sample) => sample.totalByteWeight)),
+    samples
+  };
+}
+
 let chrome;
 try {
   await waitForServer();
@@ -45,35 +63,41 @@ try {
   await setupPage.close();
 
   const reports = {};
+  const failures = [];
   for (const path of ["index.html", "speisekarte.html"]) {
-    const result = await lighthouse(`${baseUrl}/${path}`, {
-      port: chrome.port,
-      logLevel: "error",
-      output: "json",
-      onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
-      disableStorageReset: true
-    });
-    const summary = {
-      performance: score(result, "performance"),
-      accessibility: score(result, "accessibility"),
-      bestPractices: score(result, "best-practices"),
-      seo: score(result, "seo"),
-      largestContentfulPaintMs: auditValue(result, "largest-contentful-paint"),
-      cumulativeLayoutShift: auditValue(result, "cumulative-layout-shift"),
-      totalByteWeight: auditValue(result, "total-byte-weight")
-    };
+    const samples = [];
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const result = await lighthouse(`${baseUrl}/${path}`, {
+        port: chrome.port,
+        logLevel: "error",
+        output: "json",
+        onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
+        disableStorageReset: true
+      });
+      samples.push({
+        performance: score(result, "performance"),
+        accessibility: score(result, "accessibility"),
+        bestPractices: score(result, "best-practices"),
+        seo: score(result, "seo"),
+        largestContentfulPaintMs: auditValue(result, "largest-contentful-paint"),
+        cumulativeLayoutShift: auditValue(result, "cumulative-layout-shift"),
+        totalByteWeight: auditValue(result, "total-byte-weight")
+      });
+    }
+    const summary = summarize(samples);
     reports[path] = summary;
-    if (summary.performance < 0.85) throw new Error(`${path}: Lighthouse performance ${summary.performance} is below 0.85.`);
-    if (summary.accessibility < 0.95) throw new Error(`${path}: Lighthouse accessibility ${summary.accessibility} is below 0.95.`);
-    if (summary.bestPractices < 0.9) throw new Error(`${path}: Lighthouse best practices ${summary.bestPractices} is below 0.90.`);
-    if (summary.largestContentfulPaintMs > 4000) throw new Error(`${path}: LCP exceeds 4000 ms.`);
-    if (summary.cumulativeLayoutShift > 0.1) throw new Error(`${path}: CLS exceeds 0.1.`);
-    if (summary.totalByteWeight > 5_000_000) throw new Error(`${path}: transferred bytes exceed 5 MB.`);
+    if (summary.performance < 0.85) failures.push(`${path}: median Lighthouse performance ${summary.performance} is below 0.85.`);
+    if (summary.accessibility < 0.95) failures.push(`${path}: Lighthouse accessibility ${summary.accessibility} is below 0.95.`);
+    if (summary.bestPractices < 0.9) failures.push(`${path}: Lighthouse best practices ${summary.bestPractices} is below 0.90.`);
+    if (summary.largestContentfulPaintMs > 4000) failures.push(`${path}: median LCP exceeds 4000 ms.`);
+    if (summary.cumulativeLayoutShift > 0.1) failures.push(`${path}: worst-case CLS exceeds 0.1.`);
+    if (summary.totalByteWeight > 5_000_000) failures.push(`${path}: worst-case transferred bytes exceed 5 MB.`);
   }
   await mkdir(resolve(root, "artifacts"), { recursive: true });
   await writeFile(resolve(root, "artifacts/lighthouse.json"), `${JSON.stringify(reports, null, 2)}\n`);
   console.log(JSON.stringify(reports, null, 2));
   await browser.close();
+  if (failures.length > 0) throw new Error(failures.join("\n"));
 } finally {
   if (chrome) await chrome.kill();
   server.kill("SIGTERM");

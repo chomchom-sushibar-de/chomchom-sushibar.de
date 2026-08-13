@@ -9,7 +9,7 @@ not complete externally owned launch decisions.
   and every photograph.
 - [ ] Compare current in-restaurant dishes and prices with the documented November
   2025 source revision.
-- [ ] Verify the quality branch CI and review the generated/visual diffs before merge.
+- [ ] Review the generated and visual diffs in Draft PR #1 before merge.
 
 ## Next
 
@@ -41,3 +41,4 @@ not complete externally owned launch decisions.
 - [x] Extend Decap to menu availability with editorial/schema safeguards.
 - [x] Add static, browser, axe, visual, Lighthouse and readiness automation.
 - [x] Build and deploy only a validated `dist/` artifact.
+- [x] Push the workstream and open Draft PR #1 with required quality CI.
