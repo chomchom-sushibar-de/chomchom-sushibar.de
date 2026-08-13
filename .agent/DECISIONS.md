@@ -26,13 +26,16 @@ editorial pull request and regenerate the static artifact.
 ## 2026-08-13 - Generated Pages artifact and explicit readiness split
 
 **Decision:** Pages publishes only `dist/` after tests, browser checks and
-Lighthouse budgets use three samples per page so the performance and LCP gates use
-the median instead of a noisy single CI measurement; accessibility, best practices,
-CLS and transfer size retain conservative worst-case gates. Automated readiness
-records technical results separately from external approvals.
+Lighthouse budgets. Each page uses three cache/storage-reset samples with a
+deterministic German, light-theme preview state. Performance and LCP use the median;
+accessibility, best practices, CLS and transfer size retain conservative worst-case
+gates. Automated readiness records technical results separately from external
+approvals.
 
 **Reason:** A technically valid preview must not imply operator approval, domain
-readiness or production CMS verification.
+readiness or production CMS verification. A fixed initial language avoids measuring
+a synthetic German-to-English layout shift, while multiple cold samples avoid a
+noisy single CI measurement.
 
 ## 2026-08-13 - Canonical generated content and deterministic quality gate
 

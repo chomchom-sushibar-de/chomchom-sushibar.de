@@ -20,7 +20,7 @@ technical behavior; they do not replace operator approval or real-device review.
 | Preview SEO | `tests/static/html.test.mjs` | Source language and bilingual title/description/OpenGraph metadata are present; canonical/`og:url`/sitemap remain intentionally absent until domain approval |
 | CMS boundary | `tests/static/data.test.mjs` | Editorial workflow, scoped files, hidden invariants, pinned SRI-protected client and absence of credential fields |
 | Visual regression | `tests/e2e/visual.spec.mjs` | Home/menu in DE/EN at all five configured viewports |
-| Performance | `npm run lighthouse` | Home/menu budgets from three runs: median performance/LCP plus conservative accessibility, best-practices, CLS and transfer-size gates |
+| Performance | `npm run lighthouse` | Home/menu budgets from three cache/storage-reset DE/light runs: median performance/LCP plus conservative accessibility, best-practices, CLS and transfer-size gates |
 | Deployment | `npm run build` and Pages workflow | Validated data is generated first; only `dist/` is uploaded |
 | Readiness split | `npm run release:check` | Technical results are machine-readable; external approvals remain `blocked` |
 

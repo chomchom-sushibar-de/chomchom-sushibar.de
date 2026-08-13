@@ -57,10 +57,11 @@ try {
   });
   const browser = await chromium.connectOverCDP(`http://127.0.0.1:${chrome.port}`);
   const context = browser.contexts()[0];
-  const setupPage = await context.newPage();
-  await setupPage.goto(baseUrl);
-  await setupPage.evaluate(() => localStorage.setItem("site-unlocked", "true"));
-  await setupPage.close();
+  await context.addInitScript(() => {
+    localStorage.setItem("site-unlocked", "true");
+    localStorage.setItem("chomchom-lang", "de");
+    localStorage.setItem("chomchom-theme", "light");
+  });
 
   const reports = {};
   const failures = [];
@@ -71,8 +72,7 @@ try {
         port: chrome.port,
         logLevel: "error",
         output: "json",
-        onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
-        disableStorageReset: true
+        onlyCategories: ["performance", "accessibility", "best-practices", "seo"]
       });
       samples.push({
         performance: score(result, "performance"),

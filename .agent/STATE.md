@@ -35,9 +35,9 @@ preparation helper.
 - Static/schema/generator suite: 12/12 passing.
 - Playwright: 70/70 passing in DE/EN at 320x568, 390x844, 412x915, 768x1024 and
   1440x900, including axe and visual baselines.
-- Lighthouse three-run median: home performance 1.00, accessibility 0.98, best
-  practices 1.00, LCP 1.50 s, CLS 0; menu performance 0.94, accessibility 0.98,
-  best practices 1.00, LCP 2.78 s, worst-case CLS 0.053.
+- Lighthouse three-run cold median: home performance 0.99, accessibility 0.98,
+  best practices 1.00, LCP 1.95 s, worst-case CLS 0; menu performance 0.95,
+  accessibility 0.98, best practices 1.00, LCP 2.78 s, worst-case CLS 0.
 - Dependency audit: zero reported vulnerabilities at `high` threshold.
 
 ## Known external blockers
