@@ -1,26 +1,34 @@
 <!doctype html>
 <html lang="de">
 <head>
-<script src="gate.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
 <title data-en="Outdoor Area – Chôm Chôm Sushibar Sauerlach">Außenbereich – Chôm Chôm Sushibar Sauerlach</title>
 <meta name="description" content="Unser kleiner Außenbereich im Sommer: Sitzplätze vor dem Lokal am Bahnhofplatz in Sauerlach." data-en-content="Our small outdoor area in summer: seating in front of the restaurant at Bahnhofplatz in Sauerlach.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Außenbereich – Chôm Chôm Sushibar Sauerlach" data-en-content="Outdoor Area – Chôm Chôm Sushibar Sauerlach">
+<meta property="og:description" content="Unser kleiner Außenbereich im Sommer am Bahnhofplatz in Sauerlach." data-en-content="Our small outdoor area in summer at Bahnhofplatz in Sauerlach.">
+<meta property="og:locale" content="de_DE" data-en-content="en_GB">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
+<script src="gate.js"></script>
 </head>
 <body>
 
-<div id="site-announcement" class="announcement-bar" hidden></div>
+<a class="skip-link" href="#main-content" data-en="Skip to content">Zum Inhalt springen</a>
+
+<div id="site-announcement" class="announcement-bar" role="status" aria-live="polite" hidden></div>
 
 
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">
-      <img class="brand-mark brand-mark-light" src="img/logo-full-light.png" alt="Chôm Chôm Sushibar" loading="eager">
-      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark.png" alt="Chôm Chôm Sushibar" loading="eager">
+      <img class="brand-mark brand-mark-light" src="img/logo-full-light-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
+      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
     </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
+    <button type="button" class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="main-nav" id="main-navigation">
@@ -50,6 +58,7 @@
   </div>
 </header>
 
+<main id="main-content">
 <div class="page-band">
   <div class="container">
     <h1 data-en="Our Small Outdoor Area in Summer">Unser kleiner Außenbereich im Sommer</h1>
@@ -57,14 +66,14 @@
   </div>
 </div>
 
-<main>
+<div class="page-content">
   <section>
     <div class="container">
       <div class="gallery">
-        <img src="img/aussenbereich-1.jpg" alt="Sitzplatz im Außenbereich mit Sonnenschirm und handgeschriebener Tafel" data-en-alt="Outdoor seating with a parasol and a hand-written chalkboard" loading="lazy">
-        <img src="img/aussenbereich-2.jpg" alt="Bierbank-Tische und Sonnenschirme vor dem Lokal" data-en-alt="Beer-garden benches and parasols in front of the restaurant" loading="lazy">
-        <img src="img/aussenbereich-3.jpg" alt="Sitzgruppe im Außenbereich mit Pflanzen" data-en-alt="Seating area outdoors with plants" loading="lazy">
-        <img src="img/aussenbereich-4.jpg" alt="Außenbereich mit Blick auf den Bahnhofplatz" data-en-alt="Outdoor area with a view of Bahnhofplatz" loading="lazy">
+        <img src="img/aussenbereich-1.jpg" alt="Sitzplatz im Außenbereich mit Sonnenschirm und handgeschriebener Tafel" data-en-alt="Outdoor seating with a parasol and a hand-written chalkboard" width="1000" height="746" loading="lazy">
+        <img src="img/aussenbereich-2.jpg" alt="Bierbank-Tische und Sonnenschirme vor dem Lokal" data-en-alt="Beer-garden benches and parasols in front of the restaurant" width="1000" height="746" loading="lazy">
+        <img src="img/aussenbereich-3.jpg" alt="Sitzgruppe im Außenbereich mit Pflanzen" data-en-alt="Seating area outdoors with plants" width="1000" height="746" loading="lazy">
+        <img src="img/aussenbereich-4.jpg" alt="Außenbereich mit Blick auf den Bahnhofplatz" data-en-alt="Outdoor area with a view of Bahnhofplatz" width="1000" height="746" loading="lazy">
       </div>
     </div>
   </section>
@@ -81,6 +90,7 @@
       </div>
     </div>
   </section>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -107,13 +117,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/">itmitalles.de</a></span>
+      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/" rel="external">itmitalles.de</a></span>
       <span><a href="impressum.html" data-en="Legal Notice">Impressum</a> · <a href="datenschutz.html" data-en="Privacy Policy">Datenschutz</a></span>
     </div>
   </div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>

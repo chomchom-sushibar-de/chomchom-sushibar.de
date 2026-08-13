@@ -4,6 +4,18 @@
   var LANG_KEY = "chomchom-lang";
   var ATTRS = ["alt", "title", "placeholder", "content", "aria-label"];
 
+  function storageGet(key) {
+    try { return localStorage.getItem(key); } catch (error) { return null; }
+  }
+
+  function storageSet(key, value) {
+    try { localStorage.setItem(key, value); } catch (error) {}
+  }
+
+  function storageRemove(key) {
+    try { localStorage.removeItem(key); } catch (error) {}
+  }
+
   function toCamel(s) {
     return s.replace(/-([a-z0-9])/g, function (_, c) { return c.toUpperCase(); });
   }
@@ -47,14 +59,18 @@
     document.dispatchEvent(new CustomEvent("chomchom:langchange", { detail: { lang: lang } }));
   }
 
-  var lang = localStorage.getItem(LANG_KEY) || detectDefault();
+  var lang = storageGet(LANG_KEY);
+  if (lang !== "de" && lang !== "en") {
+    storageRemove(LANG_KEY);
+    lang = detectDefault();
+  }
   applyLang(lang);
 
   document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
     btn.addEventListener("click", function () {
       if (btn.dataset.lang === lang) return;
       lang = btn.dataset.lang;
-      localStorage.setItem(LANG_KEY, lang);
+      storageSet(LANG_KEY, lang);
       applyLang(lang);
     });
   });

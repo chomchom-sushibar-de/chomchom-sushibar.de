@@ -5,6 +5,7 @@ backend:
   base_url: https://chomchom-cms-auth.chomchom-cms-auth.workers.dev
   auth_endpoint: auth
 
+publish_mode: editorial_workflow
 media_folder: "img"
 public_folder: "img"
 
@@ -18,14 +19,232 @@ collections:
         fields:
           - label: "Hinweisbanner"
             name: "announcement"
-            widget: "string"
-            required: false
-            hint: "Wird oben auf jeder Seite angezeigt (z. B. Feiertags-Hinweis). Leer lassen zum Ausblenden."
-          - label: "Öffnungszeiten (Fußzeile)"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Deutsch", name: "de", widget: "string", required: false }
+              - { label: "Englisch", name: "en", widget: "string", required: false }
+          - label: "Öffnungszeiten (alle Ansichten)"
             name: "hours"
             widget: "object"
+            collapsed: false
             fields:
-              - { label: "Zeile 1", name: "footer_line1", widget: "string" }
-              - { label: "Zeile 2", name: "footer_line2", widget: "string" }
-              - { label: "Zeile 3", name: "footer_line3", widget: "string" }
-              - { label: "Zeile 4", name: "footer_line4", widget: "string" }
+              - label: "Montag bis Freitag"
+                name: "weekday"
+                widget: "object"
+                collapsed: false
+                fields:
+                  - label: "Kurzbezeichnung"
+                    name: "shortLabel"
+                    widget: "object"
+                    fields: &localized_text_fields
+                      - { label: "Deutsch", name: "de", widget: "string" }
+                      - { label: "Englisch", name: "en", widget: "string" }
+                  - label: "Tabellenbezeichnung"
+                    name: "tableLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Impressumsbezeichnung"
+                    name: "legalLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - name: "schemaDays"
+                    label: "Strukturierte Wochentage"
+                    widget: "hidden"
+                    default: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                  - label: "Zeitfenster"
+                    name: "periods"
+                    widget: "list"
+                    min: 2
+                    max: 2
+                    fields: &period_fields
+                      - { label: "Öffnet (HH:MM)", name: "opens", widget: "string", pattern: ['^(?:[01][0-9]|2[0-3]):[0-5][0-9]$', "24-Stunden-Format HH:MM"] }
+                      - { label: "Schließt (HH:MM)", name: "closes", widget: "string", pattern: ['^(?:[01][0-9]|2[0-3]):[0-5][0-9]$', "24-Stunden-Format HH:MM"] }
+              - label: "Sonntag und Feiertage"
+                name: "sundayHolidays"
+                widget: "object"
+                collapsed: false
+                fields:
+                  - label: "Kurzbezeichnung"
+                    name: "shortLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Tabellenbezeichnung"
+                    name: "tableLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Impressumsbezeichnung"
+                    name: "legalLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - name: "schemaDays"
+                    label: "Strukturierte Wochentage"
+                    widget: "hidden"
+                    default: ["Sunday"]
+                  - label: "Zeitfenster"
+                    name: "periods"
+                    widget: "list"
+                    min: 1
+                    max: 1
+                    fields: *period_fields
+              - label: "Samstag (geschlossen)"
+                name: "saturday"
+                widget: "object"
+                collapsed: false
+                fields:
+                  - label: "Kurzbezeichnung"
+                    name: "shortLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Tabellenbezeichnung"
+                    name: "tableLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Impressumsbezeichnung"
+                    name: "legalLabel"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Status (alleinstehend)"
+                    name: "status"
+                    widget: "object"
+                    fields: *localized_text_fields
+                  - label: "Status (im Satz)"
+                    name: "inlineStatus"
+                    widget: "object"
+                    hint: "Englisch wird hier im laufenden Satz kleingeschrieben."
+                    fields: *localized_text_fields
+
+  - name: "menu"
+    label: "Speisekarte"
+    files:
+      - name: "menu_v1"
+        label: "Gerichte & Verfügbarkeit"
+        file: "data/menu.v1.json"
+        fields:
+          - { label: "Schema-Version", name: "schemaVersion", widget: "hidden", default: 1 }
+          - { label: "Inhaltsversion", name: "contentVersion", widget: "string", hint: "Nur nach autoritativ bestätigter Kartenänderung anpassen." }
+          - { label: "Währung", name: "currency", widget: "hidden", default: "EUR" }
+          - label: "Quellenmetadaten"
+            name: "source"
+            widget: "hidden"
+            default:
+              documentedOrigin: "Repository PDF price lists transferred to speisekarte.html; see README.md"
+              asOf: "2025-11"
+              files:
+                - path: "menu/speisekarte.pdf"
+                  sha256: "29f337aa13f68ae275ae558116ce81fd8172ac8efded5bf2256917e409c97b15"
+                - path: "menu/sushi-karte.pdf"
+                  sha256: "18da0ebffcec5a48d34521967d951034ce43cc8f753a1ac0f3d88077ca99fdbc"
+              migrationBaseline: "tests/fixtures/menu-pre-migration.v1.json"
+          - label: "Preismodi"
+            name: "priceModes"
+            widget: "hidden"
+            default:
+              default: "day"
+              supported: ["day", "evening"]
+          - label: "Auswahlvorschläge"
+            name: "suggestions"
+            widget: "hidden"
+            default:
+              starter: ["vorspeisen-11", "suppen-2"]
+              dessert: ["desserts-80"]
+          - label: "Kategorien"
+            name: "categories"
+            widget: "list"
+            minimize_collapsed: true
+            summary: "{{fields.sort}} · {{fields.name.de}}"
+            fields:
+              - { label: "Stabile ID", name: "id", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Kleinbuchstaben, Zahlen und Bindestriche"] }
+              - { label: "Sortierung", name: "sort", widget: "number", value_type: "int", min: 1 }
+              - label: "Kategoriename"
+                name: "name"
+                widget: "object"
+                fields:
+                  - { label: "Deutsch", name: "de", widget: "string" }
+                  - { label: "Englisch", name: "en", widget: "string" }
+              - label: "Zusatz in der Überschrift"
+                name: "detail"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Deutsch", name: "de", widget: "string" }
+                  - { label: "Englisch", name: "en", widget: "string" }
+              - label: "Kategoriehinweis"
+                name: "note"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Deutsch", name: "de", widget: "string" }
+                  - { label: "Englisch", name: "en", widget: "string" }
+              - label: "Position des Hinweises"
+                name: "notePosition"
+                widget: "select"
+                required: false
+                options:
+                  - { label: "Vor den Gerichten", value: "before-items" }
+                  - { label: "Nach den Gerichten", value: "after-items" }
+              - &tags_field
+                label: "Hinweise"
+                name: "tags"
+                widget: "list"
+                required: false
+                summary: "{{fields.kind}} · {{fields.text.de}}"
+                fields:
+                  - label: "Typ"
+                    name: "kind"
+                    widget: "select"
+                    options:
+                      - { label: "Vegetarisch", value: "vegetarian" }
+                      - { label: "Scharf", value: "spicy" }
+                  - label: "Text"
+                    name: "text"
+                    widget: "object"
+                    fields:
+                      - { label: "Deutsch", name: "de", widget: "string" }
+                      - { label: "Englisch", name: "en", widget: "string" }
+              - label: "Gerichte"
+                name: "items"
+                widget: "list"
+                minimize_collapsed: true
+                summary: "Nr. {{fields.visibleNumber}} · {{fields.name.de}}"
+                fields:
+                  - { label: "Stabile ID", name: "id", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Kleinbuchstaben, Zahlen und Bindestriche"] }
+                  - { label: "Sichtbare Nummer", name: "visibleNumber", widget: "string" }
+                  - { label: "Sortierung", name: "sort", widget: "number", value_type: "int", min: 1 }
+                  - label: "Name"
+                    name: "name"
+                    widget: "object"
+                    fields:
+                      - { label: "Deutsch", name: "de", widget: "string" }
+                      - { label: "Englisch", name: "en", widget: "string" }
+                  - label: "Namenszusatz"
+                    name: "qualifier"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Deutsch", name: "de", widget: "string" }
+                      - { label: "Englisch", name: "en", widget: "string" }
+                  - label: "Beschreibung"
+                    name: "description"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Deutsch", name: "de", widget: "string" }
+                      - { label: "Englisch", name: "en", widget: "string" }
+                  - *tags_field
+                  - label: "Preise in Cent"
+                    name: "prices"
+                    widget: "object"
+                    hint: "9,50 € als 950 eingeben. Keine Dezimalzahlen."
+                    fields:
+                      - { label: "Mittag / einzelner Preis", name: "dayCents", widget: "number", value_type: "int", min: 1 }
+                      - { label: "Abendpreis", name: "eveningCents", widget: "number", value_type: "int", min: 1, required: false }
+                      - label: "Abendpreis-Präfix"
+                        name: "eveningPrefix"
+                        widget: "object"
+                        required: false
+                        hint: "Nur bei bereits so beschrifteten Einträgen verwenden."
+                        fields:
+                          - { label: "Deutsch", name: "de", widget: "string" }
+                          - { label: "Englisch", name: "en", widget: "string" }
+                  - { label: "Verfügbar", name: "available", widget: "boolean", default: true }

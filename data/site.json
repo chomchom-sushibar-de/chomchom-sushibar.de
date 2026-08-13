@@ -1,9 +1,84 @@
 {
-  "announcement": "",
+  "announcement": {
+    "de": "",
+    "en": ""
+  },
   "hours": {
-    "footer_line1": "Mo–Fr 11:30–14:30 Uhr",
-    "footer_line2": "Mo–Fr 17:30–21:00 Uhr",
-    "footer_line3": "So & Feiertag 17:00–21:00 Uhr",
-    "footer_line4": "Samstag Ruhetag"
+    "weekday": {
+      "shortLabel": {
+        "de": "Mo–Fr",
+        "en": "Mon–Fri"
+      },
+      "tableLabel": {
+        "de": "Montag – Freitag",
+        "en": "Monday – Friday"
+      },
+      "legalLabel": {
+        "de": "Montag bis Freitag",
+        "en": "Monday to Friday"
+      },
+      "schemaDays": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "periods": [
+        {
+          "opens": "11:30",
+          "closes": "14:30"
+        },
+        {
+          "opens": "17:30",
+          "closes": "21:00"
+        }
+      ]
+    },
+    "sundayHolidays": {
+      "shortLabel": {
+        "de": "So & Feiertag",
+        "en": "Sun & public holidays"
+      },
+      "tableLabel": {
+        "de": "Sonntag & Feiertag",
+        "en": "Sunday & public holidays"
+      },
+      "legalLabel": {
+        "de": "Sonntag und feiertags",
+        "en": "Sunday and public holidays"
+      },
+      "schemaDays": [
+        "Sunday"
+      ],
+      "periods": [
+        {
+          "opens": "17:00",
+          "closes": "21:00"
+        }
+      ]
+    },
+    "saturday": {
+      "shortLabel": {
+        "de": "Sa",
+        "en": "Sat"
+      },
+      "tableLabel": {
+        "de": "Samstag",
+        "en": "Saturday"
+      },
+      "legalLabel": {
+        "de": "Samstag",
+        "en": "Saturday"
+      },
+      "status": {
+        "de": "Ruhetag",
+        "en": "Closed"
+      },
+      "inlineStatus": {
+        "de": "Ruhetag",
+        "en": "closed"
+      }
+    }
   }
 }

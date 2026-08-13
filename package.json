@@ -1,0 +1,34 @@
+{
+  "name": "chomchom-sushibar-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "menu:extract": "node scripts/extract-menu-baseline.mjs",
+    "menu:generate": "node scripts/generate-menu.mjs",
+    "menu:check": "node scripts/generate-menu.mjs --check",
+    "site:generate": "node scripts/generate-site.mjs",
+    "site:check": "node scripts/generate-site.mjs --check",
+    "test:static": "node --test tests/static/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test:visual:update": "playwright test tests/e2e/visual.spec.mjs --update-snapshots",
+    "test": "npm run menu:generate && npm run site:generate && npm run menu:check && npm run site:check && npm run test:static && npm run test:e2e",
+    "validate": "npm run test",
+    "serve": "node scripts/serve.mjs",
+    "build": "npm run menu:generate && npm run site:generate && node scripts/build-site.mjs",
+    "lighthouse": "node scripts/lighthouse-check.mjs",
+    "release:check": "node scripts/release-readiness.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "ajv": "8.20.0",
+    "chrome-launcher": "1.2.1",
+    "lighthouse": "13.4.1",
+    "parse5": "8.0.1",
+    "yaml": "2.9.0"
+  },
+  "engines": {
+    "node": ">=22.19"
+  }
+}
