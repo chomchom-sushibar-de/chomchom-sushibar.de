@@ -14,9 +14,7 @@ Farbpalette (Anthrazit `#2b2d2e`, warmes Off-White `#f6f4f1`, Holz-Gold-Akzent) 
 
 ## Vor dem produktiven Einsatz
 
-- [x] Betreiber (Hoang Bao Du Pham) telefonisch kontaktiert – Entwurf wird ihm gezeigt.
-- [ ] Freigabe der Inhalte (insb. Speisekarte, Öffnungszeiten, verwendete Fotos) durch den Betreiber einholen.
-- [ ] Aktuelle Preise/Gerichte gegen die im Lokal ausliegende Karte gegenchecken, falls sich seit November 2025 etwas geändert hat.
-- [ ] Bei Bedarf eigene, aktuellere Fotos vom Lokal/Gerichten ergänzen.
-- [ ] DNS für `chomchom-sushibar.de` auf GitHub Pages zeigen lassen (Custom-Domain-Einstellung in den Repo-Settings) und CNAME-Datei anlegen, sobald der Betreiber zustimmt.
-- [ ] Temporäre PIN-Sperre (`gate.js`, PIN `82054`) entfernen, sobald die Seite öffentlich gehen darf: `gate.js` löschen, die `<script src="gate.js">`-Zeile aus allen HTML-Dateien und den PIN-Sperre-CSS-Block aus `styles.css` entfernen.
+Die verbindliche Launch- und Wartungsliste liegt ausschließlich in
+[`.agent/TODO.md`](.agent/TODO.md). Die GitHub-Pages-Vorschau funktioniert; die
+öffentliche Domain zeigte beim Agent-Handoff am 13.08.2026 noch nicht auf diese
+Pages-Site. Die clientseitige Vorschau-Sperre ist keine Zugriffskontrolle.
