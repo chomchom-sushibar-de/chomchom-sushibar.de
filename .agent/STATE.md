@@ -2,79 +2,69 @@
 
 ## Project goal
 
-Maintain a fast bilingual website and preview for Chom Chom Sushibar, including
-restaurant information, menu, contact, and a phone-order preparation helper.
+Maintain a fast bilingual static website and gated preview for Chom Chom Sushibar,
+including restaurant information, a canonical menu and a local telephone-order
+preparation helper.
 
 ## Current status
 
-- Default branch: `main`; inspected base commit: `235c522`.
-- The static DE/EN site, menu, order helper, preview gate, and Decap CMS settings
-  editor are implemented.
-- The Pages workflow for `235c522` completed successfully on 2026-08-13 and serves
-  the repository preview at the organization GitHub Pages URL.
-- On 2026-08-13, `chomchom-sushibar.de` resolved to a non-GitHub host and the Pages
-  configuration had no custom domain. The new site is therefore not verified as
-  production at the public domain.
-- No open GitHub issues were found during this handoff.
+- Workstream branch: `agent/chomchom-quality-and-menu-model`; base commit:
+  `fec93d7`.
+- The homepage is food-first again: an existing dish photo is the hero, all three
+  existing food-photo cards immediately follow, and Google reviews are a compact
+  secondary section below the restaurant ambience.
+- `data/menu.v1.json` is the versioned source for menu HTML, Menu JSON-LD and the
+  telephone helper. Migration checks preserve all 20 categories and 138 dishes
+  from the pre-migration snapshot.
+- `data/site.json` contains one normalized bilingual schedule. Browser views and
+  Restaurant JSON-LD are derived from it without changing the verified values.
+- The local order helper uses stable IDs and integer cents, migrates/normalizes old
+  carts, enforces limits and provides an accessible telephone summary.
+- Decap uses an editorial workflow and is scoped to site settings and menu data.
+  Schema validation is the deployment boundary; the external auth runtime is not
+  verified here.
+- Pull-request CI and Pages deployment run reproducible Node/browser checks,
+  Lighthouse budgets and a generated `dist/` build.
+- The site remains `noindex`, has no `CNAME` or sitemap, and retains the client-side
+  preview gate. The gate is presentation, not access control.
 
-## Working
+## Verified locally
 
-- Static multi-page site with automatic/manual DE/EN selection and theme choice.
-- The homepage presents the Google rating in the hero and a dedicated bilingual
-  review section with a direct Google Maps link.
-- All seven public pages show the linked footer credit `website made by
-  itmitalles.de`.
-- Menu cart stored in browser `localStorage`; completion produces a telephone-order
-  summary rather than a server-side order.
-- `data/site.json` supplies announcements and footer hours.
-- Decap CMS is configured to edit that settings file through GitHub.
-- GitHub Pages preview deployment succeeds.
+- Static/schema/generator suite: 12/12 passing.
+- Playwright: 70/70 passing in DE/EN at 320x568, 390x844, 412x915, 768x1024 and
+  1440x900, including axe and visual baselines.
+- Lighthouse: home performance 1.00, accessibility 0.98, best practices 1.00,
+  LCP 1.50 s, CLS 0; menu performance 0.96, accessibility 0.98, best practices
+  1.00, LCP 2.33 s, CLS 0.
+- Dependency audit: zero reported vulnerabilities at `high` threshold.
 
-## Active work
+## Known external blockers
 
-No implementation workstream is recorded. The project remains a gated preview
-pending operator approval and domain cutover.
-
-## Recently completed
-
-- Added the responsive Google-rating and review presentation to the homepage.
-- Improved responsive navigation behavior and accessibility state handling.
-- Replaced the former plain agency mention with a linked site credit on every page.
-- Added the menu selection and call-summary experience.
-- Added the Decap CMS settings editor and external GitHub auth endpoint.
-- Updated the preview presentation and responsive public pages.
-
-## Known issues
-
-- Operator approval of content, prices, hours, and photographs is not recorded.
-- Menu prices were transcribed from November 2025 PDFs and may now be stale.
-- The public domain has not been cut over to this GitHub Pages deployment.
-- The client-side preview gate is only a visual barrier, not access control.
-- The CMS depends on an external auth service whose runtime was not verified here.
+- Operator approval of public copy, business/legal facts, menu, current prices,
+  hours and every photograph is not recorded.
+- Menu content still documents the November 2025 source revision and may be stale.
+- The public domain has not been cut over to this Pages deployment.
+- Decap authentication has not been exercised against the production worker.
+- Physical iOS/Android review has not been completed.
 
 ## Next recommended tasks
 
-1. Obtain operator approval and validate menu/hours against current source material.
-2. After approval, configure the custom domain and DNS for GitHub Pages.
-3. Remove the preview gate as part of the approved public launch.
+1. Review and merge the quality branch only after CI and operator review.
+2. Verify current menu/prices, hours and photographs with the operator.
+3. Only after explicit launch approval: configure domain/DNS, add canonical/crawler
+   metadata and remove the preview gate.
 
 ## Relevant files
 
-- `404.html`, `aussenbereich.html`, `datenschutz.html`, `impressum.html`
-- `index.html`, `kontakt.html`, `speisekarte.html`, `styles.css`
-- `script.js`, `i18n.js`, `order.js`, `gate.js`
-- `data/site.json`, `admin/config.yml`, `admin/index.html`
-- `README.md`, `.github/workflows/pages.yml`
-
-## Validation
-
-- `for file in script.js i18n.js order.js gate.js; do node --check "$file"; done`
-- `python3 -m json.tool data/site.json`
-- `git diff --check`
-- Browser review in DE/EN at representative mobile and desktop sizes
+- `data/menu.v1.json`, `data/site.json`, `schemas/`
+- `scripts/`, `package.json`, `playwright.config.mjs`, `tests/`
+- `admin/config.yml`, `.github/workflows/`
+- `index.html`, `speisekarte.html`, `order.js`, `script.js`, `styles.css`
+- `docs/VERIFICATION_MATRIX.md`, `docs/MENU_DATA_MODEL.md`,
+  `docs/RELEASE_CHECKLIST.md`, `docs/NICE_TO_HAVE.md`
 
 ## Last handoff
 
-2026-08-13: added the Google-review presentation, responsive navigation fixes, and
-the linked `itmitalles.de` footer credit on all public pages; migrated the finished
-work from the conflicting legacy `TODO.md` into this handoff.
+2026-08-13: completed the canonical data, CI/test and readiness workstream; restored
+food as the homepage focus without changing the established visual theme or adding
+new external imagery.

@@ -1,24 +1,18 @@
-name: Website veröffentlichen
+name: Technische Qualität
 
 on:
-  push:
-    branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: quality-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Repository auschecken
@@ -32,14 +26,18 @@ jobs:
         run: npm ci
       - name: Chromium für Browserprüfungen installieren
         run: npx playwright install --with-deps chromium
-      - name: Technische Freigabekriterien prüfen und Artefakt bauen
+      - name: Abhängigkeiten auditieren
+        run: npm audit --audit-level=high
+      - name: Tests, Lighthouse-Budgets und Build prüfen
         run: npm run release:check
-      - name: GitHub Pages konfigurieren
-        uses: actions/configure-pages@v5
-      - name: Website als Artefakt bereitstellen
-        uses: actions/upload-pages-artifact@v3
+      - name: Prüfberichte sichern
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          path: dist
-      - name: Website deployen
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: quality-reports
+          path: |
+            artifacts/
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
