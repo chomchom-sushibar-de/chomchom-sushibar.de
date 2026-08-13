@@ -2,15 +2,15 @@
 
 ## Prompt
 
-Continue work in `chomchom-sushibar-de/chomchom-sushibar.de` from its latest committed state. First read this file from the latest commit, inspect the latest commit and working tree, and review the repository's issue tracker or other task source. No repository-specific in-progress task was recorded when this handoff file was created. If the user says "mach weiter" or "weida", identify the highest-priority unfinished task from that evidence and continue it without asking the user to repeat prior context. Do not invent scope; ask only when a material decision cannot be resolved safely from the repository.
+Continue work in `chomchom-sushibar-de/chomchom-sushibar.de` from its latest committed state. The current homepage features the restaurant's Google rating prominently in the hero and in a dedicated review section, and every public page links the footer credit to `https://itmitalles.de/`. If the published rating changes, update the static rating text and its date in `index.html`; do not add self-serving `aggregateRating` schema markup for the local business.
 
-Before every commit, replace this generic prompt with a concrete handoff for the next agent and update all sections below. The `TODO.md` update must be part of the same commit.
+Before every commit, update this file and include it in the same commit.
 
 ## Current state
 
-- Active goal: No active repository-specific goal recorded yet.
-- Completed: Added the canonical next-agent handoff file.
-- Remaining: Identify and execute the next unfinished repository task.
-- Blockers or decisions: None recorded.
-- Relevant files: `TODO.md`
-- Verification: Documentation-only change; no tests required.
+- Active goal: Present Google reviews prominently on the homepage.
+- Completed: Added a linked Google rating badge to the hero; added a dedicated bilingual review section with a 4.6/5 summary, three attributed excerpts, and a direct Google Maps link; added responsive light/dark-mode-compatible styling; replaced the former plain agency mention with the linked footer credit `website made by itmitalles.de` on all seven public pages.
+- Remaining: No implementation work remains. The next useful action is periodic verification of the static Google rating and excerpts.
+- Blockers or decisions: The public sources checked in August 2026 agree on a 4.6 rating but expose different cached review totals (205–217), so the UI intentionally says `200+` rather than claiming a brittle exact number.
+- Relevant files: `404.html`, `aussenbereich.html`, `datenschutz.html`, `impressum.html`, `index.html`, `kontakt.html`, `speisekarte.html`, `script.js`, `styles.css`, `TODO.md`
+- Verification: `git diff --check`, JavaScript syntax checks, JSON validation, and HTML parsing for all seven public pages passed. Headless Chrome checks passed at desktop (1440 px, dark theme, English) and mobile (390 px, light theme, German): no horizontal overflow, three review cards render, DE/EN rating text switches correctly, the Google link is valid, and mobile menu open/Escape-close labels remain correct.
