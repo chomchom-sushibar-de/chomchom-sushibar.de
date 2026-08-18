@@ -67,7 +67,8 @@ nach `main` mit ausschließlich lesendem `GITHUB_TOKEN`. Er prüft die
 Editorial-Konfiguration, den engen CMS-Dateiscope, die Struktur von
 `data/site.json`, die JavaScript-Syntax, Whitespacefehler im PR-Diff und die
 Pages-Trigger. Er deployt nichts und verwendet bewusst nicht
-`pull_request_target`.
+`pull_request_target`. Die beiden verwendeten Actions sind auf die geprüften
+Release-Commits von Checkout 7.0.1 und Setup Node 7.0.0 gepinnt.
 
 Bei einem erstmaligen Open-Authoring-Beitrag aus einem Fork muss ein Maintainer
 den sicheren Workflowlauf einmal auf GitHub freigeben. Danach laufen die
