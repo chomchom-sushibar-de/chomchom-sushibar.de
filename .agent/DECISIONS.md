@@ -1,5 +1,22 @@
 # Decisions
 
+## 2026-08-19 - CMS publication requires layered GitHub enforcement
+
+**Decision:** Use Decap Editorial Workflow with Open Authoring for normal entry
+saves, but treat a no-bypass `main` ruleset with required review and CI as the
+authoritative publication control. Pages has no manual trigger and deploys only
+after a push to `main`.
+
+**Reason:** CMS configuration controls expected editor behavior but cannot remove
+GitHub push rights. Decap 3.15.1 also sends standalone Media Library writes through
+the direct media backend rather than the editorial entry path.
+
+**Consequences:** Pin Decap 3.15.1, restrict CMS-managed content to
+`data/site.json` and `data/menu.v1.json`, do not use the standalone Media Library,
+and require GitHub to reject every direct `main` write. The external OAuth worker
+and an unmerged synthetic CMS PR remain separate operational verification
+boundaries.
+
 ## 2026-08-13 - Improvements preserve the established website theme
 
 **Decision:** Treat optimization work as non-redesign work. Keep the Chom Chom

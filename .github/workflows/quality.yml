@@ -1,7 +1,8 @@
-name: Technische Qualität
+name: Technische Qualität und CMS-Sicherheit
 
 on:
   pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,17 +14,33 @@ concurrency:
 
 jobs:
   verify:
+    name: Combined quality and CMS safety
     runs-on: ubuntu-latest
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
       - name: Node.js einrichten
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
       - name: Abhängigkeiten reproduzierbar installieren
         run: npm ci
+      - name: CMS-, Allowlist- und Deployment-Grenzen prüfen
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_HEAD_REF: ${{ github.head_ref }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: node scripts/verify-cms-workflow.mjs
+      - name: Pull-Request-Diff prüfen
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: git diff --check "$BASE_SHA...$HEAD_SHA"
       - name: Chromium für Browserprüfungen installieren
         run: npx playwright install --with-deps chromium
       - name: Abhängigkeiten auditieren

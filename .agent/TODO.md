@@ -5,16 +5,21 @@ not complete externally owned launch decisions.
 
 ## Now
 
-- [ ] Obtain operator approval for public copy, business/legal facts, menu, hours
-  and every photograph.
-- [ ] Compare current in-restaurant dishes and prices with the documented November
-  2025 source revision.
-- [ ] Review the generated and visual diffs in Draft PR #1 before merge.
+- [ ] Finish the targeted PR #2 security port into Draft PR #1 and run the complete
+  local validation suite without changing restaurant content.
+- [ ] Push the combined Draft PR #1 and require a successful final combined check.
+- [ ] Only after that check succeeds, activate a no-bypass `main` ruleset requiring
+  pull requests, one fresh approval, resolved conversations and the combined check.
+- [ ] Comment on and close PR #2 as superseded after verifying every applicable
+  security change exists in PR #1.
+- [ ] Audit the external OAuth worker without recording credentials.
+- [ ] Obtain operator approval for copy, legal/business facts, current menu/prices,
+  opening hours and every photograph.
+- [ ] Run the documented synthetic CMS PR and close it without merge; verify the
+  restaurant editor cannot merge directly and `main`/Pages remain unchanged.
 
 ## Next
 
-- [ ] Exercise Decap authentication and one complete editorial pull request against
-  the production auth service.
 - [ ] Check the preview on representative physical iOS and Android devices.
 - [ ] Add further food photography only when the operator supplies or approves it.
 
@@ -27,24 +32,16 @@ not complete externally owned launch decisions.
 
 ## Blocked
 
+- [ ] PR #1 must remain Draft until prices, opening hours, photographs, operator
+  approval, CMS login, the synthetic CMS PR and editor permissions are confirmed.
 - [ ] Public domain cutover, indexability and gate removal are blocked on explicit
   operator launch approval.
-- [ ] Production CMS runtime verification depends on the external auth service.
+- [ ] Production CMS verification depends on the external OAuth service.
 
 ## Recently completed
 
-- [x] Remove the menu introduction's side artwork and structure its bilingual notes.
-- [x] Restore a food-first homepage and demote the large review-card presentation.
-- [x] Introduce the canonical bilingual menu model without changing menu content.
-- [x] Generate menu HTML, order data and JSON-LD from one validated source.
-- [x] Normalize site hours and derive browser views plus Restaurant JSON-LD.
-- [x] Harden the local telephone helper and its accessibility behavior.
-- [x] Extend Decap to menu availability with editorial/schema safeguards.
-- [x] Add static, browser, axe, visual, Lighthouse and readiness automation.
+- [x] Merge current `main` into PR #1 without losing its menu-introduction update.
+- [x] Compare PR #1, PR #2 and current `main` per file.
+- [x] Restore a food-first homepage and add the canonical menu/quality harness.
 - [x] Build and deploy only a validated `dist/` artifact.
-- [x] Push the workstream and open Draft PR #1 with required quality CI.
-- [x] Add a prominent, bilingual Google-review presentation to the homepage.
-- [x] Link `website made by itmitalles.de` from every public-page footer.
-- [x] Contact the operator and prepare a reviewable draft.
-- [x] Deploy a successful GitHub Pages preview.
-- [x] Replace the old root handoff with `.agent/` state and tasks.
+- [x] Prepare Decap Editorial Workflow and document its external boundaries.

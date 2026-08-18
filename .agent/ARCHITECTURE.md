@@ -35,6 +35,11 @@ data files. Schema/semantic checks and generators run in CI and before deploymen
 The external GitHub-auth worker is operationally separate; no credentials are
 stored here and the public site does not depend on CMS availability.
 
+Normal saves use Editorial Workflow branches or Open-Authoring forks. A GitHub
+ruleset, not the OAuth worker or CMS UI, is the authoritative review/direct-push
+boundary. The standalone Media Library is outside the editorial entry path and
+must be blocked by that no-bypass ruleset.
+
 ## Build, tests and deployment
 
 - `package.json` and the lockfile define Node-based validation without converting
@@ -45,8 +50,11 @@ stored here and the public site does not depend on CMS availability.
   committed visual snapshots.
 - Lighthouse checks home/menu budgets; `release:check` emits ignored machine
   reports and keeps external approvals marked blocked.
+- `.github/workflows/quality.yml` combines the technical suite with CMS config,
+  managed-path allowlist and Pages-boundary checks under read-only PR permissions.
 - `scripts/build-site.mjs` creates `dist/`; the Pages workflow uploads only that
-  validated artifact from `main`.
+  validated artifact after a push to `main`; it has no PR or manual trigger.
+- A required no-bypass ruleset must turn every `main` push into an approved merge.
 
 ## Persistence and privacy
 

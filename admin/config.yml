@@ -4,8 +4,13 @@ backend:
   branch: main
   base_url: https://chomchom-cms-auth.chomchom-cms-auth.workers.dev
   auth_endpoint: auth
+  squash_merges: true
+  open_authoring: true
+  cms_label_prefix: decap-cms/
 
 publish_mode: editorial_workflow
+show_preview_links: false
+
 media_folder: "img"
 public_folder: "img"
 

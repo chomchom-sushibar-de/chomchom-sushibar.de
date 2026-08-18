@@ -8,75 +8,62 @@ preparation helper.
 
 ## Current status
 
-- Workstream branch: `agent/chomchom-quality-and-menu-model`; base commit:
-  `fec93d7`.
-- Draft pull request: `#1`,
-  `https://github.com/chomchom-sushibar-de/chomchom-sushibar.de/pull/1`.
-- The homepage is food-first again: an existing dish photo is the hero, all three
-  existing food-photo cards immediately follow, and Google reviews are a compact
-  secondary section below the restaurant ambience.
-- `data/menu.v1.json` is the versioned source for menu HTML, Menu JSON-LD and the
-  telephone helper. Migration checks preserve all 20 categories and 138 dishes
-  from the pre-migration snapshot.
-- `data/site.json` contains one normalized bilingual schedule. Browser views and
-  Restaurant JSON-LD are derived from it without changing the verified values.
-- The local order helper uses stable IDs and integer cents, migrates/normalizes old
-  carts, enforces limits and provides an accessible telephone summary.
-- Decap uses an editorial workflow and is scoped to site settings and menu data.
-  Schema validation is the deployment boundary; the external auth runtime is not
-  verified here.
-- Pull-request CI and Pages deployment run reproducible Node/browser checks,
-  Lighthouse budgets and a generated `dist/` build.
+- Default branch `main` at `3dda2a6` is integrated into
+  `agent/chomchom-quality-and-menu-model`, the branch of Draft PR #1.
+- Draft PR #1 is the single consolidation target for the website/menu/quality work
+  and the applicable CMS security controls from Draft PR #2.
+- The current `main` menu introduction remains authoritative: its labeled
+  information rows and removal of the decorative side artwork are preserved.
+- `data/menu.v1.json` and `data/site.json` are the only CMS-managed sources.
+  Generated HTML and `dist/` are build outputs, not CMS write targets.
+- Decap 3.15.1 is pinned with SRI and configured for Editorial Workflow, Open
+  Authoring, squash merges, the `decap-cms/` label prefix and no preview links.
+- Pull-request CI combines schema/generator, browser, axe, visual, Lighthouse,
+  dependency, CMS allowlist and Pages-boundary checks with read-only permissions.
+- Pages has no PR or manual trigger and deploys only validated `dist/` after a push
+  to `main`.
 - The site remains `noindex`, has no `CNAME` or sitemap, and retains the client-side
-  preview gate. The gate is presentation, not access control.
+  preview gate. It is not approved for public release.
 
-## Verified locally
+## Verification status
 
-- Static/schema/generator suite: 12/12 passing.
-- Playwright: 70/70 passing in DE/EN at 320x568, 390x844, 412x915, 768x1024 and
-  1440x900, including axe and visual baselines.
-- Lighthouse three-run cold median: home performance 0.99, accessibility 0.98,
-  best practices 1.00, LCP 1.95 s, worst-case CLS 0; menu performance 0.95,
-  accessibility 0.98, best practices 1.00, LCP 2.78 s, worst-case CLS 0.
-- Dependency audit: zero reported vulnerabilities at `high` threshold.
+- The pre-consolidation PR #1 baseline passed 12 static tests, 70 Playwright tests,
+  Lighthouse budgets and a high-severity dependency audit.
+- The combined branch still requires the complete local suite and a successful
+  final GitHub check before ruleset activation or closure of PR #2.
+- On 2026-08-20 GitHub reported no branch protection and no repository ruleset for
+  `main`; direct pushes therefore remain possible until the planned ruleset exists.
 
-## Known external blockers
+## External blockers
 
-- Operator approval of public copy, business/legal facts, menu, current prices,
-  hours and every photograph is not recorded.
-- Menu content still documents the November 2025 source revision and may be stale.
-- The public domain has not been cut over to this Pages deployment.
-- Decap authentication has not been exercised against the production worker.
-- Physical iOS/Android review has not been completed.
-
-## Recently completed
-
-- Removed the decorative side artwork from the menu introduction and reorganized
-  its bilingual price, payment, takeaway, and phone-order notes into labeled rows.
-- Added the responsive Google-rating and review presentation to the homepage.
-- Improved responsive navigation behavior and accessibility state handling.
-- Replaced the former plain agency mention with a linked site credit on every page.
-- Added the menu selection and call-summary experience.
-- Added the Decap CMS settings editor and external GitHub auth endpoint.
-- Updated the preview presentation and responsive public pages.
+- Current prices, dishes, opening hours, photographs and all public copy still need
+  explicit operator confirmation.
+- CMS login and the external OAuth worker have not been operationally audited.
+- A synthetic CMS PR using `TESTENTWURF - NICHT VERÖFFENTLICHEN` has not been
+  created and closed; the restaurant editor's inability to merge directly is not
+  yet proven.
+- Physical-device review and public-domain cutover remain unapproved.
+- The standalone Decap Media Library is outside Editorial Workflow in the pinned
+  version and must remain blocked by the no-bypass `main` ruleset.
 
 ## Next recommended tasks
 
-1. Review and merge the quality branch only after CI and operator review.
-2. Verify current menu/prices, hours and photographs with the operator.
-3. Only after explicit launch approval: configure domain/DNS, add canonical/crawler
-   metadata and remove the preview gate.
+1. Finish and verify the combined Draft PR #1 without content drift.
+2. After its final combined check passes, activate the no-bypass `main` ruleset and
+   close PR #2 as superseded.
+3. Audit the OAuth worker, obtain operator approvals and run the unmerged synthetic
+   CMS acceptance test.
+4. Keep PR #1 in Draft until every onsite gate is confirmed.
 
 ## Relevant files
 
-- `data/menu.v1.json`, `data/site.json`, `schemas/`
-- `scripts/`, `package.json`, `playwright.config.mjs`, `tests/`
-- `admin/config.yml`, `.github/workflows/`
-- `index.html`, `speisekarte.html`, `order.js`, `script.js`, `styles.css`
-- `docs/VERIFICATION_MATRIX.md`, `docs/MENU_DATA_MODEL.md`,
-  `docs/RELEASE_CHECKLIST.md`, `docs/NICE_TO_HAVE.md`
+- `admin/config.yml`, `admin/index.html`, `docs/CMS_WORKFLOW.md`
+- `.github/workflows/quality.yml`, `.github/workflows/pages.yml`
+- `scripts/verify-cms-workflow.mjs`, `scripts/build-site.mjs`
+- `data/menu.v1.json`, `data/site.json`, `schemas/`, `tests/`
+- `README.md`, `.agent/DECISIONS.md`, `.agent/ARCHITECTURE.md`
 
 ## Last handoff
 
-2026-08-20: merged current `main` into Draft PR #1, preserving the simplified
-menu introduction while retaining the canonical menu and quality workstream.
+2026-08-20: integrated current `main` into Draft PR #1 locally and began the
+targeted PR #2 security port. No remote branch or pull request has been changed yet.

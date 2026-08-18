@@ -11,11 +11,14 @@ Bewertungen sind bewusst ein nachrangiger Vertrauenshinweis statt der Hauptinhal
 
 ## Veröffentlichung
 
-Ein Push auf `main` startet `.github/workflows/pages.yml`. Der Workflow validiert
-Schema und Menügleichheit, führt Browser-/Accessibility-/Visual- und Lighthouse-
-Prüfungen aus, baut `dist/` und veröffentlicht ausschließlich dieses Artefakt über
-GitHub Pages. Pull Requests laufen zusätzlich durch
-`.github/workflows/quality.yml`.
+Decap speichert redaktionelle Änderungen als Pull Request nach `main`. Ein aktives
+GitHub-Ruleset muss Review und den kombinierten Qualitäts-/CMS-Sicherheitscheck
+erzwingen. Erst ein Merge nach `main` startet `.github/workflows/pages.yml`; der
+Workflow validiert Schema und Menügleichheit, führt Browser-, Accessibility-,
+Visual- und Lighthouse-Prüfungen aus, baut `dist/` und veröffentlicht ausschließlich
+dieses Artefakt. Pull Requests erzeugen keine Pages-Produktion. Details zu
+Authentifizierung, Allowlist, Review, Ruleset und externem OAuth-Worker stehen in
+[`docs/CMS_WORKFLOW.md`](docs/CMS_WORKFLOW.md).
 
 ## Lokale Entwicklung und Prüfung
 
