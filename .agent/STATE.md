@@ -19,6 +19,10 @@ restaurant information, menu, contact, and a phone-order preparation helper.
 - No open GitHub issues were found during this handoff.
 - Decap is configured on the security branch for editorial workflow, squash
   merges and Open Authoring. The client is pinned to 3.15.1.
+- Draft PR #2 publishes this security workstream:
+  `https://github.com/chomchom-sushibar-de/chomchom-sushibar.de/pull/2`.
+- GitHub Actions run `32194947743` passed `CMS editorial safety` for commit
+  `b6e8d33` with the current checkout/setup-node actions pinned by commit SHA.
 - The security branch adds a read-only pull-request check and removes manual
   Pages deployment. It does not change `data/site.json` or restaurant content.
 - Remote audit on 2026-08-19 found no protection or ruleset on `main`. The only
@@ -43,7 +47,7 @@ restaurant information, menu, contact, and a phone-order preparation helper.
 
 ## Active work
 
-The CMS editorial security workstream is implemented on its branch and awaits review.
+The CMS editorial security workstream is published as Draft PR #2 and awaits review.
 It is not complete operationally until its PR is merged, the `main` ruleset is
 active, and a synthetic end-to-end CMS PR is closed without merge.
 
@@ -98,7 +102,7 @@ active, and a synthetic end-to-end CMS PR is closed without merge.
 
 ## Last handoff
 
-2026-08-19: prepared the isolated CMS editorial/PR workflow, pinned Decap 3.15.1,
-added PR safety checks, restricted Pages to pushes on `main`, and documented the
-unprotected-branch, OAuth and standalone-media boundaries. No restaurant data was
-changed.
+2026-08-19: published Draft PR #2 with the isolated CMS editorial/PR workflow,
+pinned Decap 3.15.1 and current Node-based Actions, added passing PR safety checks,
+restricted Pages to pushes on `main`, and documented the unprotected-branch, OAuth
+and standalone-media boundaries. No restaurant data was changed.

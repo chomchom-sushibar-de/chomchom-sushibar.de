@@ -5,8 +5,9 @@ than maintaining a competing launch checklist.
 
 ## Now
 
-- [ ] Review and merge `security/cms-editorial-pr-workflow`, resolving its
-  overlap with Draft PR #1 without broadening CMS scope or losing safeguards.
+- [ ] Review and merge Draft PR #2
+  (`security/cms-editorial-pr-workflow`), resolving its overlap with Draft PR #1
+  without broadening CMS scope or losing safeguards.
 - [ ] After the check has run on GitHub, activate a no-bypass ruleset for `main`
   requiring a pull request, one approval, fresh approval after changes, resolved
   conversations, and `CMS editorial safety`.
