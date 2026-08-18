@@ -4,7 +4,11 @@ Statische Website für die Chôm Chôm Sushibar in Sauerlach (vietnamesische Kü
 
 ## Veröffentlichung
 
-Ein Push auf `main` startet `.github/workflows/pages.yml` und veröffentlicht die Website über GitHub Pages.
+Der Decap-Editorial-Workflow legt Änderungen als Pull Request nach `main` vor.
+Ein aktives GitHub-Ruleset muss Review und Prüfungen erzwingen; erst der Merge
+löst `.github/workflows/pages.yml` aus und veröffentlicht die Website über
+GitHub Pages. Die erforderlichen Regeln und externen Sicherheitsgrenzen sind in
+[`docs/CMS_WORKFLOW.md`](docs/CMS_WORKFLOW.md) dokumentiert.
 
 ## Inhaltliche Basis
 
