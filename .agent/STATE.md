@@ -37,6 +37,8 @@ pending operator approval and domain cutover.
 
 ## Recently completed
 
+- Removed the decorative side artwork from the menu introduction and reorganized
+  its bilingual price, payment, takeaway, and phone-order notes into labeled rows.
 - Added the responsive Google-rating and review presentation to the homepage.
 - Improved responsive navigation behavior and accessibility state handling.
 - Replaced the former plain agency mention with a linked site credit on every page.
@@ -75,6 +77,5 @@ pending operator approval and domain cutover.
 
 ## Last handoff
 
-2026-08-13: added the Google-review presentation, responsive navigation fixes, and
-the linked `itmitalles.de` footer credit on all public pages; migrated the finished
-work from the conflicting legacy `TODO.md` into this handoff.
+2026-08-19: simplified the menu introduction and replaced its prose block with
+responsive labeled information rows in German and English.

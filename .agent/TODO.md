@@ -26,6 +26,7 @@ than maintaining a competing launch checklist.
 
 ## Recently completed
 
+- [x] Remove the menu introduction's side artwork and structure its bilingual notes.
 - [x] Add a prominent, bilingual Google-review presentation to the homepage.
 - [x] Link `website made by itmitalles.de` from every public-page footer.
 - [x] Contact the operator and prepare a reviewable draft.
