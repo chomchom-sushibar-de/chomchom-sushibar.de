@@ -524,42 +524,6 @@ a {
   border: 1px solid var(--border);
 }
 
-/* Speisekarte: dekorative Aquarell-Grafiken aus der Original-Karte */
-
-.menu-intro {
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-intro .container {
-  position: relative;
-  z-index: 1;
-}
-
-.menu-art {
-  position: absolute;
-  top: -1rem;
-  width: 150px;
-  height: auto;
-  opacity: 0.92;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.menu-art-left {
-  left: -3rem;
-}
-
-.menu-art-right {
-  right: -3rem;
-}
-
-@media (max-width: 1400px) {
-  .menu-art {
-    display: none;
-  }
-}
-
 /* Seiten-Banner (Impressum, Datenschutz, Außenbereich) */
 
 .page-band {
@@ -671,6 +635,32 @@ section + section {
 }
 
 /* Speisekarte */
+
+.menu-intro-details {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.25rem 0 0;
+}
+
+.menu-intro-details > div {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 0.42fr) 1fr;
+  gap: 0.5rem 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-sunk);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.menu-intro-details dt {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.menu-intro-details dd {
+  margin: 0;
+  color: var(--fg-muted);
+}
 
 .menu-toc {
   display: flex;
@@ -1392,6 +1382,43 @@ body.modal-open {
   }
 }
 
+@media (max-width: 520px) {
+  .menu-intro-details > div {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-rating {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .hero-rating .rating-stars {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .hero-rating .google-label {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-rating strong {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-rating > span:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .hero-rating svg {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
 @media (max-width: 360px) {
   .site-header .container {
     flex-wrap: wrap;

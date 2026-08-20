@@ -33,6 +33,7 @@ not complete externally owned launch decisions.
 
 ## Recently completed
 
+- [x] Remove the menu introduction's side artwork and structure its bilingual notes.
 - [x] Restore a food-first homepage and demote the large review-card presentation.
 - [x] Introduce the canonical bilingual menu model without changing menu content.
 - [x] Generate menu HTML, order data and JSON-LD from one validated source.
@@ -42,3 +43,8 @@ not complete externally owned launch decisions.
 - [x] Add static, browser, axe, visual, Lighthouse and readiness automation.
 - [x] Build and deploy only a validated `dist/` artifact.
 - [x] Push the workstream and open Draft PR #1 with required quality CI.
+- [x] Add a prominent, bilingual Google-review presentation to the homepage.
+- [x] Link `website made by itmitalles.de` from every public-page footer.
+- [x] Contact the operator and prepare a reviewable draft.
+- [x] Deploy a successful GitHub Pages preview.
+- [x] Replace the old root handoff with `.agent/` state and tasks.

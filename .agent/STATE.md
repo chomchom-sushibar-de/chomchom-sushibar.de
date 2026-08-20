@@ -49,6 +49,17 @@ preparation helper.
 - Decap authentication has not been exercised against the production worker.
 - Physical iOS/Android review has not been completed.
 
+## Recently completed
+
+- Removed the decorative side artwork from the menu introduction and reorganized
+  its bilingual price, payment, takeaway, and phone-order notes into labeled rows.
+- Added the responsive Google-rating and review presentation to the homepage.
+- Improved responsive navigation behavior and accessibility state handling.
+- Replaced the former plain agency mention with a linked site credit on every page.
+- Added the menu selection and call-summary experience.
+- Added the Decap CMS settings editor and external GitHub auth endpoint.
+- Updated the preview presentation and responsive public pages.
+
 ## Next recommended tasks
 
 1. Review and merge the quality branch only after CI and operator review.
@@ -67,6 +78,5 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-13: completed and published the canonical data, CI/test and readiness
-workstream as Draft PR #1; restored food as the homepage focus without changing
-the established visual theme or adding new external imagery.
+2026-08-20: merged current `main` into Draft PR #1, preserving the simplified
+menu introduction while retaining the canonical menu and quality workstream.
