@@ -27,10 +27,17 @@ preparation helper.
 
 ## Verification status
 
-- The pre-consolidation PR #1 baseline passed 12 static tests, 70 Playwright tests,
-  Lighthouse budgets and a high-severity dependency audit.
-- The combined branch still requires the complete local suite and a successful
-  final GitHub check before ruleset activation or closure of PR #2.
+- The combined branch passes 15 static/schema/generator/CMS tests and 70 Playwright
+  tests across five viewports, including axe and all visual baselines.
+- Lighthouse cold medians pass: home performance 0.99, accessibility 0.98, best
+  practices 1.00 and LCP 1.95 s; menu performance 0.96, accessibility 0.98, best
+  practices 1.00 and LCP 2.33 s; CLS is 0 for both.
+- `npm audit --audit-level=high` reports zero vulnerabilities. Gitleaks 8.30.1
+  reports no leaks in the complete repository history, `dist/` or the generated
+  reports.
+- `release:check` builds `dist/` with technical status `ready`; `git diff --check`
+  is clean. A fresh successful GitHub `Combined quality and CMS safety` run is
+  still required before ruleset activation or closure of PR #2.
 - On 2026-08-20 GitHub reported no branch protection and no repository ruleset for
   `main`; direct pushes therefore remain possible until the planned ruleset exists.
 
@@ -65,5 +72,6 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-20: integrated current `main` into Draft PR #1 locally and began the
-targeted PR #2 security port. No remote branch or pull request has been changed yet.
+2026-08-20: integrated current `main`, completed the targeted PR #2 security port
+and passed the full local suite. No remote branch or pull request has been changed
+yet.
