@@ -7,10 +7,10 @@ not complete externally owned launch decisions.
 
 - [x] Finish the targeted PR #2 security port into Draft PR #1 and run the complete
   local validation suite without changing restaurant content.
-- [ ] Push the combined Draft PR #1 and require a successful final combined check.
-- [ ] Only after that check succeeds, activate a no-bypass `main` ruleset requiring
+- [x] Push the combined Draft PR #1 and require a successful final combined check.
+- [x] Only after that check succeeds, activate a no-bypass `main` ruleset requiring
   pull requests, one fresh approval, resolved conversations and the combined check.
-- [ ] Comment on and close PR #2 as superseded after verifying every applicable
+- [x] Comment on and close PR #2 as superseded after verifying every applicable
   security change exists in PR #1.
 - [ ] Audit the external OAuth worker without recording credentials.
 - [ ] Obtain operator approval for copy, legal/business facts, current menu/prices,
@@ -40,6 +40,8 @@ not complete externally owned launch decisions.
 
 ## Recently completed
 
+- [x] Activate verified `main` ruleset `21067484` with an empty bypass list.
+- [x] Close PR #2 as superseded while retaining its branch for audit history.
 - [x] Pass 15 static/CMS tests, 70 Playwright tests, Lighthouse, dependency audit,
   release build, whitespace validation and Gitleaks on the combined branch.
 - [x] Merge current `main` into PR #1 without losing its menu-introduction update.

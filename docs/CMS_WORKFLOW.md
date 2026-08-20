@@ -181,9 +181,11 @@ PRs ein aktives Repository-Ruleset mit folgenden Mindestwerten einzurichten:
 7. Force-Pushes und Branch-Löschung verbieten; Regeln auch für Admins
    erzwingen.
 
-Derzeit ist dieses Ruleset **nicht aktiv**. Bis es aktiviert und erneut
-read-only verifiziert wurde, ist die Aussage „`main` kann nur per Review
-geändert werden“ noch nicht erfüllt.
+Das Repository-Ruleset `Protect main with reviewed combined quality` (ID
+`21067484`) ist seit dem 20. August 2026 aktiv und wurde über die effektiven
+Regeln für `main` read-only gegengeprüft. Seine Bypass-Liste ist leer. Diese
+Repositoryregel schützt den Branch; die weiterhin offenen OAuth-, CMS-Login- und
+synthetischen Abnahmegates werden dadurch nicht vorweggenommen.
 
 ## 7. Pages-Deployment
 

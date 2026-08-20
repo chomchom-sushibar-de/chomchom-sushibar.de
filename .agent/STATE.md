@@ -12,6 +12,8 @@ preparation helper.
   `agent/chomchom-quality-and-menu-model`, the branch of Draft PR #1.
 - Draft PR #1 is the single consolidation target for the website/menu/quality work
   and the applicable CMS security controls from Draft PR #2.
+- PR #2 is closed as superseded with an audit comment linking to the combined PR;
+  its branch remains available for comparison history.
 - The current `main` menu introduction remains authoritative: its labeled
   information rows and removal of the decorative side artwork are preserved.
 - `data/menu.v1.json` and `data/site.json` are the only CMS-managed sources.
@@ -36,10 +38,14 @@ preparation helper.
   reports no leaks in the complete repository history, `dist/` or the generated
   reports.
 - `release:check` builds `dist/` with technical status `ready`; `git diff --check`
-  is clean. A fresh successful GitHub `Combined quality and CMS safety` run is
-  still required before ruleset activation or closure of PR #2.
-- On 2026-08-20 GitHub reported no branch protection and no repository ruleset for
-  `main`; direct pushes therefore remain possible until the planned ruleset exists.
+  is clean. GitHub run `32319631371` passed before ruleset activation and closure
+  of PR #2; the final documentation-only head must pass the same check again.
+- Active ruleset `Protect main with reviewed combined quality` (ID `21067484`)
+  applies to `main` with no bypass actors. It requires a pull request, one fresh
+  approval from someone other than the last pusher, resolved conversations and the
+  up-to-date GitHub Actions check; branch deletion and force-pushes are blocked.
+- GitHub Actions run `32319631371` passed `Combined quality and CMS safety` on the
+  published combined head before ruleset activation.
 
 ## External blockers
 
@@ -55,12 +61,10 @@ preparation helper.
 
 ## Next recommended tasks
 
-1. Finish and verify the combined Draft PR #1 without content drift.
-2. After its final combined check passes, activate the no-bypass `main` ruleset and
-   close PR #2 as superseded.
-3. Audit the OAuth worker, obtain operator approvals and run the unmerged synthetic
+1. Keep the combined PR #1 in Draft and verify its final documentation-only head.
+2. Audit the OAuth worker, obtain operator approvals and run the unmerged synthetic
    CMS acceptance test.
-4. Keep PR #1 in Draft until every onsite gate is confirmed.
+3. Keep PR #1 in Draft until every onsite gate is confirmed.
 
 ## Relevant files
 
@@ -72,6 +76,6 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-20: integrated current `main`, completed the targeted PR #2 security port
-and passed the full local suite. No remote branch or pull request has been changed
-yet.
+2026-08-20: published the combined Draft PR #1, passed its fresh combined Actions
+run, activated no-bypass ruleset `21067484`, and closed PR #2 as superseded. No
+merge, Pages deployment, domain change or public release was performed.
