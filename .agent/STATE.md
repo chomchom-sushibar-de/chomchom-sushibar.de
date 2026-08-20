@@ -38,8 +38,8 @@ preparation helper.
   reports no leaks in the complete repository history, `dist/` or the generated
   reports.
 - `release:check` builds `dist/` with technical status `ready`; `git diff --check`
-  is clean. GitHub run `32319631371` passed before ruleset activation and closure
-  of PR #2; the final documentation-only head must pass the same check again.
+  is clean. GitHub runs `32319631371` and `32320033016` passed the combined suite;
+  the active ruleset requires the same current check on every subsequent head.
 - Active ruleset `Protect main with reviewed combined quality` (ID `21067484`)
   applies to `main` with no bypass actors. It requires a pull request, one fresh
   approval from someone other than the last pusher, resolved conversations and the
@@ -61,10 +61,9 @@ preparation helper.
 
 ## Next recommended tasks
 
-1. Keep the combined PR #1 in Draft and verify its final documentation-only head.
+1. Keep the combined PR #1 in Draft until every onsite gate is confirmed.
 2. Audit the OAuth worker, obtain operator approvals and run the unmerged synthetic
    CMS acceptance test.
-3. Keep PR #1 in Draft until every onsite gate is confirmed.
 
 ## Relevant files
 
@@ -76,6 +75,7 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-20: published the combined Draft PR #1, passed its fresh combined Actions
-run, activated no-bypass ruleset `21067484`, and closed PR #2 as superseded. No
-merge, Pages deployment, domain change or public release was performed.
+2026-08-20: published the combined Draft PR #1, passed combined Actions runs before
+and after ruleset activation, activated no-bypass ruleset `21067484`, and closed
+PR #2 as superseded. No merge, Pages deployment, domain change or public release
+was performed.
