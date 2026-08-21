@@ -27,12 +27,14 @@ test("selection uses integer day/evening cents and an accessible phone summary",
   await page.getByRole("button", { name: "Nein danke, weiter" }).click();
   await expect(dialog).toContainText("Ca. Gesamtsumme (Abend): 10,00 €");
   await expect(dialog).toContainText("Bestellung ausschließlich telefonisch");
-  await expect(dialog.getByRole("link", { name: /Jetzt anrufen/ })).toHaveAttribute("href", "tel:+498104888476");
-  await expect(dialog.getByText("08104 888 476")).toBeVisible();
+  const callLink = dialog.getByRole("link", { name: "Jetzt anrufen", exact: true });
+  await expect(callLink).toHaveAttribute("href", "tel:+498104888476");
+  await expect(callLink).toHaveText("Jetzt anrufen");
 
   await page.evaluate(() => document.querySelector('[data-lang="en"]').click());
   await expect(dialog).toContainText("Approx. total (evening): 10,00 €");
   await expect(dialog).toContainText("orders are placed by phone only");
+  await expect(dialog.getByRole("link", { name: "Call now", exact: true })).toBeVisible();
   await page.locator(".order-modal-close").focus();
   await page.keyboard.press("Shift+Tab");
   await expect(dialog.getByRole("link", { name: /Call now/ })).toBeFocused();
@@ -92,7 +94,14 @@ test("suggestions resolve to live stable IDs and update the open modal", async (
   await page.locator('[data-item-id="sushi-menues-202"] .qty-plus').click();
   await page.locator("#order-bar-btn").click();
   const suggestions = page.locator("[data-suggest-id]");
-  await expect(suggestions).toHaveCount(3);
+  await expect(suggestions).toHaveCount(2);
+  await expect(suggestions).toHaveText(["+ Mini-Frühlingsrollen", "+ Bananen-Dessert"]);
+  expect(await suggestions.evaluateAll((chips) => chips.map((chip) => chip.dataset.suggestId))).toEqual([
+    "vorspeisen-11",
+    "desserts-80"
+  ]);
+  await page.evaluate(() => document.querySelector('[data-lang="en"]').click());
+  await expect(suggestions).toHaveText(["+ Mini-Frühlingsrollen", "+ Banana dessert"]);
   const id = await suggestions.first().getAttribute("data-suggest-id");
   await suggestions.first().click();
   await expect(page.locator(`[data-item-id="${id}"] .qty-value`)).toHaveText("1");

@@ -40,6 +40,8 @@ not complete externally owned launch decisions.
 
 ## Recently completed
 
+- [x] Simplify the order-helper call action and replace the Wan-Tan add-on prompt
+  with the requested localized Bananen-Dessert suggestion.
 - [x] Activate verified `main` ruleset `21067484` with an empty bypass list.
 - [x] Close PR #2 as superseded while retaining its branch for audit history.
 - [x] Pass 15 static/CMS tests, 70 Playwright tests, Lighthouse, dependency audit,

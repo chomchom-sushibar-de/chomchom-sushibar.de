@@ -11,7 +11,6 @@
   var MAX_QTY = 20;
   var MAX_TOTAL_QTY = 100;
   var PHONE = "+498104888476";
-  var PHONE_DISPLAY = "08104 888 476";
   var STARTER_CATEGORIES = ["suppen", "vorspeisen", "salate"];
   var DESSERT_CATEGORIES = ["desserts"];
 
@@ -25,6 +24,7 @@
       approx: "ca.",
       nudgeTitle: "Noch etwas dazu?",
       nudgeQuestion: "Wie wäre es noch mit einer Kleinigkeit dazu?",
+      suggestionNames: { "desserts-80": "Bananen-Dessert" },
       continueSelecting: "Weiter auswählen",
       noThanksContinue: "Nein danke, weiter",
       summaryTitle: "Diese Nummern durchgeben",
@@ -34,7 +34,7 @@
       totalEvening: "Ca. Gesamtsumme (Abend): ",
       disclaimer: "Unverbindliche Preisübersicht · Bestellung ausschließlich telefonisch · nur Barzahlung vor Ort.",
       back: "Zurück zur Karte",
-      callNow: "Jetzt anrufen · ",
+      callNow: "Jetzt anrufen",
       maxReached: "Maximale Menge erreicht"
     },
     en: {
@@ -46,6 +46,7 @@
       approx: "approx.",
       nudgeTitle: "Anything else?",
       nudgeQuestion: "How about adding a little something?",
+      suggestionNames: { "desserts-80": "Banana dessert" },
       continueSelecting: "Keep browsing",
       noThanksContinue: "No thanks, continue",
       summaryTitle: "Read out these numbers",
@@ -55,7 +56,7 @@
       totalEvening: "Approx. total (evening): ",
       disclaimer: "Non-binding price estimate · orders are placed by phone only · cash only on site.",
       back: "Back to menu",
-      callNow: "Call now · ",
+      callNow: "Call now",
       maxReached: "Maximum quantity reached"
     }
   };
@@ -377,7 +378,8 @@
       suggestionIds.forEach(function (id) {
         var item = itemsById[id];
         if (!item) return;
-        var chip = button("+ " + (item.name[currentLang()] || item.name.de), "suggestion-chip");
+        var suggestionName = t().suggestionNames[id] || item.name[currentLang()] || item.name.de;
+        var chip = button("+ " + suggestionName, "suggestion-chip");
         chip.dataset.suggestId = id;
         chips.appendChild(chip);
       });
@@ -422,8 +424,7 @@
     back.dataset.close = "";
     var call = node("a", "btn btn-primary");
     call.href = "tel:" + PHONE;
-    call.appendChild(document.createTextNode(t().callNow));
-    call.appendChild(node("span", "phone-number", PHONE_DISPLAY));
+    call.textContent = t().callNow;
     actions.append(back, call);
     modalBody.appendChild(actions);
   }

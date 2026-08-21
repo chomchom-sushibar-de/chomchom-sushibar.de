@@ -16,6 +16,9 @@ preparation helper.
   its branch remains available for comparison history.
 - The current `main` menu introduction remains authoritative: its labeled
   information rows and removal of the decorative side artwork are preserved.
+- The order-helper add-on prompt offers Mini-Frühlingsrollen and a localized
+  Bananen-Dessert label; its call action uses a compact text label while retaining
+  the configured telephone link.
 - `data/menu.v1.json` and `data/site.json` are the only CMS-managed sources.
   Generated HTML and `dist/` are build outputs, not CMS write targets.
 - Decap 3.15.1 is pinned with SRI and configured for Editorial Workflow, Open
@@ -75,7 +78,6 @@ preparation helper.
 
 ## Last handoff
 
-2026-08-20: published the combined Draft PR #1, passed combined Actions runs before
-and after ruleset activation, activated no-bypass ruleset `21067484`, and closed
-PR #2 as superseded. No merge, Pages deployment, domain change or public release
-was performed.
+2026-08-22: applied the requested order-helper suggestion and call-action cleanup,
+then passed the full 15-test static/CMS suite and all 70 Playwright tests. No menu
+item, price, merge, Pages deployment, domain change or public release was involved.

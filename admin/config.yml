@@ -151,7 +151,7 @@ collections:
             name: "suggestions"
             widget: "hidden"
             default:
-              starter: ["vorspeisen-11", "suppen-2"]
+              starter: ["vorspeisen-11"]
               dessert: ["desserts-80"]
           - label: "Kategorien"
             name: "categories"

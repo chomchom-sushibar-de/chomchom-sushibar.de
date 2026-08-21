@@ -1040,10 +1040,6 @@ body.modal-open {
   overflow: hidden;
 }
 
-.phone-number {
-  white-space: nowrap;
-}
-
 .menu-pdf-links {
   display: flex;
   gap: 0.8rem;

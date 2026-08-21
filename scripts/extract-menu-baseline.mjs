@@ -243,7 +243,7 @@ const menu = {
     supported: ["day", "evening"]
   },
   suggestions: {
-    starter: ["11", "2"].map((number) => byNumber.get(number)?.id),
+    starter: ["11"].map((number) => byNumber.get(number)?.id),
     dessert: ["80"].map((number) => byNumber.get(number)?.id)
   },
   categories
