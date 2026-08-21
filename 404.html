@@ -1,24 +1,28 @@
 <!doctype html>
 <html lang="de">
 <head>
-<script src="gate.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Page Not Found – Chôm Chôm Sushibar">Seite nicht gefunden – Chôm Chôm Sushibar</title>
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'">
+<script src="/chomchom-sushibar.de/404-base.js"></script>
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
+<script src="gate.js"></script>
 </head>
 <body>
 
-<div id="site-announcement" class="announcement-bar" hidden></div>
+<a class="skip-link" href="#main-content" data-en="Skip to content">Zum Inhalt springen</a>
+
+<div id="site-announcement" class="announcement-bar" role="status" aria-live="polite" hidden></div>
 
 
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">
-      <img class="brand-mark brand-mark-light" src="img/logo-full-light.png" alt="Chôm Chôm Sushibar" loading="eager">
-      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark.png" alt="Chôm Chôm Sushibar" loading="eager">
+      <img class="brand-mark brand-mark-light" src="img/logo-full-light-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
+      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
     </a>
     <div class="header-actions">
       <div class="lang-toggle" role="group" aria-label="Sprache" data-en-aria-label="Language">
@@ -29,7 +33,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <div class="error-page container">
     <div>
       <span class="eyebrow">404</span>
@@ -46,13 +50,12 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/">itmitalles.de</a></span>
-      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/" rel="external">itmitalles.de</a></span>
+      <span><a href="impressum.html" data-en="Legal Notice">Impressum</a> · <a href="datenschutz.html" data-en="Privacy Policy">Datenschutz</a></span>
     </div>
   </div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>

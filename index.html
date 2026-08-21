@@ -1,19 +1,30 @@
 <!doctype html>
 <html lang="de">
 <head>
-<script src="gate.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
 <title data-en="Chôm Chôm Sushibar – Vietnamese &amp; Sushi in Sauerlach">Chôm Chôm Sushibar – Vietnamesisch &amp; Sushi in Sauerlach</title>
 <meta name="description" content="Chôm Chôm Sushibar in Sauerlach: frisches Sushi und vietnamesische Küche zum Essen vor Ort oder Mitnehmen. Bahnhofplatz 9, 82054 Sauerlach." data-en-content="Chôm Chôm Sushibar in Sauerlach: fresh sushi and Vietnamese cuisine, dine in or take away. Bahnhofplatz 9, 82054 Sauerlach.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chôm Chôm Sushibar – Vietnamesisch &amp; Sushi in Sauerlach" data-en-content="Chôm Chôm Sushibar – Vietnamese &amp; Sushi in Sauerlach">
+<meta property="og:description" content="Chôm Chôm Sushibar in Sauerlach: frisches Sushi und vietnamesische Küche zum Essen vor Ort oder Mitnehmen." data-en-content="Chôm Chôm Sushibar in Sauerlach: fresh sushi and Vietnamese cuisine, dine in or take away.">
+<meta property="og:locale" content="de_DE" data-en-content="en_GB">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
+<link rel="preload" as="image" type="image/webp" href="img/food-spezialitaeten-800.webp" imagesrcset="img/food-spezialitaeten-480.webp 480w, img/food-spezialitaeten-800.webp 800w" imagesizes="(max-width: 860px) 320px, 45vw">
+<script src="gate.js"></script>
+<script type="application/ld+json" id="restaurant-structured-data">
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Chôm Chôm Sushibar",
-  "servesCuisine": ["Vietnamesisch", "Sushi", "Asiatisch"],
+  "servesCuisine": [
+    "Vietnamesisch",
+    "Sushi",
+    "Asiatisch"
+  ],
   "priceRange": "€€",
   "telephone": "+49 8104 888476",
   "address": {
@@ -24,11 +35,39 @@
     "addressCountry": "DE"
   },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:30", "closes": "14:30" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "17:30", "closes": "21:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "17:00", "closes": "21:00" }
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "11:30",
+      "closes": "14:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "17:30",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Sunday"
+      ],
+      "opens": "17:00",
+      "closes": "21:00"
+    }
   ],
-  "acceptsReservations": "False",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Cash"
 }
@@ -36,16 +75,18 @@
 </head>
 <body>
 
-<div id="site-announcement" class="announcement-bar" hidden></div>
+<a class="skip-link" href="#main-content" data-en="Skip to content">Zum Inhalt springen</a>
+
+<div id="site-announcement" class="announcement-bar" role="status" aria-live="polite" hidden></div>
 
 
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">
-      <img class="brand-mark brand-mark-light" src="img/logo-full-light.png" alt="Chôm Chôm Sushibar" loading="eager">
-      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark.png" alt="Chôm Chôm Sushibar" loading="eager">
+      <img class="brand-mark brand-mark-light" src="img/logo-full-light-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
+      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
     </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
+    <button type="button" class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="main-nav" id="main-navigation">
@@ -75,20 +116,13 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <section class="hero">
     <div class="container">
       <div>
         <span class="eyebrow">Sauerlach · Bahnhofplatz 9</span>
         <h1 data-en-html="Vietnamese &amp; Sushi Cuisine, <em>freshly made.</em>">Vietnamesische Küche &amp; Sushi, <em>frisch zubereitet.</em></h1>
         <p class="lead" data-en="Whether crispy spring rolls, warming pho, or freshly rolled maki – at Chôm Chôm you'll find both under one roof. Dine in or take away.">Ob knackige Frühlingsrollen, wärmende Pho oder frisch gerollte Maki – bei Chôm Chôm gibt es beides unter einem Dach. Zum Essen im Lokal oder zum Mitnehmen.</p>
-        <a class="hero-rating" href="#google-bewertungen" aria-label="Google-Bewertungen ansehen: 4,6 von 5 Sternen bei über 200 Bewertungen" data-en-aria-label="Read Google reviews: 4.6 out of 5 stars from over 200 reviews">
-          <span class="google-label" aria-hidden="true">Google</span>
-          <span class="rating-stars" aria-hidden="true">★★★★★</span>
-          <strong data-en="4.6 out of 5">4,6 von 5</strong>
-          <span data-en="200+ reviews">200+ Bewertungen</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
         <div class="hero-actions">
           <a class="btn btn-primary" href="tel:+498104888476">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -97,77 +131,16 @@
           <a class="btn btn-ghost" href="speisekarte.html" data-en="View menu">Speisekarte ansehen</a>
         </div>
         <div class="hero-facts">
-          <div><strong data-en="Mon–Fri">Mo–Fr</strong><span>11:30–14:30 &amp; 17:30–21:00</span></div>
-          <div><strong data-en="Sun &amp; public holidays">So &amp; Feiertag</strong><span data-en="17:00–21:00">17:00–21:00 Uhr</span></div>
-          <div><strong data-en="Saturday">Samstag</strong><span data-en="Closed">Ruhetag</span></div>
+          <div><strong data-hours="hero_weekday_label" data-en="Mon–Fri">Mo–Fr</strong><span data-hours="hero_weekday_ranges">11:30–14:30 &amp; 17:30–21:00</span></div>
+          <div><strong data-hours="hero_sunday_label" data-en="Sun &amp; public holidays">So &amp; Feiertag</strong><span data-hours="hero_sunday_range" data-en="17:00–21:00">17:00–21:00 Uhr</span></div>
+          <div><strong data-hours="hero_saturday_label" data-en="Saturday">Samstag</strong><span data-hours="hero_saturday_status" data-en="Closed">Ruhetag</span></div>
         </div>
       </div>
       <div class="hero-photo">
-        <img src="img/ambiente-theke.jpg" alt="Theke im Chôm Chôm Sushibar mit Holzverkleidung und Pflanzen" data-en-alt="Counter at Chôm Chôm Sushibar with wood paneling and plants" width="900" height="900" loading="eager">
-      </div>
-    </div>
-  </section>
-
-  <section id="google-bewertungen" class="reviews-section" aria-labelledby="reviews-title">
-    <div class="container">
-      <div class="reviews-lead">
-        <div class="rating-summary" aria-label="4,6 von 5 Sternen bei Google" data-en-aria-label="4.6 out of 5 stars on Google">
-          <span class="google-label">Google</span>
-          <div class="rating-score">
-            <strong data-en="4.6">4,6</strong>
-            <div>
-              <span class="rating-stars" aria-hidden="true">★★★★★</span>
-              <span data-en="out of 5 stars">von 5 Sternen</span>
-            </div>
-          </div>
-          <p data-en="Based on 200+ Google reviews · As of August 2026">Aus 200+ Google-Bewertungen · Stand August 2026</p>
-        </div>
-        <div class="section-head">
-          <span class="eyebrow" data-en="Loved by our guests">Von Gästen empfohlen</span>
-          <h2 id="reviews-title" data-en="What Our Guests Say">Was unsere Gäste sagen</h2>
-          <p data-en="Freshly prepared, authentic and fair value for money – that is what guests especially appreciate about Chôm Chôm.">Frisch zubereitet, authentisch und ein faires Preis-Leistungs-Verhältnis – das schätzen Gäste an Chôm Chôm besonders.</p>
-          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%B4m+Ch%C3%B4m+Sushibar+Bahnhofplatz+9+Sauerlach" target="_blank" rel="noopener noreferrer" data-en="Read all Google reviews">Alle Google-Bewertungen lesen</a>
-        </div>
-      </div>
-      <div class="review-grid">
-        <figure class="review-card">
-          <blockquote lang="de">Auch im Vergleich zu Vietnam vor Ort ist es richtig richtig gut hier!</blockquote>
-          <figcaption>
-            <strong>Maxi Peschke</strong>
-            <span data-en="Google review">Google-Rezension</span>
-          </figcaption>
-        </figure>
-        <figure class="review-card">
-          <blockquote lang="de">Bestes Preis-Leistungsangebot im Raum München. Leckeres Essen zum vor Ort essen oder mitnehmen. Kann ich nur empfehlen.</blockquote>
-          <figcaption>
-            <strong>Martin S.</strong>
-            <span data-en="Google review">Google-Rezension</span>
-          </figcaption>
-        </figure>
-        <figure class="review-card">
-          <blockquote lang="de">Sehr leckeres Essen, gekocht wird frisch, authentisch und super flott.</blockquote>
-          <figcaption>
-            <strong>C. W.</strong>
-            <span data-en="Google review">Google-Rezension</span>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-strip">
-    <div class="container grid grid-3">
-      <div>
-        <h3 data-en="Cash Only">Nur Barzahlung</h3>
-        <p data-en="We only accept cash – please keep that in mind when you visit.">Bei uns wird bar bezahlt – bitte daran denken, wenn ihr vorbeikommt.</p>
-      </div>
-      <div>
-        <h3 data-en="Everything Available to Go">Alles auch zum Mitnehmen</h3>
-        <p data-en="The full menu is also available for pickup – just call ahead to order.">Die komplette Karte gibt es ebenso zum Abholen – einfach anrufen und vorbestellen.</p>
-      </div>
-      <div>
-        <h3 data-en-html="Lunch &amp; Dinner Pricing">Mittags- &amp; Abendkarte</h3>
-        <p data-en="Lunch and dinner prices differ – both are listed separately on the menu.">Mittags und abends gelten unterschiedliche Preise – auf der Speisekarte jeweils extra ausgewiesen.</p>
+        <picture>
+          <source type="image/webp" srcset="img/food-spezialitaeten-480.webp 480w, img/food-spezialitaeten-800.webp 800w" sizes="(max-width: 860px) 320px, 45vw">
+          <img src="img/food-spezialitaeten.jpg" alt="Sushi- und Sashimi-Platte mit Garnelen" data-en-alt="Sushi and sashimi platter with shrimp" width="1000" height="664" loading="eager" fetchpriority="high">
+        </picture>
       </div>
     </div>
   </section>
@@ -205,6 +178,23 @@
     </div>
   </section>
 
+  <section class="info-strip">
+    <div class="container grid grid-3">
+      <div>
+        <h3 data-en="Cash Only">Nur Barzahlung</h3>
+        <p data-en="We only accept cash – please keep that in mind when you visit.">Bei uns wird bar bezahlt – bitte daran denken, wenn ihr vorbeikommt.</p>
+      </div>
+      <div>
+        <h3 data-en="Everything Available to Go">Alles auch zum Mitnehmen</h3>
+        <p data-en="The full menu is also available for pickup – just call ahead to order.">Die komplette Karte gibt es ebenso zum Abholen – einfach anrufen und vorbestellen.</p>
+      </div>
+      <div>
+        <h3 data-en-html="Lunch &amp; Dinner Pricing">Mittags- &amp; Abendkarte</h3>
+        <p data-en="Lunch and dinner prices differ – both are listed separately on the menu.">Mittags und abends gelten unterschiedliche Preise – auf der Speisekarte jeweils extra ausgewiesen.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="ambiente">
     <div class="container">
       <div class="section-head">
@@ -213,10 +203,34 @@
         <p data-en="Warm wood, a photo wall of vintage Vietnam pictures, and room for small and larger groups – a few glimpses of our restaurant at Bahnhofplatz.">Warmes Holz, eine Fotowand mit alten Vietnam-Aufnahmen und Platz für kleine und größere Runden – ein paar Eindrücke aus unserem Lokal am Bahnhofplatz.</p>
       </div>
       <div class="gallery">
-        <img src="img/ambiente-tische.jpg" alt="Sitzbereich mit Holztischen vor gelber Wand" data-en-alt="Seating area with wooden tables against a yellow wall" loading="lazy">
-        <img src="img/ambiente-wanddeko.jpg" alt="Historische Vietnam-Fotografien an der Wand" data-en-alt="Historic Vietnam photographs on the wall" loading="lazy">
-        <img src="img/ambiente-vogeldeko.jpg" alt="Gelbe Wand mit Vogeldeko und Fotorahmen" data-en-alt="Yellow wall with bird decor and photo frames" loading="lazy">
-        <img src="img/ambiente-lampe-karte.jpg" alt="Beleuchteter Holzstamm als Lampe neben der Speisekarte" data-en-alt="Illuminated wood-log lamp next to the menu" loading="lazy">
+        <img src="img/ambiente-tische.jpg" alt="Sitzbereich mit Holztischen vor gelber Wand" data-en-alt="Seating area with wooden tables against a yellow wall" width="1400" height="643" loading="lazy">
+        <img src="img/ambiente-wanddeko.jpg" alt="Historische Vietnam-Fotografien an der Wand" data-en-alt="Historic Vietnam photographs on the wall" width="1400" height="630" loading="lazy">
+        <img src="img/ambiente-vogeldeko.jpg" alt="Gelbe Wand mit Vogeldeko und Fotorahmen" data-en-alt="Yellow wall with bird decor and photo frames" width="908" height="1356" loading="lazy">
+        <img src="img/ambiente-lampe-karte.jpg" alt="Beleuchteter Holzstamm als Lampe neben der Speisekarte" data-en-alt="Illuminated wood-log lamp next to the menu" width="838" height="1400" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="google-bewertungen" class="reviews-section" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-lead">
+        <div class="rating-summary" aria-label="4,6 von 5 Sternen bei Google" data-en-aria-label="4.6 out of 5 stars on Google">
+          <span class="google-label">Google</span>
+          <div class="rating-score">
+            <strong data-en="4.6">4,6</strong>
+            <div>
+              <span class="rating-stars" aria-hidden="true">★★★★★</span>
+              <span data-en="out of 5 stars">von 5 Sternen</span>
+            </div>
+          </div>
+          <p data-en="Based on 200+ Google reviews · As of August 2026">Aus 200+ Google-Bewertungen · Stand August 2026</p>
+        </div>
+        <div class="section-head">
+          <span class="eyebrow" data-en="Loved by our guests">Von Gästen empfohlen</span>
+          <h2 id="reviews-title" data-en="What Our Guests Say">Was unsere Gäste sagen</h2>
+          <p data-en="Freshly prepared, authentic and fair value for money – that is what guests especially appreciate about Chôm Chôm.">Frisch zubereitet, authentisch und ein faires Preis-Leistungs-Verhältnis – das schätzen Gäste an Chôm Chôm besonders.</p>
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%B4m+Ch%C3%B4m+Sushibar+Bahnhofplatz+9+Sauerlach" target="_blank" rel="noopener noreferrer" data-en="Read all Google reviews">Alle Google-Bewertungen lesen</a>
+        </div>
       </div>
     </div>
   </section>
@@ -259,13 +273,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/">itmitalles.de</a></span>
+      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/" rel="external">itmitalles.de</a></span>
       <span><a href="impressum.html" data-en="Legal Notice">Impressum</a> · <a href="datenschutz.html" data-en="Privacy Policy">Datenschutz</a></span>
     </div>
   </div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>

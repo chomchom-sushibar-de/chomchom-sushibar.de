@@ -1,0 +1,2999 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2025-11",
+  "currency": "EUR",
+  "source": {
+    "documentedOrigin": "Repository PDF price lists transferred to speisekarte.html; see README.md",
+    "asOf": "2025-11",
+    "files": [
+      {
+        "path": "menu/speisekarte.pdf",
+        "sha256": "29f337aa13f68ae275ae558116ce81fd8172ac8efded5bf2256917e409c97b15"
+      },
+      {
+        "path": "menu/sushi-karte.pdf",
+        "sha256": "18da0ebffcec5a48d34521967d951034ce43cc8f753a1ac0f3d88077ca99fdbc"
+      }
+    ],
+    "migrationBaseline": "tests/fixtures/menu-pre-migration.v1.json"
+  },
+  "priceModes": {
+    "default": "day",
+    "supported": [
+      "day",
+      "evening"
+    ]
+  },
+  "suggestions": {
+    "starter": [
+      "vorspeisen-11"
+    ],
+    "dessert": [
+      "desserts-80"
+    ]
+  },
+  "categories": [
+    {
+      "id": "sushi-menues",
+      "sort": 1,
+      "name": {
+        "de": "Sushi-Menüs",
+        "en": "Sushi Sets"
+      },
+      "note": {
+        "de": "Zusammengestellte Menüs für 1–3 Personen.",
+        "en": "Set menus for 1–3 people."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "sushi-menues-200",
+          "visibleNumber": "200",
+          "sort": 1,
+          "name": {
+            "de": "Sapporo (nur Lachs)",
+            "en": "Sapporo (salmon only)"
+          },
+          "description": {
+            "de": "3 Lachs Nigiri, 3 Lachs Maki",
+            "en": "3 salmon nigiri, 3 salmon maki"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-202",
+          "visibleNumber": "202",
+          "sort": 2,
+          "name": {
+            "de": "Nara",
+            "en": "Nara"
+          },
+          "description": {
+            "de": "5 Nigiri: 2 Lachs, 2 Thunfisch, Ebi · 3 Lachs Maki, 3 Thunfisch Maki",
+            "en": "5 nigiri: 2 salmon, 2 tuna, shrimp · 3 salmon maki, 3 tuna maki"
+          },
+          "prices": {
+            "dayCents": 1300,
+            "eveningCents": 1400
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-203",
+          "visibleNumber": "203",
+          "sort": 3,
+          "name": {
+            "de": "Kyoto",
+            "en": "Kyoto"
+          },
+          "description": {
+            "de": "6 Nigiri: 3 Lachs, Thunfisch, Ebi, Oktopus · 3 Lachs Maki, 3 Thunfisch Maki · 3 California Maki, 3 Alaska Maki",
+            "en": "6 nigiri: 3 salmon, tuna, shrimp, octopus · 3 salmon maki, 3 tuna maki · 3 California maki, 3 Alaska maki"
+          },
+          "prices": {
+            "dayCents": 1600,
+            "eveningCents": 1700
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-204",
+          "visibleNumber": "204",
+          "sort": 4,
+          "name": {
+            "de": "Tokyo",
+            "en": "Tokyo"
+          },
+          "description": {
+            "de": "6 Nigiri: 2 Lachs, Thunfisch, Ebi, Tobiko, Tintenfisch · 6 Lachs Maki, 6 Boston Maki",
+            "en": "6 nigiri: 2 salmon, tuna, shrimp, tobiko, squid · 6 salmon maki, 6 Boston maki"
+          },
+          "prices": {
+            "dayCents": 1850,
+            "eveningCents": 1950
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-205",
+          "visibleNumber": "205",
+          "sort": 5,
+          "name": {
+            "de": "Kyoto (Menü 2)",
+            "en": "Kyoto (Menu 2)"
+          },
+          "description": {
+            "de": "4 Nigiri: 2 Lachs, 2 Thunfisch · 6 Sake-Philadelphia Maki · 4 Futo Maki",
+            "en": "4 nigiri: 2 salmon, 2 tuna · 6 salmon-Philadelphia maki · 4 futo maki"
+          },
+          "prices": {
+            "dayCents": 1850,
+            "eveningCents": 1950
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-206",
+          "visibleNumber": "206",
+          "sort": 6,
+          "name": {
+            "de": "Nagano",
+            "en": "Nagano"
+          },
+          "description": {
+            "de": "3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 3 Avocado Maki · 3 California Maki, 3 Alaska Maki",
+            "en": "3 salmon maki, 3 tuna maki · 3 cucumber maki, 3 avocado maki · 3 California maki, 3 Alaska maki"
+          },
+          "prices": {
+            "dayCents": 1200,
+            "eveningCents": 1300
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-207",
+          "visibleNumber": "207",
+          "sort": 7,
+          "name": {
+            "de": "Mashiko",
+            "en": "Mashiko"
+          },
+          "description": {
+            "de": "3 Lachs Maki, 3 Thunfisch Maki · 3 Gurken Maki, 6 Avocado Maki · 3 Rettich Maki, 3 Kürbis Maki, 3 Surimi Maki",
+            "en": "3 salmon maki, 3 tuna maki · 3 cucumber maki, 6 avocado maki · 3 radish maki, 3 pumpkin maki, 3 surimi maki"
+          },
+          "prices": {
+            "dayCents": 1200,
+            "eveningCents": 1300
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-208",
+          "visibleNumber": "208",
+          "sort": 8,
+          "name": {
+            "de": "Nagasaki",
+            "en": "Nagasaki"
+          },
+          "description": {
+            "de": "6 Sake-Philadelphia Maki · 6 Boston Maki · 6 California Maki",
+            "en": "6 salmon-Philadelphia maki · 6 Boston maki · 6 California maki"
+          },
+          "prices": {
+            "dayCents": 1500,
+            "eveningCents": 1600
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-209",
+          "visibleNumber": "209",
+          "sort": 9,
+          "name": {
+            "de": "Sake Set",
+            "en": "Sake Set"
+          },
+          "description": {
+            "de": "2 Lachs Nigiri, 1 Alaska Temaki · 6 Lachs Maki · 6 Alaska Maki",
+            "en": "2 salmon nigiri, 1 Alaska temaki · 6 salmon maki · 6 Alaska maki"
+          },
+          "prices": {
+            "dayCents": 1500,
+            "eveningCents": 1600
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-211",
+          "visibleNumber": "211",
+          "sort": 10,
+          "name": {
+            "de": "Mix Maki Set",
+            "en": "Mix Maki Set"
+          },
+          "qualifier": {
+            "de": "(für 2 Personen)",
+            "en": "(for 2 people)"
+          },
+          "description": {
+            "de": "6 Lachs Maki, 6 Thunfisch Maki · 6 Avocado Maki, 6 Boston Maki · 6 Ocean Maki, 6 Regenbogen Maki · 1 kleine Sashimi Moriawase",
+            "en": "6 salmon maki, 6 tuna maki · 6 avocado maki, 6 Boston maki · 6 ocean maki, 6 rainbow maki · 1 small sashimi moriawase"
+          },
+          "prices": {
+            "dayCents": 4500,
+            "eveningCents": 4600
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-212",
+          "visibleNumber": "212",
+          "sort": 11,
+          "name": {
+            "de": "Mito",
+            "en": "Mito"
+          },
+          "qualifier": {
+            "de": "(für 2 Personen)",
+            "en": "(for 2 people)"
+          },
+          "description": {
+            "de": "16 Nigiri: 4 Lachs, 2 Thunfisch, 2 Ebi, 2 Oktopus, 2 Tintenfisch, 2 Tobiko, 2 Hornmuscheln · 4 Futo Maki · 6 Sakekawa Maki, 6 Avocado Maki",
+            "en": "16 nigiri: 4 salmon, 2 tuna, 2 shrimp, 2 octopus, 2 squid, 2 tobiko, 2 surf clam · 4 futo maki · 6 sakekawa maki, 6 avocado maki"
+          },
+          "prices": {
+            "dayCents": 5000,
+            "eveningCents": 5100
+          },
+          "available": true
+        },
+        {
+          "id": "sushi-menues-214",
+          "visibleNumber": "214",
+          "sort": 12,
+          "name": {
+            "de": "Sumo",
+            "en": "Sumo"
+          },
+          "qualifier": {
+            "de": "(für 3 Personen)",
+            "en": "(for 3 people)"
+          },
+          "description": {
+            "de": "21 Nigiri: 6 Lachs, 3 Thunfisch, 3 Ebi, 3 Aal, 3 Tobiko, 3 Hornmuscheln · 6 Boston Maki, 6 Alaska Maki · 6 Ebi-Tempura Maki",
+            "en": "21 nigiri: 6 salmon, 3 tuna, 3 shrimp, 3 eel, 3 tobiko, 3 surf clam · 6 Boston maki, 6 Alaska maki · 6 shrimp tempura maki"
+          },
+          "prices": {
+            "dayCents": 6300,
+            "eveningCents": 6400
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "nigiri",
+      "sort": 2,
+      "name": {
+        "de": "Nigiri Sushi",
+        "en": "Nigiri Sushi"
+      },
+      "detail": {
+        "de": "(1 Stück)",
+        "en": "(1 piece)"
+      },
+      "items": [
+        {
+          "id": "nigiri-101",
+          "visibleNumber": "101",
+          "sort": 1,
+          "name": {
+            "de": "Inari",
+            "en": "Inari"
+          },
+          "description": {
+            "de": "Tofutasche",
+            "en": "Tofu pouch"
+          },
+          "prices": {
+            "dayCents": 250
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-102",
+          "visibleNumber": "102",
+          "sort": 2,
+          "name": {
+            "de": "Tamago",
+            "en": "Tamago"
+          },
+          "description": {
+            "de": "Eierstich",
+            "en": "Omelette"
+          },
+          "prices": {
+            "dayCents": 250
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-103",
+          "visibleNumber": "103",
+          "sort": 3,
+          "name": {
+            "de": "Tako",
+            "en": "Tako"
+          },
+          "description": {
+            "de": "Oktopus",
+            "en": "Octopus"
+          },
+          "prices": {
+            "dayCents": 300
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-104",
+          "visibleNumber": "104",
+          "sort": 4,
+          "name": {
+            "de": "Sake",
+            "en": "Sake"
+          },
+          "description": {
+            "de": "Lachs",
+            "en": "Salmon"
+          },
+          "prices": {
+            "dayCents": 300
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-105",
+          "visibleNumber": "105",
+          "sort": 5,
+          "name": {
+            "de": "Maguro",
+            "en": "Maguro"
+          },
+          "description": {
+            "de": "Thunfisch",
+            "en": "Tuna"
+          },
+          "prices": {
+            "dayCents": 350
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-106",
+          "visibleNumber": "106",
+          "sort": 6,
+          "name": {
+            "de": "Ebi",
+            "en": "Ebi"
+          },
+          "description": {
+            "de": "Garnele",
+            "en": "Shrimp"
+          },
+          "prices": {
+            "dayCents": 300
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-107",
+          "visibleNumber": "107",
+          "sort": 7,
+          "name": {
+            "de": "Unagi",
+            "en": "Unagi"
+          },
+          "description": {
+            "de": "Aal",
+            "en": "Eel"
+          },
+          "prices": {
+            "dayCents": 350
+          },
+          "available": true
+        },
+        {
+          "id": "nigiri-108",
+          "visibleNumber": "108",
+          "sort": 8,
+          "name": {
+            "de": "Avocado",
+            "en": "Avocado"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 250
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "nori-maki",
+      "sort": 3,
+      "name": {
+        "de": "Nori Maki",
+        "en": "Nori Maki"
+      },
+      "detail": {
+        "de": "(6 Stück)",
+        "en": "(6 pieces)"
+      },
+      "items": [
+        {
+          "id": "nori-maki-111",
+          "visibleNumber": "111",
+          "sort": 1,
+          "name": {
+            "de": "Tamago Maki",
+            "en": "Tamago Maki"
+          },
+          "description": {
+            "de": "Eierstich",
+            "en": "Omelette"
+          },
+          "prices": {
+            "dayCents": 350
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-112",
+          "visibleNumber": "112",
+          "sort": 2,
+          "name": {
+            "de": "Unagi Maki",
+            "en": "Unagi Maki"
+          },
+          "description": {
+            "de": "Aal",
+            "en": "Eel"
+          },
+          "prices": {
+            "dayCents": 450,
+            "eveningCents": 490,
+            "eveningPrefix": {
+              "de": "Abend",
+              "en": "Evening"
+            }
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-113",
+          "visibleNumber": "113",
+          "sort": 3,
+          "name": {
+            "de": "Kappa Maki",
+            "en": "Kappa Maki"
+          },
+          "description": {
+            "de": "Gurken",
+            "en": "Cucumber"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 350
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-114",
+          "visibleNumber": "114",
+          "sort": 4,
+          "name": {
+            "de": "Avocado Maki",
+            "en": "Avocado Maki"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-115",
+          "visibleNumber": "115",
+          "sort": 5,
+          "name": {
+            "de": "Shinko Maki",
+            "en": "Shinko Maki"
+          },
+          "description": {
+            "de": "Rettich",
+            "en": "Radish"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-116",
+          "visibleNumber": "116",
+          "sort": 6,
+          "name": {
+            "de": "Surimi Maki",
+            "en": "Surimi Maki"
+          },
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-117",
+          "visibleNumber": "117",
+          "sort": 7,
+          "name": {
+            "de": "Kampyo Maki",
+            "en": "Kampyo Maki"
+          },
+          "description": {
+            "de": "Kürbis",
+            "en": "Pumpkin"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-118",
+          "visibleNumber": "118",
+          "sort": 8,
+          "name": {
+            "de": "Tuna Chili Maki",
+            "en": "Tuna Chili Maki"
+          },
+          "description": {
+            "de": "Thunfisch und Chili",
+            "en": "Tuna and chili"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-119",
+          "visibleNumber": "119",
+          "sort": 9,
+          "name": {
+            "de": "Sake Maki",
+            "en": "Sake Maki"
+          },
+          "description": {
+            "de": "Lachs",
+            "en": "Salmon"
+          },
+          "prices": {
+            "dayCents": 450
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-120",
+          "visibleNumber": "120",
+          "sort": 10,
+          "name": {
+            "de": "Tekka Maki",
+            "en": "Tekka Maki"
+          },
+          "description": {
+            "de": "Thunfisch",
+            "en": "Tuna"
+          },
+          "prices": {
+            "dayCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-121",
+          "visibleNumber": "121",
+          "sort": 11,
+          "name": {
+            "de": "Ebi Maki",
+            "en": "Ebi Maki"
+          },
+          "description": {
+            "de": "Garnele",
+            "en": "Shrimp"
+          },
+          "prices": {
+            "dayCents": 450,
+            "eveningCents": 490,
+            "eveningPrefix": {
+              "de": "Abend",
+              "en": "Evening"
+            }
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-122",
+          "visibleNumber": "122",
+          "sort": 12,
+          "name": {
+            "de": "Inari Maki",
+            "en": "Inari Maki"
+          },
+          "description": {
+            "de": "Tofu",
+            "en": "Tofu"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "nori-maki-123",
+          "visibleNumber": "123",
+          "sort": 13,
+          "name": {
+            "de": "Paprika Maki",
+            "en": "Paprika Maki"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "inside-out",
+      "sort": 4,
+      "name": {
+        "de": "Inside Out Maki",
+        "en": "Inside Out Maki"
+      },
+      "detail": {
+        "de": "(6 Stück)",
+        "en": "(6 pieces)"
+      },
+      "items": [
+        {
+          "id": "inside-out-130",
+          "visibleNumber": "130",
+          "sort": 1,
+          "name": {
+            "de": "California Maki",
+            "en": "California Maki"
+          },
+          "description": {
+            "de": "Surimi, Avocado, Sesam",
+            "en": "Surimi, avocado, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-131",
+          "visibleNumber": "131",
+          "sort": 2,
+          "name": {
+            "de": "Alaska Maki",
+            "en": "Alaska Maki"
+          },
+          "description": {
+            "de": "Lachs, Avocado, Sesam",
+            "en": "Salmon, avocado, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-132",
+          "visibleNumber": "132",
+          "sort": 3,
+          "name": {
+            "de": "Boston Maki",
+            "en": "Boston Maki"
+          },
+          "description": {
+            "de": "Thunfisch, Tobiko, Avocado, Sesam",
+            "en": "Tuna, tobiko, avocado, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-133",
+          "visibleNumber": "133",
+          "sort": 4,
+          "name": {
+            "de": "Kappa-Phila Maki",
+            "en": "Kappa-Phila Maki"
+          },
+          "description": {
+            "de": "Gurken, Frischkäse, Sesam",
+            "en": "Cucumber, cream cheese, sesame"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 550,
+            "eveningCents": 650
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-134",
+          "visibleNumber": "134",
+          "sort": 5,
+          "name": {
+            "de": "Ocean Maki",
+            "en": "Ocean Maki"
+          },
+          "description": {
+            "de": "Garnelen, Avocado, Mayo, Sesam",
+            "en": "Shrimp, avocado, mayo, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-135",
+          "visibleNumber": "135",
+          "sort": 6,
+          "name": {
+            "de": "Salmon-Kappa Maki",
+            "en": "Salmon-Kappa Maki"
+          },
+          "description": {
+            "de": "Lachs, Gurken, Frischkäse, Sesam",
+            "en": "Salmon, cucumber, cream cheese, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-136",
+          "visibleNumber": "136",
+          "sort": 7,
+          "name": {
+            "de": "Tori-Karaage Maki",
+            "en": "Tori-Karaage Maki"
+          },
+          "description": {
+            "de": "Hähnchen, Gurken, Mayo, Sesam",
+            "en": "Chicken, cucumber, mayo, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-137",
+          "visibleNumber": "137",
+          "sort": 8,
+          "name": {
+            "de": "Duck Maki",
+            "en": "Duck Maki"
+          },
+          "description": {
+            "de": "Ente, Gurken, Teriyaki-Sauce, Sesam",
+            "en": "Duck, cucumber, teriyaki sauce, sesame"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-138",
+          "visibleNumber": "138",
+          "sort": 9,
+          "name": {
+            "de": "Regenbogen Maki",
+            "en": "Regenbogen Maki"
+          },
+          "description": {
+            "de": "Avocado, Gurken, ummantelt mit Lachs-Thunfisch",
+            "en": "Avocado, cucumber, wrapped in salmon and tuna"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-139",
+          "visibleNumber": "139",
+          "sort": 10,
+          "name": {
+            "de": "Avocado-Phila Maki",
+            "en": "Avocado-Phila Maki"
+          },
+          "description": {
+            "de": "Avocado, Frischkäse, Sesam",
+            "en": "Avocado, cream cheese, sesame"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 590,
+            "eveningCents": 690
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-140",
+          "visibleNumber": "140",
+          "sort": 11,
+          "name": {
+            "de": "Salmon-Phila Maki",
+            "en": "Salmon-Phila Maki"
+          },
+          "description": {
+            "de": "Lachs, Avocado, Frischkäse, Sesam",
+            "en": "Salmon, avocado, cream cheese, sesame"
+          },
+          "prices": {
+            "dayCents": 690,
+            "eveningCents": 790
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-141",
+          "visibleNumber": "141",
+          "sort": 12,
+          "name": {
+            "de": "Tekka-Phila Maki",
+            "en": "Tekka-Phila Maki"
+          },
+          "description": {
+            "de": "Thunfisch, Avocado, Frischkäse, Sesam",
+            "en": "Tuna, avocado, cream cheese, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-142",
+          "visibleNumber": "142",
+          "sort": 13,
+          "name": {
+            "de": "Spicy-California Maki",
+            "en": "Spicy-California Maki"
+          },
+          "description": {
+            "de": "Surimi, Avocado, Mayo, Chilisauce, Tobiko",
+            "en": "Surimi, avocado, mayo, chili sauce, tobiko"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-143",
+          "visibleNumber": "143",
+          "sort": 14,
+          "name": {
+            "de": "Sakesawa Maki",
+            "en": "Sakesawa Maki"
+          },
+          "description": {
+            "de": "Grilllachs, Gurken, Mayo, Chilisauce, Sesam",
+            "en": "Grilled salmon, cucumber, mayo, chili sauce, sesame"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-145",
+          "visibleNumber": "145",
+          "sort": 15,
+          "name": {
+            "de": "Beef Maki",
+            "en": "Beef Maki"
+          },
+          "description": {
+            "de": "Rindfleisch, Avocado, Frühlingszwiebeln, Teriyaki-Sauce, Sesam",
+            "en": "Beef, avocado, spring onion, teriyaki sauce, sesame"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-146",
+          "visibleNumber": "146",
+          "sort": 16,
+          "name": {
+            "de": "Ebi-Tempura Maki",
+            "en": "Ebi-Tempura Maki"
+          },
+          "description": {
+            "de": "Garnelen-Tempura, Avocado, Mayo, Teriyaki-Sauce, Sesam",
+            "en": "Shrimp tempura, avocado, mayo, teriyaki sauce, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-147",
+          "visibleNumber": "147",
+          "sort": 17,
+          "name": {
+            "de": "Unagi Maki",
+            "en": "Unagi Maki"
+          },
+          "description": {
+            "de": "Gegrillter Aal, Gurken, Frühlingszwiebeln, Teriyaki-Sauce, Sesam",
+            "en": "Grilled eel, cucumber, spring onion, teriyaki sauce, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-148",
+          "visibleNumber": "148",
+          "sort": 18,
+          "name": {
+            "de": "Ente Maki",
+            "en": "Ente Maki"
+          },
+          "description": {
+            "de": "Ente, Paprika, Frischkäse, Teriyaki-Sauce, Sesam",
+            "en": "Duck, bell pepper, cream cheese, teriyaki sauce, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-149",
+          "visibleNumber": "149",
+          "sort": 19,
+          "name": {
+            "de": "Hähnchen Maki",
+            "en": "Hähnchen Maki"
+          },
+          "description": {
+            "de": "Hähnchen, Paprika, Frischkäse, Mayo, Sesam",
+            "en": "Chicken, bell pepper, cream cheese, mayo, sesame"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "inside-out-150",
+          "visibleNumber": "150",
+          "sort": 20,
+          "name": {
+            "de": "Paprika-Phila Maki",
+            "en": "Paprika-Phila Maki"
+          },
+          "description": {
+            "de": "Paprika, Frischkäse, Sesam",
+            "en": "Bell pepper, cream cheese, sesame"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 590,
+            "eveningCents": 690
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "big-maki",
+      "sort": 5,
+      "name": {
+        "de": "Big Maki",
+        "en": "Big Maki"
+      },
+      "detail": {
+        "de": "(4 Stück)",
+        "en": "(4 pieces)"
+      },
+      "items": [
+        {
+          "id": "big-maki-124",
+          "visibleNumber": "124",
+          "sort": 1,
+          "name": {
+            "de": "Futo Maki",
+            "en": "Futo Maki"
+          },
+          "description": {
+            "de": "Garnelen, Surimi, Avocado, Gurken, Rettich, Tobiko",
+            "en": "Shrimp, surimi, avocado, cucumber, radish, tobiko"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "big-maki-170",
+          "visibleNumber": "170",
+          "sort": 2,
+          "name": {
+            "de": "Veggie Maki",
+            "en": "Veggie Maki"
+          },
+          "description": {
+            "de": "Eierstich, Avocado, Gurken, Rettich",
+            "en": "Omelette, avocado, cucumber, radish"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "big-maki-171",
+          "visibleNumber": "171",
+          "sort": 3,
+          "name": {
+            "de": "Ebi-Tempura Maki",
+            "en": "Ebi-Tempura Maki"
+          },
+          "description": {
+            "de": "Frittierte Garnelen, Avocado, Gurken, Rettich, Teriyaki-Sauce, Mayo, Sesam-Mantel",
+            "en": "Fried shrimp, avocado, cucumber, radish, teriyaki sauce, mayo, sesame coating"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        },
+        {
+          "id": "big-maki-172",
+          "visibleNumber": "172",
+          "sort": 4,
+          "name": {
+            "de": "Sakestar Maki",
+            "en": "Sakestar Maki"
+          },
+          "description": {
+            "de": "Thunfisch, Lachs, Surimi, Avocado, Mayo, Sesam-Mantel",
+            "en": "Tuna, salmon, surimi, avocado, mayo, sesame coating"
+          },
+          "prices": {
+            "dayCents": 790,
+            "eveningCents": 890
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "temaki",
+      "sort": 6,
+      "name": {
+        "de": "Temaki Sushi",
+        "en": "Temaki Sushi"
+      },
+      "detail": {
+        "de": "(1 Stück)",
+        "en": "(1 piece)"
+      },
+      "items": [
+        {
+          "id": "temaki-126",
+          "visibleNumber": "126",
+          "sort": 1,
+          "name": {
+            "de": "California Temaki",
+            "en": "California Temaki"
+          },
+          "description": {
+            "de": "Garnelen, Surimi, Avocado, Tobiko",
+            "en": "Shrimp, surimi, avocado, tobiko"
+          },
+          "prices": {
+            "dayCents": 600,
+            "eveningCents": 700
+          },
+          "available": true
+        },
+        {
+          "id": "temaki-127",
+          "visibleNumber": "127",
+          "sort": 2,
+          "name": {
+            "de": "Alaska Temaki",
+            "en": "Alaska Temaki"
+          },
+          "description": {
+            "de": "Lachs, Avocado, Sesam",
+            "en": "Salmon, avocado, sesame"
+          },
+          "prices": {
+            "dayCents": 500,
+            "eveningCents": 600
+          },
+          "available": true
+        },
+        {
+          "id": "temaki-128",
+          "visibleNumber": "128",
+          "sort": 3,
+          "name": {
+            "de": "Negitoro Temaki",
+            "en": "Negitoro Temaki"
+          },
+          "description": {
+            "de": "Gehackter Thunfisch, Sesamöl, Frühlingszwiebeln",
+            "en": "Chopped tuna, sesame oil, spring onion"
+          },
+          "prices": {
+            "dayCents": 600,
+            "eveningCents": 700
+          },
+          "available": true
+        },
+        {
+          "id": "temaki-129",
+          "visibleNumber": "129",
+          "sort": 4,
+          "name": {
+            "de": "Tekka Temaki",
+            "en": "Tekka Temaki"
+          },
+          "description": {
+            "de": "Thunfisch, Avocado, Tobiko, Sesam",
+            "en": "Tuna, avocado, tobiko, sesame"
+          },
+          "prices": {
+            "dayCents": 600,
+            "eveningCents": 700
+          },
+          "available": true
+        },
+        {
+          "id": "temaki-181",
+          "visibleNumber": "181",
+          "sort": 5,
+          "name": {
+            "de": "Salmon Temaki",
+            "en": "Salmon Temaki"
+          },
+          "description": {
+            "de": "Grilllachs, Gurken, Mayo, Chilisauce",
+            "en": "Grilled salmon, cucumber, mayo, chili sauce"
+          },
+          "prices": {
+            "dayCents": 600,
+            "eveningCents": 700
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "sashimi",
+      "sort": 7,
+      "name": {
+        "de": "Sashimi Sushi",
+        "en": "Sashimi Sushi"
+      },
+      "detail": {
+        "de": "(15 Stück)",
+        "en": "(15 pieces)"
+      },
+      "note": {
+        "de": "Zu jedem Sushigericht servieren wir eingelegten Ingwer, Wasabi und Sojasauce.",
+        "en": "Every sushi dish is served with pickled ginger, wasabi, and soy sauce."
+      },
+      "notePosition": "after-items",
+      "items": [
+        {
+          "id": "sashimi-151",
+          "visibleNumber": "151",
+          "sort": 1,
+          "name": {
+            "de": "Sake Sashimi",
+            "en": "Sake Sashimi"
+          },
+          "description": {
+            "de": "Lachs",
+            "en": "Salmon"
+          },
+          "prices": {
+            "dayCents": 2200,
+            "eveningCents": 2500
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "poke",
+      "sort": 8,
+      "name": {
+        "de": "Poké Bowls",
+        "en": "Poké Bowls"
+      },
+      "items": [
+        {
+          "id": "poke-175",
+          "visibleNumber": "175",
+          "sort": 1,
+          "name": {
+            "de": "Sake Bowl",
+            "en": "Sake Bowl"
+          },
+          "description": {
+            "de": "Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis",
+            "en": "Salmon, avocado, cucumber, radish, sesame oil, spring onion, soy sauce, mayonnaise, rice"
+          },
+          "prices": {
+            "dayCents": 1350,
+            "eveningCents": 1550
+          },
+          "available": true
+        },
+        {
+          "id": "poke-176",
+          "visibleNumber": "176",
+          "sort": 2,
+          "name": {
+            "de": "Tuna Bowl",
+            "en": "Tuna Bowl"
+          },
+          "description": {
+            "de": "Thunfisch, Lachs, Avocado, Gurken, Rettich, Sesamöl, Frühlingszwiebeln, Sojasauce, Mayonnaise, Reis",
+            "en": "Tuna, salmon, avocado, cucumber, radish, sesame oil, spring onion, soy sauce, mayonnaise, rice"
+          },
+          "prices": {
+            "dayCents": 1550,
+            "eveningCents": 1750
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "suppen",
+      "sort": 9,
+      "name": {
+        "de": "Suppen",
+        "en": "Soups"
+      },
+      "items": [
+        {
+          "id": "suppen-2",
+          "visibleNumber": "2",
+          "sort": 1,
+          "name": {
+            "de": "Wan-Tan Suppe",
+            "en": "Wan-Tan Suppe"
+          },
+          "description": {
+            "de": "Teigtaschen mit Hühnerfleisch- und Garnelenfüllung",
+            "en": "Dumplings filled with chicken and shrimp"
+          },
+          "prices": {
+            "dayCents": 320,
+            "eveningCents": 450
+          },
+          "available": true
+        },
+        {
+          "id": "suppen-4",
+          "visibleNumber": "4",
+          "sort": 2,
+          "name": {
+            "de": "Hühnersuppe",
+            "en": "Hühnersuppe"
+          },
+          "description": {
+            "de": "mit Glasnudeln",
+            "en": "with glass noodles"
+          },
+          "prices": {
+            "dayCents": 320,
+            "eveningCents": 450
+          },
+          "available": true
+        },
+        {
+          "id": "suppen-7",
+          "visibleNumber": "7",
+          "sort": 3,
+          "name": {
+            "de": "Súp gà nuoc dua",
+            "en": "Súp gà nuoc dua"
+          },
+          "description": {
+            "de": "Hühnerfleisch, Champignons, Kokosmilch",
+            "en": "Chicken, mushrooms, coconut milk"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "sauer-scharf",
+                "en": "hot & sour"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 350,
+            "eveningCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "suppen-8",
+          "visibleNumber": "8",
+          "sort": 4,
+          "name": {
+            "de": "Súp tôm nuoc dua",
+            "en": "Súp tôm nuoc dua"
+          },
+          "description": {
+            "de": "Garnelen, Champignons, Kokosmilch",
+            "en": "Shrimp, mushrooms, coconut milk"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "sauer-scharf",
+                "en": "hot & sour"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390,
+            "eveningCents": 550
+          },
+          "available": true
+        },
+        {
+          "id": "suppen-9",
+          "visibleNumber": "9",
+          "sort": 5,
+          "name": {
+            "de": "Miso-Suppe",
+            "en": "Miso-Suppe"
+          },
+          "description": {
+            "de": "Tofu, Meeresalgen",
+            "en": "Tofu, seaweed"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 350,
+            "eveningCents": 450
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "vorspeisen",
+      "sort": 10,
+      "name": {
+        "de": "Vorspeisen",
+        "en": "Starters"
+      },
+      "items": [
+        {
+          "id": "vorspeisen-10",
+          "visibleNumber": "10",
+          "sort": 1,
+          "name": {
+            "de": "Edamame",
+            "en": "Edamame"
+          },
+          "description": {
+            "de": "Japanische Bohnen",
+            "en": "Japanese soybeans"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390,
+            "eveningCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-11",
+          "visibleNumber": "11",
+          "sort": 2,
+          "name": {
+            "de": "Mini-Frühlingsrollen",
+            "en": "Mini-Frühlingsrollen"
+          },
+          "description": {
+            "de": "6 Stück, Gemüsefüllung",
+            "en": "6 pieces, vegetable filling"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 350,
+            "eveningCents": 450
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-12",
+          "visibleNumber": "12",
+          "sort": 3,
+          "name": {
+            "de": "Wan-Tan gebacken",
+            "en": "Wan-Tan gebacken"
+          },
+          "description": {
+            "de": "5 Stück, Hühnerfleisch- und Garnelenfüllung",
+            "en": "5 pieces, chicken and shrimp filling"
+          },
+          "prices": {
+            "dayCents": 390,
+            "eveningCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-13",
+          "visibleNumber": "13",
+          "sort": 4,
+          "name": {
+            "de": "Krupuk",
+            "en": "Krupuk"
+          },
+          "description": {
+            "de": "Krabbenchips",
+            "en": "Prawn crackers"
+          },
+          "prices": {
+            "dayCents": 290,
+            "eveningCents": 390
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-14",
+          "visibleNumber": "14",
+          "sort": 5,
+          "name": {
+            "de": "Gemischte Vorspeisenplatte",
+            "en": "Gemischte Vorspeisenplatte"
+          },
+          "description": {
+            "de": "3 Mini-Frühlingsrollen, 2 Wan-Tan, 2 Ebi-Tempura, 3 Krupuk",
+            "en": "3 mini spring rolls, 2 wontons, 2 shrimp tempura, 3 prawn crackers"
+          },
+          "prices": {
+            "dayCents": 550,
+            "eveningCents": 650
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-16",
+          "visibleNumber": "16",
+          "sort": 6,
+          "name": {
+            "de": "Vietnamesische Frühlingsrollen",
+            "en": "Vietnamesische Frühlingsrollen"
+          },
+          "description": {
+            "de": "3 Stück, Hühnerfleisch- und Gemüsefüllung",
+            "en": "3 pieces, chicken and vegetable filling"
+          },
+          "prices": {
+            "dayCents": 490,
+            "eveningCents": 590
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-16a",
+          "visibleNumber": "16a",
+          "sort": 7,
+          "name": {
+            "de": "Yakitori Spieße",
+            "en": "Yakitori Spieße"
+          },
+          "description": {
+            "de": "3 Hähnchenspieße",
+            "en": "3 chicken skewers"
+          },
+          "prices": {
+            "dayCents": 490,
+            "eveningCents": 590
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-16b",
+          "visibleNumber": "16b",
+          "sort": 8,
+          "name": {
+            "de": "Gyoza",
+            "en": "Gyoza"
+          },
+          "description": {
+            "de": "4 Stück, gebratene Teigtaschen, Hähnchenfüllung",
+            "en": "4 pieces, fried dumplings, chicken filling"
+          },
+          "prices": {
+            "dayCents": 490,
+            "eveningCents": 590
+          },
+          "available": true
+        },
+        {
+          "id": "vorspeisen-16c",
+          "visibleNumber": "16c",
+          "sort": 9,
+          "name": {
+            "de": "Ebi-Tempura",
+            "en": "Ebi-Tempura"
+          },
+          "description": {
+            "de": "3 Stück, gebacken",
+            "en": "3 pieces, fried"
+          },
+          "prices": {
+            "dayCents": 490,
+            "eveningCents": 590
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "salate",
+      "sort": 11,
+      "name": {
+        "de": "Salate",
+        "en": "Salads"
+      },
+      "items": [
+        {
+          "id": "salate-15",
+          "visibleNumber": "15",
+          "sort": 1,
+          "name": {
+            "de": "Seetang Salat",
+            "en": "Seetang Salat"
+          },
+          "description": {
+            "de": "Meeresalgen, Sesam",
+            "en": "Seaweed, sesame"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 550,
+            "eveningCents": 650
+          },
+          "available": true
+        },
+        {
+          "id": "salate-86",
+          "visibleNumber": "86",
+          "sort": 2,
+          "name": {
+            "de": "Goi vit",
+            "en": "Goi vit"
+          },
+          "description": {
+            "de": "Mangostreifen-Salat mit knuspriger Ente und Kräutern",
+            "en": "Shredded mango salad with crispy duck and herbs"
+          },
+          "prices": {
+            "dayCents": 650,
+            "eveningCents": 750
+          },
+          "available": true
+        },
+        {
+          "id": "salate-87",
+          "visibleNumber": "87",
+          "sort": 3,
+          "name": {
+            "de": "Goi tôm",
+            "en": "Goi tôm"
+          },
+          "description": {
+            "de": "Grüner Papayasalat mit Garnelen und Kräutern",
+            "en": "Green papaya salad with shrimp and herbs"
+          },
+          "prices": {
+            "dayCents": 690,
+            "eveningCents": 790
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "pho",
+      "sort": 12,
+      "name": {
+        "de": "Reisbandnudelsuppen (Pho)",
+        "en": "Rice Noodle Soups (Pho)"
+      },
+      "note": {
+        "de": "Nr. 17 und 18 sind nicht zum Mitnehmen geeignet.",
+        "en": "No. 17 and 18 are not suitable for takeaway."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "pho-17",
+          "visibleNumber": "17",
+          "sort": 1,
+          "name": {
+            "de": "Pho gà",
+            "en": "Pho gà"
+          },
+          "description": {
+            "de": "Vietnamesische Reisbandnudelsuppe mit Hühnerfleisch und frischen Kräutern",
+            "en": "Vietnamese rice noodle soup with chicken and fresh herbs"
+          },
+          "prices": {
+            "dayCents": 1090,
+            "eveningCents": 1190
+          },
+          "available": true
+        },
+        {
+          "id": "pho-18",
+          "visibleNumber": "18",
+          "sort": 2,
+          "name": {
+            "de": "Pho bò",
+            "en": "Pho bò"
+          },
+          "description": {
+            "de": "Vietnamesische Reisbandnudelsuppe mit Rindfleisch und frischen Kräutern",
+            "en": "Vietnamese rice noodle soup with beef and fresh herbs"
+          },
+          "prices": {
+            "dayCents": 1290,
+            "eveningCents": 1390
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "huhn",
+      "sort": 13,
+      "name": {
+        "de": "Hühnerfleisch",
+        "en": "Chicken"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage.",
+        "en": "Served with fresh vegetables and rice."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "huhn-21",
+          "visibleNumber": "21",
+          "sort": 1,
+          "name": {
+            "de": "Gelb-Curry",
+            "en": "Gelb-Curry"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-25",
+          "visibleNumber": "25",
+          "sort": 2,
+          "name": {
+            "de": "Erdnuss",
+            "en": "Erdnuss"
+          },
+          "description": {
+            "de": "Kokosmilch, Erdnusssauce",
+            "en": "Coconut milk, peanut sauce"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-30",
+          "visibleNumber": "30",
+          "sort": 3,
+          "name": {
+            "de": "Gong-Po",
+            "en": "Gong-Po"
+          },
+          "description": {
+            "de": "Hoi-Sin-Sauce",
+            "en": "Hoisin sauce"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-31",
+          "visibleNumber": "31",
+          "sort": 4,
+          "name": {
+            "de": "Chop-Suey",
+            "en": "Chop-Suey"
+          },
+          "description": {
+            "de": "Austernsauce",
+            "en": "Oyster sauce"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-32",
+          "visibleNumber": "32",
+          "sort": 5,
+          "name": {
+            "de": "Gà xa ot",
+            "en": "Gà xa ot"
+          },
+          "description": {
+            "de": "Frisches Gemüse, Zitronengras",
+            "en": "Fresh vegetables, lemongrass"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-34",
+          "visibleNumber": "34",
+          "sort": 6,
+          "name": {
+            "de": "Peperoni",
+            "en": "Peperoni"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-35",
+          "visibleNumber": "35",
+          "sort": 7,
+          "name": {
+            "de": "Thai-Rot-Curry",
+            "en": "Thai-Rot-Curry"
+          },
+          "description": {
+            "de": "Kokosmilch",
+            "en": "Coconut milk"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "huhn-38",
+          "visibleNumber": "38",
+          "sort": 8,
+          "name": {
+            "de": "Süß-Sauer Hühnerfleisch",
+            "en": "Süß-Sauer Hühnerfleisch"
+          },
+          "description": {
+            "de": "In Teig gebacken",
+            "en": "Deep-fried in batter"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "rind",
+      "sort": 14,
+      "name": {
+        "de": "Rindfleisch",
+        "en": "Beef"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage.",
+        "en": "Served with fresh vegetables and rice."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "rind-22",
+          "visibleNumber": "22",
+          "sort": 1,
+          "name": {
+            "de": "Gelb-Curry",
+            "en": "Gelb-Curry"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-26",
+          "visibleNumber": "26",
+          "sort": 2,
+          "name": {
+            "de": "Erdnuss",
+            "en": "Erdnuss"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-40",
+          "visibleNumber": "40",
+          "sort": 3,
+          "name": {
+            "de": "Gong-Po",
+            "en": "Gong-Po"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-41",
+          "visibleNumber": "41",
+          "sort": 4,
+          "name": {
+            "de": "Chop-Suey",
+            "en": "Chop-Suey"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-42",
+          "visibleNumber": "42",
+          "sort": 5,
+          "name": {
+            "de": "Bò xa ot",
+            "en": "Bò xa ot"
+          },
+          "description": {
+            "de": "Zitronengras",
+            "en": "Lemongrass"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-44",
+          "visibleNumber": "44",
+          "sort": 6,
+          "name": {
+            "de": "Peperoni",
+            "en": "Peperoni"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "rind-45",
+          "visibleNumber": "45",
+          "sort": 7,
+          "name": {
+            "de": "Thai-Rot-Curry",
+            "en": "Thai-Rot-Curry"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "ente",
+      "sort": 15,
+      "name": {
+        "de": "Knusprige Ente",
+        "en": "Crispy Duck"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage.",
+        "en": "Served with fresh vegetables and rice."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "ente-23",
+          "visibleNumber": "23",
+          "sort": 1,
+          "name": {
+            "de": "Gelb-Curry",
+            "en": "Gelb-Curry"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-27",
+          "visibleNumber": "27",
+          "sort": 2,
+          "name": {
+            "de": "Erdnuss",
+            "en": "Erdnuss"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-50",
+          "visibleNumber": "50",
+          "sort": 3,
+          "name": {
+            "de": "Gong-Po",
+            "en": "Gong-Po"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-51",
+          "visibleNumber": "51",
+          "sort": 4,
+          "name": {
+            "de": "Chop-Suey",
+            "en": "Chop-Suey"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-52",
+          "visibleNumber": "52",
+          "sort": 5,
+          "name": {
+            "de": "Thai-Rot-Curry",
+            "en": "Thai-Rot-Curry"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-53",
+          "visibleNumber": "53",
+          "sort": 6,
+          "name": {
+            "de": "Canton",
+            "en": "Canton"
+          },
+          "description": {
+            "de": "Pikante Sauce",
+            "en": "Spicy sauce"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        },
+        {
+          "id": "ente-54",
+          "visibleNumber": "54",
+          "sort": 7,
+          "name": {
+            "de": "Süß-Sauer",
+            "en": "Süß-Sauer"
+          },
+          "prices": {
+            "dayCents": 1100,
+            "eveningCents": 1200
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "haehnchen",
+      "sort": 16,
+      "name": {
+        "de": "Knuspriges Hähnchen",
+        "en": "Crispy Chicken"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage.",
+        "en": "Served with fresh vegetables and rice."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "haehnchen-sp-30",
+          "visibleNumber": "Sp 30",
+          "sort": 1,
+          "name": {
+            "de": "Gong-Po",
+            "en": "Gong-Po"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-31",
+          "visibleNumber": "Sp 31",
+          "sort": 2,
+          "name": {
+            "de": "Chop-Suey",
+            "en": "Chop-Suey"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-32",
+          "visibleNumber": "Sp 32",
+          "sort": 3,
+          "name": {
+            "de": "Zitronengras",
+            "en": "Zitronengras"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-34",
+          "visibleNumber": "Sp 34",
+          "sort": 4,
+          "name": {
+            "de": "Peperoni",
+            "en": "Peperoni"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-35",
+          "visibleNumber": "Sp 35",
+          "sort": 5,
+          "name": {
+            "de": "Thai-Rot-Curry",
+            "en": "Thai-Rot-Curry"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-37",
+          "visibleNumber": "Sp 37",
+          "sort": 6,
+          "name": {
+            "de": "Gelb-Curry",
+            "en": "Gelb-Curry"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-38",
+          "visibleNumber": "Sp 38",
+          "sort": 7,
+          "name": {
+            "de": "Süß-Sauer",
+            "en": "Süß-Sauer"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        },
+        {
+          "id": "haehnchen-sp-69",
+          "visibleNumber": "Sp 69",
+          "sort": 8,
+          "name": {
+            "de": "Erdnuss",
+            "en": "Erdnuss"
+          },
+          "prices": {
+            "dayCents": 950,
+            "eveningCents": 1050
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "vegetarisch",
+      "sort": 17,
+      "name": {
+        "de": "Vegetarisch",
+        "en": "Vegetarian"
+      },
+      "tags": [
+        {
+          "kind": "vegetarian",
+          "text": {
+            "de": "veg",
+            "en": "veg"
+          }
+        }
+      ],
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage.",
+        "en": "Served with fresh vegetables and rice."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "vegetarisch-60",
+          "visibleNumber": "60",
+          "sort": 1,
+          "name": {
+            "de": "Tofu Chop-Suey",
+            "en": "Tofu Chop-Suey"
+          },
+          "description": {
+            "de": "Austernsauce",
+            "en": "Oyster sauce"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-61",
+          "visibleNumber": "61",
+          "sort": 2,
+          "name": {
+            "de": "Tofu xa ot",
+            "en": "Tofu xa ot"
+          },
+          "description": {
+            "de": "Zitronengras",
+            "en": "Lemongrass"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-63",
+          "visibleNumber": "63",
+          "sort": 3,
+          "name": {
+            "de": "Tofu Thai-Rot-Curry",
+            "en": "Tofu Thai-Rot-Curry"
+          },
+          "description": {
+            "de": "Kokosmilch",
+            "en": "Coconut milk"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-65",
+          "visibleNumber": "65",
+          "sort": 4,
+          "name": {
+            "de": "Frisches Gemüse Chop-Suey",
+            "en": "Frisches Gemüse Chop-Suey"
+          },
+          "description": {
+            "de": "Austernsauce",
+            "en": "Oyster sauce"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-68",
+          "visibleNumber": "68",
+          "sort": 5,
+          "name": {
+            "de": "Frisches Gemüse Thai-Rot-Curry",
+            "en": "Frisches Gemüse Thai-Rot-Curry"
+          },
+          "description": {
+            "de": "Kokosmilch",
+            "en": "Coconut milk"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-20",
+          "visibleNumber": "20",
+          "sort": 6,
+          "name": {
+            "de": "Gelb-Curry",
+            "en": "Gelb-Curry"
+          },
+          "description": {
+            "de": "Frisches Gemüse",
+            "en": "Fresh vegetables"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "vegetarisch-24",
+          "visibleNumber": "24",
+          "sort": 7,
+          "name": {
+            "de": "Erdnuss",
+            "en": "Erdnuss"
+          },
+          "description": {
+            "de": "Frisches Gemüse, Kokosmilch",
+            "en": "Fresh vegetables, coconut milk"
+          },
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "nudeln-reis",
+      "sort": 18,
+      "name": {
+        "de": "Gebratene Nudeln und Reis",
+        "en": "Fried Noodles and Rice"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse.",
+        "en": "With fresh vegetables."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "nudeln-reis-66",
+          "visibleNumber": "66",
+          "sort": 1,
+          "name": {
+            "de": "Com rang rau",
+            "en": "Com rang rau"
+          },
+          "description": {
+            "de": "Gebratener Reis mit frischem Gemüse",
+            "en": "Fried rice with fresh vegetables"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "nudeln-reis-67",
+          "visibleNumber": "67",
+          "sort": 2,
+          "name": {
+            "de": "Mì xào rau",
+            "en": "Mì xào rau"
+          },
+          "description": {
+            "de": "Gebratene Nudeln mit frischem Gemüse",
+            "en": "Fried noodles with fresh vegetables"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 750,
+            "eveningCents": 850
+          },
+          "available": true
+        },
+        {
+          "id": "nudeln-reis-70",
+          "visibleNumber": "70",
+          "sort": 3,
+          "name": {
+            "de": "Com rang gà",
+            "en": "Com rang gà"
+          },
+          "description": {
+            "de": "Gebratener Reis mit Hühnerfleisch",
+            "en": "Fried rice with chicken"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        },
+        {
+          "id": "nudeln-reis-73",
+          "visibleNumber": "73",
+          "sort": 4,
+          "name": {
+            "de": "Mì xào gà",
+            "en": "Mì xào gà"
+          },
+          "description": {
+            "de": "Gebratene Nudeln mit Hühnerfleisch",
+            "en": "Fried noodles with chicken"
+          },
+          "prices": {
+            "dayCents": 900,
+            "eveningCents": 1000
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "spezialitaeten",
+      "sort": 19,
+      "name": {
+        "de": "Spezialitäten des Hauses",
+        "en": "House Specialties"
+      },
+      "note": {
+        "de": "Mit frischem Gemüse und Reis als Beilage (außer Reis- und Nudelgerichte).",
+        "en": "Served with fresh vegetables and rice as a side (except rice and noodle dishes)."
+      },
+      "notePosition": "before-items",
+      "items": [
+        {
+          "id": "spezialitaeten-sp-1",
+          "visibleNumber": "Sp 1",
+          "sort": 1,
+          "name": {
+            "de": "Tôm xào gung",
+            "en": "Tôm xào gung"
+          },
+          "description": {
+            "de": "Garnelen mit Ingwer und Austernsauce",
+            "en": "Shrimp with ginger and oyster sauce"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-2",
+          "visibleNumber": "Sp 2",
+          "sort": 2,
+          "name": {
+            "de": "Tôm Curry",
+            "en": "Tôm Curry"
+          },
+          "description": {
+            "de": "Garnelen, Kokosmilch, Thai-Rot-Currysauce",
+            "en": "Shrimp, coconut milk, Thai red curry sauce"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-3",
+          "visibleNumber": "Sp 3",
+          "sort": 3,
+          "name": {
+            "de": "Mì xào vit",
+            "en": "Mì xào vit"
+          },
+          "description": {
+            "de": "Gebratene Nudeln mit knuspriger Ente",
+            "en": "Fried noodles with crispy duck"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-4",
+          "visibleNumber": "Sp 4",
+          "sort": 4,
+          "name": {
+            "de": "Com rang vit",
+            "en": "Com rang vit"
+          },
+          "description": {
+            "de": "Gebratener Reis mit knuspriger Ente",
+            "en": "Fried rice with crispy duck"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-7",
+          "visibleNumber": "Sp 7",
+          "sort": 5,
+          "name": {
+            "de": "Chôm Chôm Garnelen",
+            "en": "Chôm Chôm Garnelen"
+          },
+          "description": {
+            "de": "Mit Hühnerfleisch und Rindfleisch",
+            "en": "With chicken and beef"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-8",
+          "visibleNumber": "Sp 8",
+          "sort": 6,
+          "name": {
+            "de": "Tôm xa ot",
+            "en": "Tôm xa ot"
+          },
+          "description": {
+            "de": "Garnelen mit Zitronengras",
+            "en": "Shrimp with lemongrass"
+          },
+          "tags": [
+            {
+              "kind": "spicy",
+              "text": {
+                "de": "scharf",
+                "en": "spicy"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-10",
+          "visibleNumber": "Sp 10",
+          "sort": 7,
+          "name": {
+            "de": "Com rang tôm",
+            "en": "Com rang tôm"
+          },
+          "description": {
+            "de": "Gebratener Reis mit Garnelen",
+            "en": "Fried rice with shrimp"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-11",
+          "visibleNumber": "Sp 11",
+          "sort": 8,
+          "name": {
+            "de": "Mì xào tôm",
+            "en": "Mì xào tôm"
+          },
+          "description": {
+            "de": "Gebratene Nudeln mit Garnelen",
+            "en": "Fried noodles with shrimp"
+          },
+          "prices": {
+            "dayCents": 1150,
+            "eveningCents": 1250
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-70",
+          "visibleNumber": "Sp 70",
+          "sort": 9,
+          "name": {
+            "de": "Com rang gà dòn",
+            "en": "Com rang gà dòn"
+          },
+          "description": {
+            "de": "Gebratener Reis mit knusprigem Hähnchen",
+            "en": "Fried rice with crispy chicken"
+          },
+          "prices": {
+            "dayCents": 1000,
+            "eveningCents": 1100
+          },
+          "available": true
+        },
+        {
+          "id": "spezialitaeten-sp-73",
+          "visibleNumber": "Sp 73",
+          "sort": 10,
+          "name": {
+            "de": "Mì xào gà dòn",
+            "en": "Mì xào gà dòn"
+          },
+          "description": {
+            "de": "Gebratene Nudeln mit knusprigem Hähnchen",
+            "en": "Fried noodles with crispy chicken"
+          },
+          "prices": {
+            "dayCents": 1000,
+            "eveningCents": 1100
+          },
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "sort": 20,
+      "name": {
+        "de": "Desserts & Tee",
+        "en": "Desserts & Tea"
+      },
+      "items": [
+        {
+          "id": "desserts-80",
+          "visibleNumber": "80",
+          "sort": 1,
+          "name": {
+            "de": "Chuôi chiên",
+            "en": "Chuôi chiên"
+          },
+          "description": {
+            "de": "Gebackene Banane mit Honig und Kokosraspeln",
+            "en": "Fried banana with honey and shredded coconut"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 390,
+            "eveningCents": 490
+          },
+          "available": true
+        },
+        {
+          "id": "desserts-95",
+          "visibleNumber": "95",
+          "sort": 2,
+          "name": {
+            "de": "Vietnamesischer Tee",
+            "en": "Vietnamesischer Tee"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 300,
+            "eveningCents": 350
+          },
+          "available": true
+        },
+        {
+          "id": "desserts-96",
+          "visibleNumber": "96",
+          "sort": 3,
+          "name": {
+            "de": "Ingwertee mit Honig",
+            "en": "Ingwertee mit Honig"
+          },
+          "tags": [
+            {
+              "kind": "vegetarian",
+              "text": {
+                "de": "veg",
+                "en": "veg"
+              }
+            }
+          ],
+          "prices": {
+            "dayCents": 300,
+            "eveningCents": 350
+          },
+          "available": true
+        }
+      ]
+    }
+  ]
+}

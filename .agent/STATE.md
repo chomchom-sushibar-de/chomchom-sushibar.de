@@ -2,80 +2,82 @@
 
 ## Project goal
 
-Maintain a fast bilingual website and preview for Chom Chom Sushibar, including
-restaurant information, menu, contact, and a phone-order preparation helper.
+Maintain a fast bilingual static website and gated preview for Chom Chom Sushibar,
+including restaurant information, a canonical menu and a local telephone-order
+preparation helper.
 
 ## Current status
 
-- Default branch: `main`; inspected base commit: `235c522`.
-- The static DE/EN site, menu, order helper, preview gate, and Decap CMS settings
-  editor are implemented.
-- The Pages workflow for `235c522` completed successfully on 2026-08-13 and serves
-  the repository preview at the organization GitHub Pages URL.
-- On 2026-08-13, `chomchom-sushibar.de` resolved to a non-GitHub host and the Pages
-  configuration had no custom domain. The new site is therefore not verified as
-  production at the public domain.
-- No open GitHub issues were found during this handoff.
+- Default branch `main` at `3dda2a6` is integrated into
+  `agent/chomchom-quality-and-menu-model`, the branch of Draft PR #1.
+- Draft PR #1 is the single consolidation target for the website/menu/quality work
+  and the applicable CMS security controls from Draft PR #2.
+- PR #2 is closed as superseded with an audit comment linking to the combined PR;
+  its branch remains available for comparison history.
+- The current `main` menu introduction remains authoritative: its labeled
+  information rows and removal of the decorative side artwork are preserved.
+- The order-helper add-on prompt offers Mini-Frühlingsrollen and a localized
+  Bananen-Dessert label; its call action uses a compact text label while retaining
+  the configured telephone link.
+- `data/menu.v1.json` and `data/site.json` are the only CMS-managed sources.
+  Generated HTML and `dist/` are build outputs, not CMS write targets.
+- Decap 3.15.1 is pinned with SRI and configured for Editorial Workflow, Open
+  Authoring, squash merges, the `decap-cms/` label prefix and no preview links.
+- Pull-request CI combines schema/generator, browser, axe, visual, Lighthouse,
+  dependency, CMS allowlist and Pages-boundary checks with read-only permissions.
+- Pages has no PR or manual trigger and deploys only validated `dist/` after a push
+  to `main`.
+- The site remains `noindex`, has no `CNAME` or sitemap, and retains the client-side
+  preview gate. It is not approved for public release.
 
-## Working
+## Verification status
 
-- Static multi-page site with automatic/manual DE/EN selection and theme choice.
-- The homepage presents the Google rating in the hero and a dedicated bilingual
-  review section with a direct Google Maps link.
-- All seven public pages show the linked footer credit `website made by
-  itmitalles.de`.
-- Menu cart stored in browser `localStorage`; completion produces a telephone-order
-  summary rather than a server-side order.
-- `data/site.json` supplies announcements and footer hours.
-- Decap CMS is configured to edit that settings file through GitHub.
-- GitHub Pages preview deployment succeeds.
+- The combined branch passes 15 static/schema/generator/CMS tests and 70 Playwright
+  tests across five viewports, including axe and all visual baselines.
+- Lighthouse cold medians pass: home performance 0.99, accessibility 0.98, best
+  practices 1.00 and LCP 1.95 s; menu performance 0.96, accessibility 0.98, best
+  practices 1.00 and LCP 2.33 s; CLS is 0 for both.
+- `npm audit --audit-level=high` reports zero vulnerabilities. Gitleaks 8.30.1
+  reports no leaks in the complete repository history, `dist/` or the generated
+  reports.
+- `release:check` builds `dist/` with technical status `ready`; `git diff --check`
+  is clean. GitHub runs `32319631371` and `32320033016` passed the combined suite;
+  the active ruleset requires the same current check on every subsequent head.
+- Active ruleset `Protect main with reviewed combined quality` (ID `21067484`)
+  applies to `main` with no bypass actors. It requires a pull request, one fresh
+  approval from someone other than the last pusher, resolved conversations and the
+  up-to-date GitHub Actions check; branch deletion and force-pushes are blocked.
+- GitHub Actions run `32319631371` passed `Combined quality and CMS safety` on the
+  published combined head before ruleset activation.
 
-## Active work
+## External blockers
 
-No implementation workstream is recorded. The project remains a gated preview
-pending operator approval and domain cutover.
-
-## Recently completed
-
-- Removed the decorative side artwork from the menu introduction and reorganized
-  its bilingual price, payment, takeaway, and phone-order notes into labeled rows.
-- Added the responsive Google-rating and review presentation to the homepage.
-- Improved responsive navigation behavior and accessibility state handling.
-- Replaced the former plain agency mention with a linked site credit on every page.
-- Added the menu selection and call-summary experience.
-- Added the Decap CMS settings editor and external GitHub auth endpoint.
-- Updated the preview presentation and responsive public pages.
-
-## Known issues
-
-- Operator approval of content, prices, hours, and photographs is not recorded.
-- Menu prices were transcribed from November 2025 PDFs and may now be stale.
-- The public domain has not been cut over to this GitHub Pages deployment.
-- The client-side preview gate is only a visual barrier, not access control.
-- The CMS depends on an external auth service whose runtime was not verified here.
+- Current prices, dishes, opening hours, photographs and all public copy still need
+  explicit operator confirmation.
+- CMS login and the external OAuth worker have not been operationally audited.
+- A synthetic CMS PR using `TESTENTWURF - NICHT VERÖFFENTLICHEN` has not been
+  created and closed; the restaurant editor's inability to merge directly is not
+  yet proven.
+- Physical-device review and public-domain cutover remain unapproved.
+- The standalone Decap Media Library is outside Editorial Workflow in the pinned
+  version and must remain blocked by the no-bypass `main` ruleset.
 
 ## Next recommended tasks
 
-1. Obtain operator approval and validate menu/hours against current source material.
-2. After approval, configure the custom domain and DNS for GitHub Pages.
-3. Remove the preview gate as part of the approved public launch.
+1. Keep the combined PR #1 in Draft until every onsite gate is confirmed.
+2. Audit the OAuth worker, obtain operator approvals and run the unmerged synthetic
+   CMS acceptance test.
 
 ## Relevant files
 
-- `404.html`, `aussenbereich.html`, `datenschutz.html`, `impressum.html`
-- `index.html`, `kontakt.html`, `speisekarte.html`, `styles.css`
-- `script.js`, `i18n.js`, `order.js`, `gate.js`
-- `data/site.json`, `admin/config.yml`, `admin/index.html`
-- `README.md`, `.github/workflows/pages.yml`
-
-## Validation
-
-- `for file in script.js i18n.js order.js gate.js; do node --check "$file"; done`
-- `python3 -m json.tool data/site.json`
-- `git diff --check`
-- Browser review in DE/EN at representative mobile and desktop sizes
+- `admin/config.yml`, `admin/index.html`, `docs/CMS_WORKFLOW.md`
+- `.github/workflows/quality.yml`, `.github/workflows/pages.yml`
+- `scripts/verify-cms-workflow.mjs`, `scripts/build-site.mjs`
+- `data/menu.v1.json`, `data/site.json`, `schemas/`, `tests/`
+- `README.md`, `.agent/DECISIONS.md`, `.agent/ARCHITECTURE.md`
 
 ## Last handoff
 
-2026-08-19: simplified the menu introduction and replaced its prose block with
-responsive labeled information rows in German and English.
+2026-08-22: applied the requested order-helper suggestion and call-action cleanup,
+then passed the full 15-test static/CMS suite and all 70 Playwright tests. No menu
+item, price, merge, Pages deployment, domain change or public release was involved.

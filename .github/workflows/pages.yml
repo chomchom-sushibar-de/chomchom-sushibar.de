@@ -3,7 +3,6 @@ name: Website veröffentlichen
 on:
   push:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,13 +21,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Node.js einrichten
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - name: Abhängigkeiten reproduzierbar installieren
+        run: npm ci
+      - name: Chromium für Browserprüfungen installieren
+        run: npx playwright install --with-deps chromium
+      - name: Technische Freigabekriterien prüfen und Artefakt bauen
+        run: npm run release:check
       - name: GitHub Pages konfigurieren
         uses: actions/configure-pages@v5
       - name: Website als Artefakt bereitstellen
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
       - name: Website deployen
         id: deployment
         uses: actions/deploy-pages@v4

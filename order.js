@@ -1,305 +1,500 @@
 (function () {
   "use strict";
 
+  var menuDataEl = document.getElementById("menu-order-data");
   var menuList = document.querySelector(".menu-list");
-  if (!menuList) return;
+  if (!menuDataEl || !menuList) return;
 
-  var STORAGE_KEY = "chomchom-cart";
+  var CART_VERSION = 2;
+  var STORAGE_KEY = "chomchom-cart-v2";
+  var LEGACY_STORAGE_KEY = "chomchom-cart";
+  var MAX_QTY = 20;
+  var MAX_TOTAL_QTY = 100;
   var PHONE = "+498104888476";
-  var PHONE_DISPLAY = "08104 888 476";
   var STARTER_CATEGORIES = ["suppen", "vorspeisen", "salate"];
   var DESSERT_CATEGORIES = ["desserts"];
-  var SUGGESTIONS = {
-    starter: ["11", "2"],
-    dessert: ["80"]
-  };
 
   var STRINGS = {
     de: {
       less: "Weniger",
       more: "Mehr",
+      quantity: "Menge",
       dish: "Gericht",
       dishes: "Gerichte",
       approx: "ca.",
       nudgeTitle: "Noch etwas dazu?",
       nudgeQuestion: "Wie wäre es noch mit einer Kleinigkeit dazu?",
+      suggestionNames: { "desserts-80": "Bananen-Dessert" },
       continueSelecting: "Weiter auswählen",
       noThanksContinue: "Nein danke, weiter",
       summaryTitle: "Diese Nummern durchgeben",
       summaryIntro: "Rufen Sie uns an und nennen Sie einfach diese Nummern mit Menge:",
       numLabel: "Nr.",
-      total: "Ca. Gesamtsumme: ",
-      disclaimer: "Abendpreise können abweichen · nur Barzahlung vor Ort.",
+      totalDay: "Ca. Gesamtsumme (Mittag): ",
+      totalEvening: "Ca. Gesamtsumme (Abend): ",
+      disclaimer: "Unverbindliche Preisübersicht · Bestellung ausschließlich telefonisch · nur Barzahlung vor Ort.",
       back: "Zurück zur Karte",
-      callNow: "Jetzt anrufen · "
+      callNow: "Jetzt anrufen",
+      maxReached: "Maximale Menge erreicht"
     },
     en: {
       less: "Less",
       more: "More",
+      quantity: "Quantity",
       dish: "dish",
       dishes: "dishes",
       approx: "approx.",
       nudgeTitle: "Anything else?",
       nudgeQuestion: "How about adding a little something?",
+      suggestionNames: { "desserts-80": "Banana dessert" },
       continueSelecting: "Keep browsing",
       noThanksContinue: "No thanks, continue",
       summaryTitle: "Read out these numbers",
       summaryIntro: "Call us and simply read out these numbers with quantities:",
       numLabel: "No.",
-      total: "Approx. total: ",
-      disclaimer: "Evening prices may differ · cash only on site.",
+      totalDay: "Approx. total (lunch): ",
+      totalEvening: "Approx. total (evening): ",
+      disclaimer: "Non-binding price estimate · orders are placed by phone only · cash only on site.",
       back: "Back to menu",
-      callNow: "Call now · "
+      callNow: "Call now",
+      maxReached: "Maximum quantity reached"
     }
   };
 
-  function lang() {
+  function currentLang() {
     return (window.chomchomLang && window.chomchomLang.get()) || "de";
   }
 
   function t() {
-    return STRINGS[lang()] || STRINGS.de;
+    return STRINGS[currentLang()] || STRINGS.de;
   }
 
-  var cart = {};
-
-  function loadCart() {
+  function readMenuData() {
     try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) cart = JSON.parse(raw);
-    } catch (e) {
-      cart = {};
+      var parsed = JSON.parse(menuDataEl.textContent);
+      if (!parsed || parsed.schemaVersion !== 1 || !Array.isArray(parsed.items)) return null;
+      return parsed;
+    } catch (error) {
+      return null;
     }
   }
 
-  function saveCart() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  var menu = readMenuData();
+  if (!menu) return;
+
+  var itemsById = Object.create(null);
+  var idsByNumber = Object.create(null);
+  var itemOrder = [];
+  menu.items.forEach(function (item, index) {
+    if (!item || typeof item.id !== "string" || !item.available) return;
+    item._order = index;
+    itemsById[item.id] = item;
+    idsByNumber[item.visibleNumber] = item.id;
+    itemOrder.push(item.id);
+  });
+
+  var cart = Object.create(null);
+  var priceMode = menu.defaultPriceMode === "evening" ? "evening" : "day";
+
+  function storageGet(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (error) {
+      return null;
+    }
   }
 
-  function parsePrice(priceEl) {
-    var clone = priceEl.cloneNode(true);
-    var abend = clone.querySelector(".abend");
-    if (abend) abend.remove();
-    var match = clone.textContent.trim().match(/([\d.,]+)\s*€/);
-    if (!match) return 0;
-    return parseFloat(match[1].replace(/\./g, "").replace(",", "."));
+  function storageSet(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
-  function parseName(nameEl) {
-    var clone = nameEl.cloneNode(true);
-    clone.querySelectorAll(".tag").forEach(function (t) { t.remove(); });
-    return clone.textContent.trim();
+  function storageRemove(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {}
   }
 
-  function formatPrice(value) {
-    return value.toFixed(2).replace(".", ",") + " €";
+  function boundedQty(value, room) {
+    if (!Number.isInteger(value) || value <= 0) return 0;
+    return Math.min(value, MAX_QTY, room);
+  }
+
+  function normalizeItems(candidate) {
+    var normalized = Object.create(null);
+    var total = 0;
+    if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) return normalized;
+    Object.keys(candidate).forEach(function (id) {
+      if (!itemsById[id] || total >= MAX_TOTAL_QTY) return;
+      var qty = boundedQty(candidate[id], MAX_TOTAL_QTY - total);
+      if (!qty) return;
+      normalized[id] = qty;
+      total += qty;
+    });
+    return normalized;
+  }
+
+  function readVersionedCart() {
+    var raw = storageGet(STORAGE_KEY);
+    if (!raw) return null;
+    try {
+      var parsed = JSON.parse(raw);
+      if (!parsed || parsed.version !== CART_VERSION) return null;
+      return normalizeItems(parsed.items);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function migrateLegacyCart() {
+    var raw = storageGet(LEGACY_STORAGE_KEY);
+    if (!raw) return Object.create(null);
+    var migrated = Object.create(null);
+    var total = 0;
+    try {
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return migrated;
+      Object.keys(parsed).forEach(function (legacyKey) {
+        var entry = parsed[legacyKey];
+        if (!entry || typeof entry !== "object") return;
+        var visibleNumber = typeof entry.num === "string" ? entry.num : legacyKey;
+        var id = idsByNumber[visibleNumber];
+        if (!id || total >= MAX_TOTAL_QTY) return;
+        var qty = boundedQty(entry.qty, MAX_TOTAL_QTY - total);
+        if (!qty) return;
+        migrated[id] = Math.min((migrated[id] || 0) + qty, MAX_QTY);
+        total += qty;
+      });
+      if (saveCart(migrated)) storageRemove(LEGACY_STORAGE_KEY);
+    } catch (error) {}
+    return migrated;
+  }
+
+  function saveCart(nextCart) {
+    var value = nextCart || cart;
+    return storageSet(STORAGE_KEY, JSON.stringify({
+      version: CART_VERSION,
+      contentVersion: menu.contentVersion,
+      items: value
+    }));
+  }
+
+  function loadCart() {
+    var versioned = readVersionedCart();
+    cart = versioned === null ? migrateLegacyCart() : versioned;
+    saveCart();
+  }
+
+  function totalQuantity() {
+    return Object.keys(cart).reduce(function (sum, id) { return sum + cart[id]; }, 0);
+  }
+
+  function itemPriceCents(item) {
+    if (priceMode === "evening" && Number.isInteger(item.prices.eveningCents)) {
+      return item.prices.eveningCents;
+    }
+    return item.prices.dayCents;
+  }
+
+  function formatPrice(cents) {
+    var whole = Math.floor(cents / 100);
+    var fraction = String(cents % 100).padStart(2, "0");
+    return whole + "," + fraction + " €";
+  }
+
+  function cartEntries() {
+    return itemOrder
+      .filter(function (id) { return cart[id] > 0 && itemsById[id]; })
+      .map(function (id) { return { item: itemsById[id], qty: cart[id] }; });
+  }
+
+  function cartTotals() {
+    var entries = cartEntries();
+    var count = entries.reduce(function (sum, entry) { return sum + entry.qty; }, 0);
+    var totalCents = entries.reduce(function (sum, entry) {
+      return sum + entry.qty * itemPriceCents(entry.item);
+    }, 0);
+    return { entries: entries, count: count, totalCents: totalCents };
   }
 
   var renderers = [];
-  var ariaRenderers = [];
-  var itemsByNum = {};
-
-  Array.prototype.forEach.call(document.querySelectorAll(".menu-item"), function (el) {
-    var numEl = el.querySelector(".num");
-    var nameEl = el.querySelector(".name");
-    var priceEl = el.querySelector(".price");
-    if (!numEl || !nameEl || !priceEl) return;
-
-    var num = numEl.textContent.trim();
-    var price = parsePrice(priceEl);
-    var categoryEl = el.closest(".menu-category");
-    var categoryId = categoryEl ? categoryEl.id : "";
+  document.querySelectorAll(".menu-item[data-item-id]").forEach(function (itemEl) {
+    var id = itemEl.dataset.itemId;
+    var item = itemsById[id];
+    if (!item) return;
 
     var stepper = document.createElement("div");
     stepper.className = "qty-stepper";
-    stepper.innerHTML =
-      '<button type="button" class="qty-btn qty-minus">−</button>' +
-      '<span class="qty-value">0</span>' +
-      '<button type="button" class="qty-btn qty-plus">+</button>';
-    el.appendChild(stepper);
-
-    var valueEl = stepper.querySelector(".qty-value");
-    var minusBtn = stepper.querySelector(".qty-minus");
-    var plusBtn = stepper.querySelector(".qty-plus");
-
-    function updateAria() {
-      var currentName = parseName(nameEl);
-      minusBtn.setAttribute("aria-label", t().less + " " + currentName);
-      plusBtn.setAttribute("aria-label", t().more + " " + currentName);
-    }
-    updateAria();
-    ariaRenderers.push(updateAria);
+    var minus = document.createElement("button");
+    minus.type = "button";
+    minus.className = "qty-btn qty-minus";
+    minus.textContent = "−";
+    var value = document.createElement("output");
+    value.className = "qty-value";
+    value.setAttribute("aria-live", "polite");
+    var plus = document.createElement("button");
+    plus.type = "button";
+    plus.className = "qty-btn qty-plus";
+    plus.textContent = "+";
+    stepper.append(minus, value, plus);
+    itemEl.appendChild(stepper);
 
     function render() {
-      var qty = (cart[num] && cart[num].qty) || 0;
-      valueEl.textContent = qty;
-      minusBtn.disabled = qty === 0;
-      el.classList.toggle("in-cart", qty > 0);
+      var qty = cart[id] || 0;
+      var name = item.name[currentLang()] || item.name.de;
+      value.textContent = String(qty);
+      value.setAttribute("aria-label", t().quantity + " " + name + ": " + qty);
+      minus.disabled = qty === 0;
+      plus.disabled = qty >= MAX_QTY || totalQuantity() >= MAX_TOTAL_QTY;
+      minus.setAttribute("aria-label", t().less + " " + name);
+      plus.setAttribute("aria-label", (plus.disabled ? t().maxReached + ": " : t().more + " ") + name);
+      itemEl.classList.toggle("in-cart", qty > 0);
     }
 
-    minusBtn.addEventListener("click", function () {
-      if (!cart[num]) return;
-      cart[num].qty -= 1;
-      if (cart[num].qty <= 0) delete cart[num];
+    minus.addEventListener("click", function () {
+      if (!cart[id]) return;
+      cart[id] -= 1;
+      if (cart[id] <= 0) delete cart[id];
       saveCart();
-      render();
-      updateBar();
+      renderAll();
     });
 
-    plusBtn.addEventListener("click", function () {
-      addToCart(num);
+    plus.addEventListener("click", function () {
+      addToCart(id);
     });
 
-    itemsByNum[num] = { nameEl: nameEl, price: price, category: categoryId, render: render };
     renderers.push(render);
   });
-
-  function addToCart(num) {
-    var item = itemsByNum[num];
-    if (!item) return;
-    if (!cart[num]) {
-      cart[num] = { num: num, name: parseName(item.nameEl), price: item.price, category: item.category, qty: 0 };
-    }
-    cart[num].qty += 1;
-    saveCart();
-    item.render();
-    updateBar();
-  }
-
-  loadCart();
-  renderers.forEach(function (render) { render(); });
 
   var bar = document.getElementById("order-bar");
   var barSummary = document.getElementById("order-bar-summary");
   var barBtn = document.getElementById("order-bar-btn");
   var modal = document.getElementById("order-modal");
+  var modalPanel = modal.querySelector(".order-modal-panel");
   var modalBody = document.getElementById("order-modal-body");
+  var priceModeInputs = document.querySelectorAll('input[name="price-mode"]');
   var currentStep = null;
-
-  function cartEntries() {
-    return Object.keys(cart)
-      .map(function (k) { return cart[k]; })
-      .sort(function (a, b) { return a.num.localeCompare(b.num, "de", { numeric: true }); });
-  }
-
-  function cartTotals() {
-    var entries = cartEntries();
-    var count = entries.reduce(function (sum, e) { return sum + e.qty; }, 0);
-    var total = entries.reduce(function (sum, e) { return sum + e.qty * e.price; }, 0);
-    return { entries: entries, count: count, total: total };
-  }
-
-  function hasCategory(entries, categoryIds) {
-    return entries.some(function (e) { return categoryIds.indexOf(e.category) !== -1; });
-  }
+  var modalOpener = null;
+  var inerted = [];
 
   function updateBar() {
-    var s = t();
-    var tot = cartTotals();
-    if (tot.count === 0) {
+    var totals = cartTotals();
+    if (totals.count === 0) {
       bar.hidden = true;
       document.body.classList.remove("has-order-bar");
       return;
     }
     bar.hidden = false;
     document.body.classList.add("has-order-bar");
-    barSummary.textContent = tot.count + " " + (tot.count === 1 ? s.dish : s.dishes) + " · " + s.approx + " " + formatPrice(tot.total);
+    barSummary.textContent = totals.count + " " + (totals.count === 1 ? t().dish : t().dishes) + " · " + t().approx + " " + formatPrice(totals.totalCents);
+  }
+
+  function renderAll() {
+    renderers.forEach(function (render) { render(); });
+    updateBar();
+  }
+
+  function addToCart(id) {
+    if (!itemsById[id] || totalQuantity() >= MAX_TOTAL_QTY) return;
+    var current = cart[id] || 0;
+    if (current >= MAX_QTY) return;
+    cart[id] = current + 1;
+    saveCart();
+    renderAll();
+  }
+
+  function hasCategory(entries, categoryIds) {
+    return entries.some(function (entry) { return categoryIds.indexOf(entry.item.categoryId) !== -1; });
+  }
+
+  function node(tag, className, text) {
+    var element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function button(text, className) {
+    var element = node("button", className, text);
+    element.type = "button";
+    return element;
+  }
+
+  function setBackgroundInert(inert) {
+    if (inert) {
+      inerted = Array.from(document.body.children).filter(function (child) { return child !== modal; });
+      inerted.forEach(function (child) { child.inert = true; });
+    } else {
+      inerted.forEach(function (child) { child.inert = false; });
+      inerted = [];
+    }
   }
 
   function closeModal() {
+    if (modal.hidden) return;
     modal.hidden = true;
     document.body.classList.remove("modal-open");
+    setBackgroundInert(false);
+    if (modalOpener && document.contains(modalOpener)) modalOpener.focus();
+    modalOpener = null;
   }
 
   function openModal() {
+    modalOpener = document.activeElement;
     modal.hidden = false;
     document.body.classList.add("modal-open");
+    setBackgroundInert(true);
     currentStep = null;
     renderModal();
+    modal.querySelector(".order-modal-close").focus();
   }
 
   function renderModal(step) {
-    var s = t();
-    var tot = cartTotals();
-    if (tot.count === 0) {
+    var totals = cartTotals();
+    if (totals.count === 0) {
       closeModal();
       return;
     }
-
-    var needsStarter = !hasCategory(tot.entries, STARTER_CATEGORIES);
-    var needsDessert = !hasCategory(tot.entries, DESSERT_CATEGORIES);
-
+    var needsStarter = !hasCategory(totals.entries, STARTER_CATEGORIES);
+    var needsDessert = !hasCategory(totals.entries, DESSERT_CATEGORIES);
     if (!step) step = needsStarter || needsDessert ? "nudge" : "summary";
     currentStep = step;
+    modalBody.replaceChildren();
+
+    var title = node("h2", null, step === "nudge" ? t().nudgeTitle : t().summaryTitle);
+    title.id = "order-modal-title";
+    modalBody.appendChild(title);
 
     if (step === "nudge") {
-      var suggestNums = [];
-      if (needsStarter) suggestNums = suggestNums.concat(SUGGESTIONS.starter);
-      if (needsDessert) suggestNums = suggestNums.concat(SUGGESTIONS.dessert);
-      var chips = suggestNums
-        .filter(function (num) { return itemsByNum[num]; })
-        .map(function (num) {
-          var name = parseName(itemsByNum[num].nameEl);
-          return '<button type="button" class="suggestion-chip" data-suggest-num="' + num + '">+ ' + name + "</button>";
-        })
-        .join("");
-      modalBody.innerHTML =
-        "<h3>" + s.nudgeTitle + "</h3>" +
-        "<p>" + s.nudgeQuestion + "</p>" +
-        '<div class="suggestion-chips">' + chips + "</div>" +
-        '<div class="order-modal-actions">' +
-        '<button type="button" class="btn btn-ghost" data-close>' + s.continueSelecting + "</button>" +
-        '<button type="button" class="btn btn-primary" id="order-modal-continue">' + s.noThanksContinue + "</button>" +
-        "</div>";
-      document.getElementById("order-modal-continue").addEventListener("click", function () {
-        renderModal("summary");
+      modalBody.appendChild(node("p", null, t().nudgeQuestion));
+      var chips = node("div", "suggestion-chips");
+      var suggestionIds = [];
+      if (needsStarter) suggestionIds = suggestionIds.concat(menu.suggestions.starter);
+      if (needsDessert) suggestionIds = suggestionIds.concat(menu.suggestions.dessert);
+      suggestionIds.forEach(function (id) {
+        var item = itemsById[id];
+        if (!item) return;
+        var suggestionName = t().suggestionNames[id] || item.name[currentLang()] || item.name.de;
+        var chip = button("+ " + suggestionName, "suggestion-chip");
+        chip.dataset.suggestId = id;
+        chips.appendChild(chip);
       });
-    } else {
-      var rows = tot.entries
-        .map(function (e) {
-          var liveName = itemsByNum[e.num] ? parseName(itemsByNum[e.num].nameEl) : e.name;
-          return (
-            '<li><span class="order-row-num">' + s.numLabel + " " + e.num + "</span>" +
-            '<span class="order-row-name">' + liveName + "</span>" +
-            '<span class="order-row-qty">×' + e.qty + "</span></li>"
-          );
-        })
-        .join("");
-      modalBody.innerHTML =
-        "<h3>" + s.summaryTitle + "</h3>" +
-        "<p>" + s.summaryIntro + "</p>" +
-        '<ul class="order-summary-list">' + rows + "</ul>" +
-        '<p class="order-total">' + s.total + formatPrice(tot.total) +
-        "<br><small>" + s.disclaimer + "</small></p>" +
-        '<p class="order-thanks">Cảm ơn! Danke! <span aria-hidden="true">😊</span></p>' +
-        '<div class="order-modal-actions">' +
-        '<button type="button" class="btn btn-ghost" data-close>' + s.back + "</button>" +
-        '<a class="btn btn-primary" href="tel:' + PHONE + '">' + s.callNow + '<span style="white-space:nowrap">' + PHONE_DISPLAY + "</span></a>" +
-        "</div>";
+      modalBody.appendChild(chips);
+      var nudgeActions = node("div", "order-modal-actions");
+      var close = button(t().continueSelecting, "btn btn-ghost");
+      close.dataset.close = "";
+      var continueButton = button(t().noThanksContinue, "btn btn-primary");
+      continueButton.addEventListener("click", function () {
+        renderModal("summary");
+        modalPanel.focus();
+      });
+      nudgeActions.append(close, continueButton);
+      modalBody.appendChild(nudgeActions);
+      return;
     }
+
+    modalBody.appendChild(node("p", null, t().summaryIntro));
+    var list = node("ul", "order-summary-list");
+    totals.entries.forEach(function (entry) {
+      var row = node("li");
+      row.append(
+        node("span", "order-row-num", t().numLabel + " " + entry.item.visibleNumber),
+        node("span", "order-row-name", entry.item.name[currentLang()] || entry.item.name.de),
+        node("span", "order-row-qty", "×" + entry.qty)
+      );
+      list.appendChild(row);
+    });
+    modalBody.appendChild(list);
+    var total = node("p", "order-total");
+    total.appendChild(document.createTextNode((priceMode === "evening" ? t().totalEvening : t().totalDay) + formatPrice(totals.totalCents)));
+    var small = node("small", null, t().disclaimer);
+    total.append(document.createElement("br"), small);
+    modalBody.appendChild(total);
+    var thanks = node("p", "order-thanks", "Cảm ơn! Danke! ");
+    var emoji = node("span", null, "😊");
+    emoji.setAttribute("aria-hidden", "true");
+    thanks.appendChild(emoji);
+    modalBody.appendChild(thanks);
+    var actions = node("div", "order-modal-actions");
+    var back = button(t().back, "btn btn-ghost");
+    back.dataset.close = "";
+    var call = node("a", "btn btn-primary");
+    call.href = "tel:" + PHONE;
+    call.textContent = t().callNow;
+    actions.append(back, call);
+    modalBody.appendChild(actions);
+  }
+
+  function focusableElements() {
+    return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+      .filter(function (element) { return element.offsetParent !== null; });
   }
 
   barBtn.addEventListener("click", openModal);
-
-  modal.addEventListener("click", function (e) {
-    var suggestBtn = e.target.closest("[data-suggest-num]");
-    if (suggestBtn) {
-      addToCart(suggestBtn.dataset.suggestNum);
+  modal.addEventListener("click", function (event) {
+    var suggestion = event.target.closest("[data-suggest-id]");
+    if (suggestion) {
+      addToCart(suggestion.dataset.suggestId);
       renderModal();
+      modal.querySelector(".order-modal-close").focus();
       return;
     }
-    if (e.target.closest("[data-close]")) closeModal();
+    if (event.target.closest("[data-close]")) closeModal();
   });
 
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !modal.hidden) closeModal();
+  document.addEventListener("keydown", function (event) {
+    if (modal.hidden) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    var focusable = focusableElements();
+    if (!focusable.length) {
+      event.preventDefault();
+      modalPanel.focus();
+      return;
+    }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  priceModeInputs.forEach(function (input) {
+    input.checked = input.value === priceMode;
+    input.addEventListener("change", function () {
+      if (!input.checked || (input.value !== "day" && input.value !== "evening")) return;
+      priceMode = input.value;
+      updateBar();
+      if (!modal.hidden) renderModal(currentStep);
+    });
   });
 
   document.addEventListener("chomchom:langchange", function () {
-    ariaRenderers.forEach(function (fn) { fn(); });
-    updateBar();
+    renderAll();
     if (!modal.hidden) renderModal(currentStep);
   });
 
-  updateBar();
+  window.addEventListener("storage", function (event) {
+    if (event.key !== STORAGE_KEY) return;
+    var synced = readVersionedCart();
+    if (synced === null) return;
+    cart = synced;
+    renderAll();
+    if (!modal.hidden) renderModal(currentStep);
+  });
+
+  loadCart();
+  renderAll();
 })();

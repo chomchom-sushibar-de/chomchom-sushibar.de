@@ -1,10 +1,46 @@
 # Chôm Chôm Sushibar
 
-Statische Website für die Chôm Chôm Sushibar in Sauerlach (vietnamesische Küche &amp; Sushi). Nur HTML, CSS und ein kleines JavaScript für Theme-Umschalter und mobiles Menü. Kein Build-Schritt, keine externen Schriften/Skripte – schnell, günstig und leicht zu pflegen.
+Statische DE/EN-Website für die Chôm Chôm Sushibar in Sauerlach
+(vietnamesische Küche &amp; Sushi). Die ausgelieferte Seite bleibt pures HTML, CSS
+und JavaScript ohne App-Backend, externe Schriften oder Online-Checkout. Ein
+kleiner Node-Build validiert Inhalte, erzeugt die Speisekarte und bündelt den
+GitHub-Pages-Stand reproduzierbar nach `dist/`.
+
+Die Startseite führt mit vorhandenen Food-Fotos und den beiden Küchen; Google-
+Bewertungen sind bewusst ein nachrangiger Vertrauenshinweis statt der Hauptinhalt.
 
 ## Veröffentlichung
 
-Ein Push auf `main` startet `.github/workflows/pages.yml` und veröffentlicht die Website über GitHub Pages.
+Decap speichert redaktionelle Änderungen als Pull Request nach `main`. Ein aktives
+GitHub-Ruleset muss Review und den kombinierten Qualitäts-/CMS-Sicherheitscheck
+erzwingen. Erst ein Merge nach `main` startet `.github/workflows/pages.yml`; der
+Workflow validiert Schema und Menügleichheit, führt Browser-, Accessibility-,
+Visual- und Lighthouse-Prüfungen aus, baut `dist/` und veröffentlicht ausschließlich
+dieses Artefakt. Pull Requests erzeugen keine Pages-Produktion. Details zu
+Authentifizierung, Allowlist, Review, Ruleset und externem OAuth-Worker stehen in
+[`docs/CMS_WORKFLOW.md`](docs/CMS_WORKFLOW.md).
+
+## Lokale Entwicklung und Prüfung
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+npm run lighthouse
+npm run release:check
+npm run build
+```
+
+Das versionierte kanonische Menü liegt in `data/menu.v1.json`; `npm run
+menu:generate` erzeugt daraus Menü-HTML, strukturierte Daten und die Daten für den
+telefonischen Auswahlhelfer. Preise werden als Integer-Cents verarbeitet. Details:
+[`docs/MENU_DATA_MODEL.md`](docs/MENU_DATA_MODEL.md).
+
+Hinweisbanner, die normalisierten Öffnungszeiten sowie Menüeinträge und
+Verfügbarkeit können über Decap CMS im Editorial-/Pull-Request-Workflow gepflegt
+werden. Schema- und Semantikfehler blockieren CI. Der externe Auth-Dienst bleibt
+eine separat zu prüfende Betriebsgrenze; die ausgelieferte Website benötigt ihn
+nicht.
 
 ## Inhaltliche Basis
 
@@ -18,3 +54,9 @@ Die verbindliche Launch- und Wartungsliste liegt ausschließlich in
 [`.agent/TODO.md`](.agent/TODO.md). Die GitHub-Pages-Vorschau funktioniert; die
 öffentliche Domain zeigte beim Agent-Handoff am 13.08.2026 noch nicht auf diese
 Pages-Site. Die clientseitige Vorschau-Sperre ist keine Zugriffskontrolle.
+
+Technische Nachweise und die klare Trennung zu externen Freigaben stehen in
+[`docs/VERIFICATION_MATRIX.md`](docs/VERIFICATION_MATRIX.md) und
+[`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md). Nicht umgesetzte
+Produkterweiterungen stehen ausschließlich in
+[`docs/NICE_TO_HAVE.md`](docs/NICE_TO_HAVE.md).

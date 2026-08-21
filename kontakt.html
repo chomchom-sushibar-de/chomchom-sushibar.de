@@ -1,26 +1,34 @@
 <!doctype html>
 <html lang="de">
 <head>
-<script src="gate.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
 <title data-en="Contact &amp; Directions – Chôm Chôm Sushibar Sauerlach">Kontakt &amp; Anfahrt – Chôm Chôm Sushibar Sauerlach</title>
 <meta name="description" content="Chôm Chôm Sushibar in Sauerlach: Adresse, Telefonnummer und Öffnungszeiten. Bahnhofplatz 9, 82054 Sauerlach." data-en-content="Chôm Chôm Sushibar in Sauerlach: address, phone number, and opening hours. Bahnhofplatz 9, 82054 Sauerlach.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kontakt &amp; Anfahrt – Chôm Chôm Sushibar Sauerlach" data-en-content="Contact &amp; Directions – Chôm Chôm Sushibar Sauerlach">
+<meta property="og:description" content="Adresse, Telefonnummer und Öffnungszeiten der Chôm Chôm Sushibar in Sauerlach." data-en-content="Address, phone number, and opening hours of Chôm Chôm Sushibar in Sauerlach.">
+<meta property="og:locale" content="de_DE" data-en-content="en_GB">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
+<script src="gate.js"></script>
 </head>
 <body>
 
-<div id="site-announcement" class="announcement-bar" hidden></div>
+<a class="skip-link" href="#main-content" data-en="Skip to content">Zum Inhalt springen</a>
+
+<div id="site-announcement" class="announcement-bar" role="status" aria-live="polite" hidden></div>
 
 
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">
-      <img class="brand-mark brand-mark-light" src="img/logo-full-light.png" alt="Chôm Chôm Sushibar" loading="eager">
-      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark.png" alt="Chôm Chôm Sushibar" loading="eager">
+      <img class="brand-mark brand-mark-light" src="img/logo-full-light-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
+      <img class="brand-mark brand-mark-dark" src="img/logo-full-dark-600.webp" alt="Chôm Chôm Sushibar" width="600" height="258" loading="eager">
     </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
+    <button type="button" class="nav-toggle" aria-label="Menü öffnen" data-en-aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="main-nav" id="main-navigation">
@@ -50,12 +58,12 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <section>
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-en="Contact">Kontakt</span>
-        <h2 data-en-html="Directions &amp; Contact">Anfahrt &amp; Kontakt</h2>
+        <h1 data-en-html="Directions &amp; Contact">Anfahrt &amp; Kontakt</h1>
         <p data-en="We look forward to your visit – feel free to call ahead to order takeout.">Wir freuen uns auf euren Besuch – ruft uns gerne für eine Vorbestellung zum Mitnehmen an.</p>
       </div>
 
@@ -64,7 +72,7 @@
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <a href="https://www.google.com/maps/search/?api=1&query=Ch%C3%B4m+Ch%C3%B4m+Sushibar+Bahnhofplatz+9+82054+Sauerlach" target="_blank" rel="noopener">Bahnhofplatz 9, 82054 Sauerlach</a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%B4m+Ch%C3%B4m+Sushibar+Bahnhofplatz+9+82054+Sauerlach" target="_blank" rel="noopener noreferrer">Bahnhofplatz 9, 82054 Sauerlach</a>
               <span data-en="Open in Google Maps">In Google Maps öffnen</span>
             </div>
           </li>
@@ -79,7 +87,7 @@
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <div>
               <a href="#oeffnungszeiten" data-en="Opening Hours">Öffnungszeiten</a>
-              <span data-en="Mon–Fri 11:30–14:30 &amp; 17:30–21:00, Sun &amp; public holidays 17:00–21:00, Sat closed">Mo–Fr 11:30–14:30 &amp; 17:30–21:00, So &amp; Feiertag 17:00–21:00, Sa Ruhetag</span>
+              <span data-hours="contact_summary" data-en="Mon–Fri 11:30–14:30 &amp; 17:30–21:00, Sun &amp; public holidays 17:00–21:00, Sat closed">Mo–Fr 11:30–14:30 &amp; 17:30–21:00, So &amp; Feiertag 17:00–21:00, Sa Ruhetag</span>
             </div>
           </li>
           <li>
@@ -92,13 +100,13 @@
         </ul>
 
         <div id="oeffnungszeiten" class="card">
-          <img src="img/eingang.jpg" alt="Eingang und Schaufenster der Chôm Chôm Sushibar mit Beschilderung" data-en-alt="Entrance and shop window of Chôm Chôm Sushibar with signage" loading="lazy" style="border-radius:14px;margin-bottom:1.2rem;aspect-ratio:16/10;object-fit:cover;">
+          <img src="img/eingang.jpg" alt="Eingang und Schaufenster der Chôm Chôm Sushibar mit Beschilderung" data-en-alt="Entrance and shop window of Chôm Chôm Sushibar with signage" width="680" height="510" loading="lazy" style="border-radius:14px;margin-bottom:1.2rem;aspect-ratio:16/10;object-fit:cover;">
           <h3 style="margin-top:0;" data-en="Opening Hours">Öffnungszeiten</h3>
           <table class="hours-table">
-            <tr><td data-en="Monday – Friday">Montag – Freitag</td><td data-en="11:30 – 14:30">11:30 – 14:30 Uhr</td></tr>
-            <tr><td data-en="Monday – Friday">Montag – Freitag</td><td data-en="17:30 – 21:00">17:30 – 21:00 Uhr</td></tr>
-            <tr><td data-en="Sunday &amp; public holidays">Sonntag &amp; Feiertag</td><td data-en="17:00 – 21:00">17:00 – 21:00 Uhr</td></tr>
-            <tr><td data-en="Saturday">Samstag</td><td data-en="Closed">Ruhetag</td></tr>
+            <tr><td data-hours="contact_weekday_label" data-en="Monday – Friday">Montag – Freitag</td><td data-hours="contact_weekday_lunch" data-en="11:30 – 14:30">11:30 – 14:30 Uhr</td></tr>
+            <tr><td data-hours="contact_weekday_label" data-en="Monday – Friday">Montag – Freitag</td><td data-hours="contact_weekday_dinner" data-en="17:30 – 21:00">17:30 – 21:00 Uhr</td></tr>
+            <tr><td data-hours="contact_sunday_label" data-en="Sunday &amp; public holidays">Sonntag &amp; Feiertag</td><td data-hours="contact_sunday_range" data-en="17:00 – 21:00">17:00 – 21:00 Uhr</td></tr>
+            <tr><td data-hours="contact_saturday_label" data-en="Saturday">Samstag</td><td data-hours="contact_saturday_status" data-en="Closed">Ruhetag</td></tr>
           </table>
           <p style="margin-top:1rem;" data-en="All dishes are also available to take away – for larger orders, please allow some lead time.">Alle Gerichte gibt es auch zum Mitnehmen – bei größeren Bestellungen bitten wir um etwas Vorlauf.</p>
         </div>
@@ -144,13 +152,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/">itmitalles.de</a></span>
+      <span>© <span id="year"></span> Chôm Chôm Sushibar<br>website made by <a href="https://itmitalles.de/" rel="external">itmitalles.de</a></span>
       <span><a href="impressum.html" data-en="Legal Notice">Impressum</a> · <a href="datenschutz.html" data-en="Privacy Policy">Datenschutz</a></span>
     </div>
   </div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>

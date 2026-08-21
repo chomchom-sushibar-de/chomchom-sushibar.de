@@ -22,18 +22,22 @@ item in `.agent/TODO.md`. Do not redo completed work or invent menu/business fac
 
 - Root HTML files: home, menu, outdoor area, contact, legal/privacy, and 404 pages.
 - `styles.css`: shared responsive presentation.
-- `script.js`: theme, navigation, announcement, and hours from `data/site.json`.
+- `script.js`: theme, navigation, announcement, and normalized hours from `data/site.json`.
 - `i18n.js`: German/English browser language and manual selection.
-- `order.js`: client-side dish selection and telephone-order summary.
+- `order.js`: versioned client-side dish selection and telephone-order summary.
 - `gate.js`: temporary browser-only preview presentation.
 - `admin/`: Decap CMS UI and GitHub-backed configuration for site settings.
-- `data/site.json`: editable announcement and hours.
+- `data/menu.v1.json`: canonical versioned menu source; generated HTML is committed.
+- `data/site.json`: canonical editable announcement and opening-hours schedule.
+- `schemas/`, `scripts/`, and `tests/`: data contracts, generators/build checks,
+  static validation, browser/axe flows, and visual baselines.
 - `.github/workflows/pages.yml`: GitHub Pages deployment from `main`.
 - `.agent/`: current state, authoritative tasks, decisions, and architecture map.
 
 ## Scope and safety
 
-- The site is static HTML/CSS/JavaScript with no build step or application backend.
+- The delivered site is static HTML/CSS/JavaScript with no application backend.
+  A deterministic development/CI build generates committed HTML and `dist/`.
 - The preview gate is not authentication. Never describe its embedded value as a
   secret or copy it into agent documents.
 - The order helper stores a local selection and prompts a phone call; it is not
@@ -55,13 +59,16 @@ item in `.agent/TODO.md`. Do not redo completed work or invent menu/business fac
 
 ## Validation
 
-- Run `for file in script.js i18n.js order.js gate.js; do node --check "$file"; done`.
-- Validate `data/site.json` with `python3 -m json.tool data/site.json`.
-- Run `git diff --check`.
-- Confirm changed links, scripts, PDFs, and images exist.
-- For UI changes, serve with `python3 -m http.server 8000` and inspect affected
-  mobile and desktop paths in both languages.
-- Verify deployment and domain state separately from manifests when it matters.
+- Run `npm run test:static` for schemas, semantic invariants, syntax, HTML, links,
+  assets, bilingual metadata, and generator roundtrips.
+- Run `npm run test:e2e` for all five viewport projects, axe coverage, interaction
+  flows, and visual baselines.
+- Run `npm run lighthouse` for reproducible performance/accessibility budgets.
+- Run `npm run release:check` before publication; it builds `dist/` and records the
+  technical/external readiness split.
+- Run `git diff --check` and inspect the focused final diff.
+- Verify deployment, CMS auth, physical devices, operator approval, and domain
+  state separately; repository automation cannot approve these boundaries.
 
 ## Handoff
 
